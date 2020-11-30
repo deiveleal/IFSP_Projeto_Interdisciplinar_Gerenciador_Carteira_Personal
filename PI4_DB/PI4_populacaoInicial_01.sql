@@ -11,3 +11,23 @@ VALUES
 	('Pernas', 'Passadas Duplas', ' Flexão e extensão de joelhos e quadril.', 'Em pé','perna de apoio esticada, a outra perna forma um ângulo de 90º no banco do gráviton, onde realiza a extensão do joelho seguida da flexão.em  apoio unipodal a perna em elevação realiza um movimento de flexão de quadril e joelho, buscando o ângulo de 90° ou menor. Em seguida realiza a extensão de joelho da perna ainda em elevação, empurrando verticalmente a resistência contraria gerada pelo banco do gráviton.');
     
 select * from ListaExercicios;
+
+INSERT INTO Aluno(
+	nome, dataNascimento, sexo,
+    cpf, email, tipoSanguineo,
+    rhSangue, telefone, celular,
+    rua, bairro, cidade)
+VALUES
+	('João Carlos', '25/03/2000', 'masulino', '03265498724','joao@jotaum.com', 'A', '+', '1932567412', '19852321654', 'Rua das Flores, 321', 'Jardim Novo', 'Joalandia'),
+    ('Maria de Souza', '12/12/1991', 'feminino', '02165498752', 'maria@sozinha.com', 'B', '-', '2121256523', '21789456123', 'Rua Litu, 12', 'Jardim Velhor', 'Joalandia'),
+    ('Jessi de Oliveira', '21/07/2002', 'nao-binario', '04532198758', 'jessi@jotaum.com', 'AB', '2121257889', '21852741963', 'Rua Janguá, 25', 'Jardim Esplendor', 'Joanopolis'),
+    ('Paula Campos', '13/12/2001', 'feminino', '08945612378', 'paulinha@jotaum.com', 'O', '2134569874', '21854978321', 'Rua Joá, 451', 'Jardim Novo', 'Joalandia'),
+    ('Denis Drato', '05/01/1999', 'masculino', '06952456845', 'ddrato@sozinha.com', 'O', '2134569596', '21985654321', 'Rua das Uvas, 69', 'Jardim Novo Sonho', 'Jardim Esplendor', 'Joanopolis');
+    
+    
+    
+    
+    
+    
+    
+    
