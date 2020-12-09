@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package efeito.Connection;
+package Connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -15,13 +15,15 @@ import java.sql.SQLException;
  * @author Deive
  *
  */
-public class ConnectionFactory {
 
-    public Connection getConnection() {
-        String nomeBanco = "efeito_db";//Nome do banco de dados
-        String nomeUsuario = "root";//Usuário do servidor
-        String senhaUsuario = "123456";//Senha do servidor
-        String enderecoServidor = "localhost";
+public class ConnectionFactoryMysql implements ConnectionFactoryInterface{
+    private final String nomeBanco = "sistemaefeito";//Nome do banco de dados
+    private final String nomeUsuario = "root";//Usuário do servidor
+    private final String senhaUsuario = "123456";//Senha do servidor
+    private final String enderecoServidor = "localhost";
+            
+    @Override
+    public Connection getConnection(){
         try {
             return DriverManager.getConnection(
                     "jdbc:mysql://" + enderecoServidor + "/" + nomeBanco,

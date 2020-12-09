@@ -1,0 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Model;
+
+/**
+ *
+ * @author deive
+ */
+public class RegistroPersonal extends RegistroAlunos{
+    private boolean loginResult;
+    
+    
+    public boolean login(String nome, String senha){
+            
+        return loginResult;
+    }
+    
+}

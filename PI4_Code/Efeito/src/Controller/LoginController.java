@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package efeito.Controller;
+package Controller;
 
-import efeito.DAO.LoginDAO;
-import efeito.Model.Login;
-import efeito.Model.MenuPrincipal;
+import DAO.LoginDAO;
+import Model.Login;
+import Model.MenuPrincipal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

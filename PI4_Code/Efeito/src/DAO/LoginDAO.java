@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package efeito.DAO;
+package DAO;
 
-import efeito.Connection.ConnectionFactory;
+import Connection.ConnectionFactoryMysql;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,7 +20,7 @@ public class LoginDAO {
     private Connection con;
 
     public LoginDAO() {
-        this.con = new ConnectionFactory().getConnection();
+        this.con = new ConnectionFactoryMysql().getConnection();
     }
 
     //Método que busca o usuário e a senha
