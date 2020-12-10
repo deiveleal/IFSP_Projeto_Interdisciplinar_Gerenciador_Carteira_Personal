@@ -10,12 +10,23 @@ package Model;
  * @author deive
  */
 public class RegistroPersonal extends RegistroAlunos{
-    private boolean loginResult;
+    
     
     
     public boolean login(String nome, String senha){
             
-        return loginResult;
+        return true;
     }
-    
+    public boolean cadastrarAluno(){
+        return true;
+    }
+    public boolean montarTreino(){
+        return false;
+    }
+    public boolean analisarDesempenho(){
+        return false;
+    }
+    public boolean fazerAvaliacao(){
+        return false;
+    }
 }

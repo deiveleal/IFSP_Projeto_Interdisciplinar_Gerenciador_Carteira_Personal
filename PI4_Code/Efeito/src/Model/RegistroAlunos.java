@@ -123,4 +123,16 @@ public class RegistroAlunos {
         this.cidade = cidade;
     }
     
+    //Métodos específicos da classe
+    public void submissaoAvaliacao(){
+    }
+    
+    public boolean realizarPagamento(){
+        return true;
+    }
+    
+    public boolean cumprirTreino(){
+        return true;
+    }
+    
 }
