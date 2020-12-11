@@ -9,8 +9,15 @@ package Model;
  *
  * @author deive
  */
-public class RegistroPersonal extends RegistroAlunos{
+public class RegistroPersonal extends RegistroPessoa{
     
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
     
     
     public boolean login(String nome, String senha){

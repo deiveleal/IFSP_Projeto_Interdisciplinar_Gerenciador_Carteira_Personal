@@ -11,19 +11,10 @@ import java.util.Date;
  *
  * @author deive
  */
-public class RegistroAlunos {
-    private String nome;
-    private Date dataNascimento; 
-    private Enum sexo;
-    private String cpf; 
-    private String email; 
+public class RegistroAlunos extends RegistroPessoa{
     private Enum tipoSanguineo; 
     private Enum rhSangue; 
-    private String telefone; 
-    private String celular; 
-    private String rua;
-    private String bairro;
-    private String cidade;
+
     
 //Métodos Geters e seters
 
