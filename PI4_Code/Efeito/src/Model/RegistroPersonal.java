@@ -11,6 +11,19 @@ package Model;
  */
 public class RegistroPersonal extends RegistroPessoa{
     
+    private String nomeUsuario;    
+    
+
+    public String getNomeUsuario() {
+        return nomeUsuario;
+    }
+
+    public void setNomeUsuario(String nomeUsuario) {
+        this.nomeUsuario = nomeUsuario;
+    }
+    
+
+    
     public String getNome() {
         return nome;
     }

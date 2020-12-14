@@ -26,7 +26,7 @@ public class MenuPrincipal extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/efeito.View/MenuPrincipal.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/MenuPrincipal.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
         stage.setTitle("Menu");
         stage.setScene(scene);//Coloca a cena em uma janela

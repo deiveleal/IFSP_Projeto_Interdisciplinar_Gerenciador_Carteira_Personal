@@ -8,8 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="efeito.Controller.CadastraUsuarioController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CadastraUsuarioController">
    <children>
       <ButtonBar layoutX="484.0" layoutY="538.0" prefWidth="262.0">
          <buttons>
@@ -18,7 +17,7 @@
             <Button fx:id="bt_salvar" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Salvar" />
          </buttons>
       </ButtonBar>
-      <TextField fx:id="tf_nome" layoutX="58.0" layoutY="132.0" prefHeight="25.0" prefWidth="336.0" promptText="Nome" />
+      <TextField fx:id="tf_nome" layoutX="58.0" layoutY="132.0" prefHeight="26.0" prefWidth="374.0" promptText="Nome" />
       <Text layoutX="294.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de ALunos">
          <font>
             <Font size="24.0" />
@@ -41,7 +40,7 @@
       <TextField fx:id="tf_telefone" layoutX="58.0" layoutY="459.0" prefHeight="25.0" prefWidth="233.0" promptText="Endereço" text="Telefone" />
       <TextField fx:id="tf_email" layoutX="58.0" layoutY="412.0" prefHeight="25.0" prefWidth="374.0" promptText="Endereço" text="E-mail" />
       <TextField fx:id="tf_celular" layoutX="333.0" layoutY="459.0" prefHeight="25.0" prefWidth="233.0" promptText="Endereço" text="Celular" />
-      <Text layoutX="55.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato">
+      <Text layoutX="59.0" layoutY="393.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contato">
          <font>
             <Font size="16.0" />
          </font>

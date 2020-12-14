@@ -17,18 +17,18 @@ import java.sql.SQLException;
  */
 public class LoginDAO {
 
-    private Connection con;
+    private final Connection con;
 
     public LoginDAO() {
         this.con = new ConnectionFactoryMysql().getConnection();
     }
 
     //Método que busca o usuário e a senha
-    public Boolean login(String idFuncionario, String senha) throws SQLException {
+    public Boolean login(String nome_usuario, String senha) throws SQLException {
         boolean encontrado = false;
-        String sql = "SELECT * FROM Funcionario WHERE idFuncionario = ? AND senha = ?;";
+        String sql = "SELECT * FROM personal WHERE nome_usuario = ? AND senha = ?;";
         PreparedStatement stm = con.prepareStatement(sql);
-        stm.setString(1, idFuncionario);
+        stm.setString(1, nome_usuario);
         stm.setString(2, senha);
         ResultSet rs = stm.executeQuery();
         if (rs.next()) {

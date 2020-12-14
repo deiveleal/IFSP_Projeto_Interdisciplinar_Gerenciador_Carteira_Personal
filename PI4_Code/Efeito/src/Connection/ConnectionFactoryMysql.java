@@ -17,7 +17,7 @@ import java.sql.SQLException;
  */
 
 public class ConnectionFactoryMysql implements ConnectionFactoryInterface{
-    private final String nomeBanco = "sistemaEfeito";//Nome do banco de dados
+    private final String nomeBanco = "sistema_efeito";//Nome do banco de dados
     private final String nomeUsuario = "root";//Usuário do servidor
     private final String senhaUsuario = "123456";//Senha do servidor
     private final String enderecoServidor = "localhost";

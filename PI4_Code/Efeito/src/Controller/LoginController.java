@@ -33,14 +33,10 @@ import javafx.stage.Stage;
  */
 public class LoginController implements Initializable {
 
-    @FXML
-    private TextField tfLogin;
-    @FXML
-    private PasswordField pfSenha;
-    @FXML
-    private Button btSair;
-    @FXML
-    private Button btEntrar;
+    @FXML private TextField tfLogin;
+    @FXML private PasswordField pfSenha;
+    @FXML private Button btSair;
+    @FXML private Button btEntrar;
 
     Login login = new Login();
     LoginDAO dao = new LoginDAO();
@@ -51,7 +47,7 @@ public class LoginController implements Initializable {
     }
 
     public void setIdLoginAtivo(String idLoginAtivo) {
-        this.idLoginAtivo = idLoginAtivo;
+        LoginController.idLoginAtivo = idLoginAtivo;
     }
 
     @Override
@@ -93,6 +89,7 @@ public class LoginController implements Initializable {
 
                 try {
                     menu.start(new Stage());
+                    fechaJanela();
                 }
                 catch (Exception ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

@@ -12,7 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * @author carolina
  * @author deive
  */
 public class Login extends Application {
