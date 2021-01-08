@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.CadastraAlunoPage;
 import Model.MenuAluno;
 import Model.MenuPrincipal;
 import Model.Util;
@@ -37,7 +38,31 @@ public class MenuAlunoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Implementações do botão cadastrar aluno
+        bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {
+            CadastraAlunoPage cadAluno = new CadastraAlunoPage();
+            try {
+                cadAluno.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_cadastrar_aluno.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                CadastraAlunoPage cadAluno = new CadastraAlunoPage();
+                try {
+                    cadAluno.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
+        // Implementações do botão menu iniciar
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipal menuPrinc = new MenuPrincipal();
             try {
@@ -61,6 +86,7 @@ public class MenuAlunoController implements Initializable {
             }
         });
 
+        // Implementações do botão do sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
             util.voltaTelaLogin();
             fechaJanela();
