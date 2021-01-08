@@ -8,7 +8,7 @@ package Model;
 import java.util.Date;
 
 /**
- *
+ * @carol
  * @author deive
  */
 public abstract class RegistroPessoa {

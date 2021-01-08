@@ -5,29 +5,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuExerciciosController">
    <children>
-      <Text layoutX="309.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu Principal">
+      <Text layoutX="364.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aluno">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="bt_aluno" layoutX="230.0" layoutY="177.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Aluno">
+      <Button fx:id="bt_cadastrar_aluno" layoutX="230.0" layoutY="177.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Cadastrar Aluno">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_exercicios" layoutX="231.0" layoutY="273.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Exercicios">
+      <Button fx:id="bt_avaliacao" layoutX="231.0" layoutY="273.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Avaliação">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_acompanhamento" layoutX="230.0" layoutY="365.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Acompanhamento">
+      <Button fx:id="bt_medidas" layoutX="230.0" layoutY="365.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Medidas">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_financeiro" layoutX="230.0" layoutY="456.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Financeiro">
+      <Button fx:id="bt_menu_iniciar" layoutX="14.0" layoutY="541.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Menu inicial">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>

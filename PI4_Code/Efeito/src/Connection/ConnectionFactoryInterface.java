@@ -14,5 +14,6 @@ import java.sql.Connection;
  * @author deive
  */
 public interface ConnectionFactoryInterface {
-    public Connection getConnection();    
+    public Connection getConnection();
+    public Connection closeConnection();
 }

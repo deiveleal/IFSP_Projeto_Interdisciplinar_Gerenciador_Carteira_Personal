@@ -8,6 +8,8 @@ package Connection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -33,5 +35,15 @@ public class ConnectionFactoryMysql implements ConnectionFactoryInterface{
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Connection closeConnection() {
+        try {
+            getConnection().close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionFactoryMysql.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
 }

@@ -13,9 +13,10 @@ import java.util.List;
  */
 public interface DAOInterface {
 
-	public void salvar(Object bean);
-	public void atualizar(Object bean);
-	public void deletar(int id);
+	public void inserir(Object obj);
+        public void alterar(Object obj);
+	public void atualizar(Object obj);
+	public void deletar(Object obj);
 	public Object getById(int id);
 	public List<Object> getAll();
 
