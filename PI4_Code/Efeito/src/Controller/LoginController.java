@@ -6,8 +6,8 @@
 package Controller;
 
 import DAO.LoginDAO;
-import Model.Login;
-import Model.MenuPrincipal;
+import Model.LoginScr;
+import Model.MenuPrincipalScr;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
     @FXML private Button btSair;
     @FXML private Button btEntrar;
 
-    Login login = new Login();
+    LoginScr login = new LoginScr();
     LoginDAO dao = new LoginDAO();
     private static String idLoginAtivo;
 
@@ -79,13 +79,13 @@ public class LoginController implements Initializable {
     }
 
     public void fechaJanela() {
-        Login.getStage().close();
+        LoginScr.getStage().close();
     }
 
     public void logar() {
         try {
             if (dao.login(tfLogin.getText(), pfSenha.getText())) {
-                MenuPrincipal menu = new MenuPrincipal();
+                MenuPrincipalScr menu = new MenuPrincipalScr();
 
                 try {
                     menu.start(new Stage());

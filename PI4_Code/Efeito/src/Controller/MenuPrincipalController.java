@@ -1,10 +1,10 @@
 package Controller;
 
-import Model.MenuAcompanhamento;
-import Model.MenuAluno;
-import Model.MenuExercicios;
-import Model.MenuFinanceiro;
-import Model.MenuPrincipal;
+import Model.MenuAcompanhamentoScr;
+import Model.MenuAlunoScr;
+import Model.MenuExerciciosScr;
+import Model.MenuFinanceiroScr;
+import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +32,7 @@ public class MenuPrincipalController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         //Implementações do botão aluno
         bt_aluno.setOnMouseClicked((MouseEvent e) -> {
-            MenuAluno menuAluno = new MenuAluno();
+            MenuAlunoScr menuAluno = new MenuAlunoScr();
 
             try {
                 menuAluno.start(new Stage());
@@ -44,7 +44,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_aluno.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuAluno menuAluno = new MenuAluno();
+                MenuAlunoScr menuAluno = new MenuAlunoScr();
 
                 try {
                     menuAluno.start(new Stage());
@@ -58,7 +58,7 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementação do botão exercicios
         bt_exercicios.setOnMouseClicked((MouseEvent e) -> {
-            MenuExercicios menuExercicios = new MenuExercicios();
+            MenuExerciciosScr menuExercicios = new MenuExerciciosScr();
 
             try {
                 menuExercicios.start(new Stage());
@@ -70,7 +70,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_exercicios.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuExercicios menuExercicios = new MenuExercicios();
+                MenuExerciciosScr menuExercicios = new MenuExerciciosScr();
 
                 try {
                     menuExercicios.start(new Stage());
@@ -84,7 +84,7 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementações do botão acompanhamento
         bt_acompanhamento.setOnMouseClicked((MouseEvent e) -> {
-            MenuAcompanhamento menuAcompanhamento = new MenuAcompanhamento();
+            MenuAcompanhamentoScr menuAcompanhamento = new MenuAcompanhamentoScr();
 
             try {
                 menuAcompanhamento.start(new Stage());
@@ -96,7 +96,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_acompanhamento.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuAcompanhamento menuAcompanhamento = new MenuAcompanhamento();
+                MenuAcompanhamentoScr menuAcompanhamento = new MenuAcompanhamentoScr();
 
                 try {
                     menuAcompanhamento.start(new Stage());
@@ -110,7 +110,7 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementações do botão financeiro
         bt_financeiro.setOnMouseClicked((MouseEvent e) -> {
-            MenuFinanceiro menuFinanceiro = new MenuFinanceiro();
+            MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
 
             try {
                 menuFinanceiro.start(new Stage());
@@ -122,7 +122,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_financeiro.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuFinanceiro menuFinanceiro = new MenuFinanceiro();
+                MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
                 try {
                     menuFinanceiro.start(new Stage());
                     fechaJanela();
@@ -147,7 +147,7 @@ public class MenuPrincipalController implements Initializable{
     }
     
     private void fechaJanela() {
-        MenuPrincipal.getStage().close();
+        MenuPrincipalScr.getStage().close();
     }
     
 

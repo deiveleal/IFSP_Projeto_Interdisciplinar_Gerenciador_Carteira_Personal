@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import Model.CadastraAlunoPage;
-import Model.MenuAluno;
-import Model.MenuPrincipal;
+import Model.CadastraAlunoScr;
+import Model.MenuAlunoScr;
+import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,7 +47,7 @@ public class CadastraAlunoController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
-            MenuPrincipal menuPrinc = new MenuPrincipal();
+            MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
@@ -58,7 +58,7 @@ public class CadastraAlunoController implements Initializable{
         });
         bt_menu.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuPrincipal menuPrinc = new MenuPrincipal();
+                MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
@@ -82,6 +82,6 @@ public class CadastraAlunoController implements Initializable{
         });
     }
     private void fechaJanela() {
-        CadastraAlunoPage.getStage().close();
+        CadastraAlunoScr.getStage().close();
     }
 }

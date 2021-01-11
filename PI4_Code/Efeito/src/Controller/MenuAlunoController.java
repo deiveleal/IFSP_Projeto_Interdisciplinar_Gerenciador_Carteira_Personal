@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import Model.CadastraAlunoPage;
-import Model.MenuAluno;
-import Model.MenuPrincipal;
+import Model.CadastraAlunoScr;
+import Model.MenuAlunoScr;
+import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +40,7 @@ public class MenuAlunoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // Implementações do botão cadastrar aluno
         bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {
-            CadastraAlunoPage cadAluno = new CadastraAlunoPage();
+            CadastraAlunoScr cadAluno = new CadastraAlunoScr();
             try {
                 cadAluno.start(new Stage());
                 fechaJanela();
@@ -51,7 +51,7 @@ public class MenuAlunoController implements Initializable {
         });
         bt_cadastrar_aluno.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                CadastraAlunoPage cadAluno = new CadastraAlunoPage();
+                CadastraAlunoScr cadAluno = new CadastraAlunoScr();
                 try {
                     cadAluno.start(new Stage());
                     fechaJanela();
@@ -64,7 +64,7 @@ public class MenuAlunoController implements Initializable {
         
         // Implementações do botão menu iniciar
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
-            MenuPrincipal menuPrinc = new MenuPrincipal();
+            MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
@@ -75,7 +75,7 @@ public class MenuAlunoController implements Initializable {
         });
         bt_menu_iniciar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuPrincipal menuPrinc = new MenuPrincipal();
+                MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
@@ -99,6 +99,6 @@ public class MenuAlunoController implements Initializable {
         });
     }
     private void fechaJanela() {
-        MenuAluno.getStage().close();
+        MenuAlunoScr.getStage().close();
     };
 }

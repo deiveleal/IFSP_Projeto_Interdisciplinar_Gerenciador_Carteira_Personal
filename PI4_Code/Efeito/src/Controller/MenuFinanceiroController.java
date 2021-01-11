@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import Model.MenuAluno;
-import Model.MenuFinanceiro;
-import Model.MenuPrincipal;
+import Model.MenuAlunoScr;
+import Model.MenuFinanceiroScr;
+import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +40,7 @@ public class MenuFinanceiroController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
-            MenuPrincipal menuPrinc = new MenuPrincipal();
+            MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
@@ -51,7 +51,7 @@ public class MenuFinanceiroController implements Initializable {
         });
         bt_menu_iniciar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuPrincipal menuPrinc = new MenuPrincipal();
+                MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
@@ -74,6 +74,6 @@ public class MenuFinanceiroController implements Initializable {
         });
     }
     private void fechaJanela() {
-        MenuFinanceiro.getStage().close();
+        MenuFinanceiroScr.getStage().close();
     };
 }

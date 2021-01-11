@@ -5,8 +5,8 @@
  */
 package Controller;
 
-import Model.MenuAcompanhamento;
-import Model.MenuPrincipal;
+import Model.MenuAcompanhamentoScr;
+import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,7 +39,7 @@ public class MenuAcompanhamentoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
-            MenuPrincipal menuPrinc = new MenuPrincipal();
+            MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
@@ -50,7 +50,7 @@ public class MenuAcompanhamentoController implements Initializable {
         });
         bt_menu_iniciar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuPrincipal menuPrinc = new MenuPrincipal();
+                MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
@@ -73,6 +73,6 @@ public class MenuAcompanhamentoController implements Initializable {
         });
     }
     private void fechaJanela() {
-        MenuAcompanhamento.getStage().close();
+        MenuAcompanhamentoScr.getStage().close();
     };
 }

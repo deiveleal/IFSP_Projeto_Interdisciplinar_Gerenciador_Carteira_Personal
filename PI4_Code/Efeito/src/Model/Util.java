@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 public class Util {
     
         public void voltaTelaLogin() {
-        Login login = new Login();
+        LoginScr login = new LoginScr();
         try {
             login.start(new Stage());
         }

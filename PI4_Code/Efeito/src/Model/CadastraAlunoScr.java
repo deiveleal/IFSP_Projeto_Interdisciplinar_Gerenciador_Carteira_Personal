@@ -13,12 +13,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * @author carolina
  * @author deive
  */
-public class MenuFinanceiro extends Application{
-    
-    private static Stage stage;
+public class CadastraAlunoScr extends Application {
+
+    private static Stage stage;//Uma janela1
 
     public static void main(String[] args) {
         launch(args);
@@ -26,12 +26,13 @@ public class MenuFinanceiro extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/MenuFinanceiro.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/CadastraAluno.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Financeiro");
+        stage.setTitle("Cadastro de Alunos");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
+
     }
 
     public static Stage getStage() {
@@ -39,7 +40,7 @@ public class MenuFinanceiro extends Application{
     }
 
     public static void setStage(Stage stage) {
-        MenuFinanceiro.stage = stage;
+        CadastraAlunoScr.stage = stage;
     }
     
 }

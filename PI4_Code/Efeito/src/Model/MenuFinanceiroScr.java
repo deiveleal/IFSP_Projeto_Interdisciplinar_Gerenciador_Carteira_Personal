@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author deive
  */
-public class MenuAcompanhamento extends Application{
+public class MenuFinanceiroScr extends Application{
     
     private static Stage stage;
 
@@ -26,9 +26,9 @@ public class MenuAcompanhamento extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/MenuAcompanhamento.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/MenuFinanceiro.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Acompanhamento");
+        stage.setTitle("Financeiro");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
@@ -39,7 +39,7 @@ public class MenuAcompanhamento extends Application{
     }
 
     public static void setStage(Stage stage) {
-        MenuAcompanhamento.stage = stage;
+        MenuFinanceiroScr.stage = stage;
     }
     
 }
