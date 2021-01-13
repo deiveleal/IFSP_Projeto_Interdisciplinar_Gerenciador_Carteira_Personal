@@ -7,29 +7,29 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
    <children>
-      <TextField fx:id="tfLogin" alignment="CENTER" layoutX="228.0" layoutY="343.0" prefHeight="37.0" prefWidth="346.0" promptText="Login">
+      <TextField fx:id="tfLogin" alignment="CENTER" layoutX="339.0" layoutY="294.0" prefHeight="39.0" prefWidth="345.0" promptText="Login">
          <font>
             <Font size="16.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pfSenha" alignment="CENTER" layoutX="229.0" layoutY="402.0" prefHeight="37.0" prefWidth="344.0" promptText="Senha">
+      <PasswordField fx:id="pfSenha" alignment="CENTER" layoutX="339.0" layoutY="357.0" prefHeight="39.0" prefWidth="345.0" promptText="Senha">
          <font>
             <Font size="16.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btSair" layoutX="230.0" layoutY="460.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Sair" AnchorPane.rightAnchor="420.0">
+      <Button fx:id="btSair" layoutX="569.0" layoutY="460.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="344.0" text="Sair" AnchorPane.rightAnchor="111.0">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="btEntrar" layoutX="421.0" layoutY="460.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" text="Entrar">
+      <Button fx:id="btEntrar" layoutX="117.0" layoutY="460.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="344.0" text="Entrar">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Text layoutX="293.0" layoutY="236.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efeito" textAlignment="CENTER">
+      <Text layoutX="422.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Efeito" textAlignment="CENTER">
          <font>
             <Font name="Gentium Italic" size="102.0" />
          </font>

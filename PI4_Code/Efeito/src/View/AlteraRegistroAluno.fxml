@@ -10,11 +10,28 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.CadastraAlunoController">
    <children>
-      <ButtonBar layoutX="484.0" layoutY="538.0" prefWidth="262.0">
+      <ButtonBar layoutX="62.0" layoutY="514.0" prefHeight="75.0" prefWidth="877.0">
          <buttons>
-            <Button fx:id="bt_menu" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Menu" />
-            <Button fx:id="bt_sair" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Sair" />
-            <Button fx:id="bt_salvar" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Salvar" />
+            <Button fx:id="bt_menu" mnemonicParsing="false" prefHeight="75.0" prefWidth="210.0" text="Menu">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="bt_salvar1" mnemonicParsing="false" prefHeight="75.0" prefWidth="192.0" text="Alterar">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="bt_salvar" mnemonicParsing="false" prefHeight="75.0" prefWidth="192.0" text="Salvar">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="bt_sair" mnemonicParsing="false" prefHeight="75.0" prefWidth="52.0" text="Sair">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </buttons>
       </ButtonBar>
       <TextField fx:id="tf_nome" layoutX="58.0" layoutY="132.0" prefHeight="26.0" prefWidth="374.0" promptText="Nome" />
