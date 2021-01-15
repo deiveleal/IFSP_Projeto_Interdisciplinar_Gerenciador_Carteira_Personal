@@ -30,7 +30,7 @@ public class ConnectionFactoryMysqlSingleton implements ConnectionFactoryInterfa
         
     }
 
-    public ConnectionFactoryMysqlSingleton connection(){
+    public static ConnectionFactoryMysqlSingleton getConnectionSingleton(){
         if(conexao == null){
             ConnectionFactoryMysqlSingleton.conexao = new ConnectionFactoryMysqlSingleton();
         }
@@ -55,7 +55,7 @@ public class ConnectionFactoryMysqlSingleton implements ConnectionFactoryInterfa
         try {
             getConnection().close();
         } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactoryMysql.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionFactoryMysqlSingleton.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
     }

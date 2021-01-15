@@ -40,15 +40,6 @@ public class LoginController implements Initializable {
 
     LoginScr login = new LoginScr();
     LoginDAO dao = new LoginDAO();
-    private static String idLoginAtivo;
-
-    public String getIdLoginAtivo() {
-        return idLoginAtivo;
-    }
-
-    public void setIdLoginAtivo(String idLoginAtivo) {
-        LoginController.idLoginAtivo = idLoginAtivo;
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

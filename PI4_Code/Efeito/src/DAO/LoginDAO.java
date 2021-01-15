@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import Connection.ConnectionFactoryMysql;
+import Connection.ConnectionFactoryMysqlSingleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,10 +20,11 @@ public class LoginDAO implements DAOInterface{
 
     private final Connection openCon;
     private final Connection closeCon;
+    ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public LoginDAO() {
-        this.openCon = new ConnectionFactoryMysql().getConnection();
-        this.closeCon = new ConnectionFactoryMysql().closeConnection();
+        this.openCon = conecta.getConnection();
+        this.closeCon = conecta.closeConnection();
     }
 
     //Método que busca o usuário e a senha
