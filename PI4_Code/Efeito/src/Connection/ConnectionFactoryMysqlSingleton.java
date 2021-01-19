@@ -12,10 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author Carolina
  * @author Deive
- *
  */
 
 public class ConnectionFactoryMysqlSingleton implements ConnectionFactoryInterface{
@@ -27,12 +25,12 @@ public class ConnectionFactoryMysqlSingleton implements ConnectionFactoryInterfa
 
 
     private ConnectionFactoryMysqlSingleton(){
-        
     }
 
     public static ConnectionFactoryMysqlSingleton getConnectionSingleton(){
         if(conexao == null){
             ConnectionFactoryMysqlSingleton.conexao = new ConnectionFactoryMysqlSingleton();
+            return conexao;
         }
         return conexao;
     }

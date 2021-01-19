@@ -18,13 +18,12 @@ import java.util.logging.Logger;
  *
  */
 
-public class ConnectionFactoryMysql implements ConnectionFactoryInterface{
+public class ConnectionFactoryMysql{
     private final String nomeBanco = "sistema_efeito";//Nome do banco de dados
     private final String nomeUsuario = "root";//Usuário do servidor
     private final String senhaUsuario = "123456";//Senha do servidor
     private final String enderecoServidor = "localhost";
             
-    @Override
     public Connection getConnection(){
         try {
             return DriverManager.getConnection(
@@ -37,7 +36,6 @@ public class ConnectionFactoryMysql implements ConnectionFactoryInterface{
         }
     }
 
-    @Override
     public Connection closeConnection() {
         try {
             getConnection().close();

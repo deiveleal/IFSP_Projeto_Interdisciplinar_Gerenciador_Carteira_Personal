@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author carolina
  * @author deive
  */
-public class AlteraRegistroAlunoScr extends Application {
+public class AlteraCadastroAlunoScr extends Application {
 
     private static Stage stage;//Uma janela1
 
@@ -26,7 +26,7 @@ public class AlteraRegistroAlunoScr extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/AlteraRegistroAluno.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/AlteraCadastroAluno.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
         stage.setTitle("Dados do Aluno");
         stage.setScene(scene);//Coloca a cena em uma janela
@@ -40,7 +40,7 @@ public class AlteraRegistroAlunoScr extends Application {
     }
 
     public static void setStage(Stage stage) {
-        AlteraRegistroAlunoScr.stage = stage;
+        AlteraCadastroAlunoScr.stage = stage;
     }
     
 }

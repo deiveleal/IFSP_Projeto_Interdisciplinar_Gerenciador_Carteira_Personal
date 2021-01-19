@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.AlteraRegistroAlunoScr;
+import Model.AlteraCadastroAlunoScr;
 import Model.CadastraAlunoScr;
 import Model.MenuAlunoScr;
 import Model.MenuPrincipalScr;
@@ -24,11 +24,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class AlteraRegistroAlunoController implements Initializable{
+public class AlteraCadastroAlunoController implements Initializable{
 
-    @FXML private Button bt_menu;
-    @FXML private Button bt_sair;
-    @FXML private Button bt_salvar;
     @FXML private TextField tf_nome;
     @FXML private TextField tf_data_nascimento;
     @FXML private TextField tf_endereco;
@@ -41,6 +38,9 @@ public class AlteraRegistroAlunoController implements Initializable{
     @FXML private ComboBox<?> cb_fator_rh;
     @FXML private ComboBox<?> cb_sexo;
     @FXML private TextField tf_cpf;
+    @FXML private Button bt_menu;
+    @FXML private Button bt_sair;
+    @FXML private Button bt_salvar;
     
     Util util = new Util();
 
@@ -83,6 +83,6 @@ public class AlteraRegistroAlunoController implements Initializable{
         });
     }
     private void fechaJanela() {
-        AlteraRegistroAlunoScr.getStage().close();
+        AlteraCadastroAlunoScr.getStage().close();
     }
 }

@@ -6,37 +6,12 @@
 package Model;
 
 /**
- *
+ * @author carolina
  * @author deive
  */
 public class RegistroPersonal extends RegistroPessoa{
-    
-    private String nomeUsuario;    
-    
+     
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
-    }
-
-    public void setNomeUsuario(String nomeUsuario) {
-        this.nomeUsuario = nomeUsuario;
-    }
-    
-
-    
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-    
-    
-    public boolean login(String nome, String senha){
-            
-        return true;
-    }
     public boolean cadastrarAluno(){
         return true;
     }

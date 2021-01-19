@@ -9,7 +9,7 @@ CREATE TABLE aluno(
     cpf VARCHAR(11),
     email VARCHAR(100),
     tipo_sanguineo ENUM('A', 'O', 'AB', 'B'),
-    rh_sangue ENUM('+','-'),
+    rh_sangue ENUM('positivo','negativo'),
     telefone VARCHAR (10),
     celular VARCHAR(12),
     rua VARCHAR (100),
@@ -22,8 +22,6 @@ CREATE TABLE avaliacao_fisica(
 	id_avaliacao INT AUTO_INCREMENT,
     id_aluno INT,
     data_avaliacao DATE,
-    peso DOUBLE,
-    altura DOUBLE,
     pressao_art DOUBLE,
     batimento_repouso DOUBLE,
     nivel_condicionamento ENUM('iniciante', 'intermediario', 'avançado'),
@@ -35,7 +33,9 @@ CREATE TABLE avaliacao_fisica(
 CREATE TABLE medidas(
 	id_medidas INT AUTO_INCREMENT,
     id_aluno INT,
-    data_avaliacao DATE,
+    data_medicao DATE,
+	peso DOUBLE,
+    altura DOUBLE,
     pescoco DOUBLE,
     peito DOUBLE, 
     braco DOUBLE, 
@@ -80,10 +80,10 @@ CREATE TABLE treino(
     FOREIGN KEY(id_aluno) REFERENCES aluno(id_aluno)
 );
 
-CREATE TABLE lista_exercicios(
+CREATE TABLE cadastro_exercicio(
 	id_exercicio INT AUTO_INCREMENT PRIMARY KEY,
-    grupo_muscular varchar(100),
     nome_exercicio VARCHAR(100),
+    grupo_muscular varchar(100),
     acao_principal VARCHAR(300),
     posicao VARCHAR(150),
     observacao VARCHAR(500)
@@ -95,10 +95,11 @@ CREATE TABLE exercicios_treino(
     peso DOUBLE,
     serie INT,
     repeticao INT,
+    duracao TIME,
     
     PRIMARY KEY(id_exercicio, id_treino),
     FOREIGN KEY(id_treino) REFERENCES treino(id_treino),
-    FOREIGN KEY(id_exercicio) REFERENCES lista_exercicios(id_exercicio)
+    FOREIGN KEY(id_exercicio) REFERENCES cadastro_exercicio(id_exercicio)
 );
 
 CREATE TABLE personal(
