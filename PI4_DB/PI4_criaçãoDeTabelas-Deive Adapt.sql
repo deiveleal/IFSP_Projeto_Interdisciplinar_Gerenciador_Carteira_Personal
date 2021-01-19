@@ -5,7 +5,7 @@ CREATE TABLE aluno(
 	id_aluno INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     data_nascimento DATE,
-    sexo ENUM('masculino', 'feminino', 'nao-buinario'),
+    sexo ENUM('masculino', 'feminino', 'nao-binario'),
     cpf VARCHAR(11),
     email VARCHAR(100),
     tipo_sanguineo ENUM('A', 'O', 'AB', 'B'),
@@ -95,7 +95,7 @@ CREATE TABLE exercicios_treino(
     peso DOUBLE,
     serie INT,
     repeticao INT,
-    duracao TIME,
+    duracao INT,
     
     PRIMARY KEY(id_exercicio, id_treino),
     FOREIGN KEY(id_treino) REFERENCES treino(id_treino),
@@ -106,6 +106,7 @@ CREATE TABLE personal(
     id_personal INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(61),
     cpf varchar(11) UNIQUE,
+    cref VARCHAR(20),
     nome_usuario VARCHAR(30) UNIQUE,
     senha VARCHAR (30)
 );
