@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Plano{
     private double valor;
+    private int idAluno; //vinculo de aluno e plano
     private Date dataInicio;
     private Date dataFinal;
     private int numeroAulasPorSemana;
