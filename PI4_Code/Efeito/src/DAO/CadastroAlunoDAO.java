@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author deive
  */
-public class CadastroAlunoDAO implements DAOInterface {
+public class CadastroAlunoDAO {
     private final Connection openCon;
     private final Connection closeCon;
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
@@ -30,20 +30,28 @@ public class CadastroAlunoDAO implements DAOInterface {
         this.closeCon = conecta.closeConnection();
     }
 
-    @Override
-    public void inserir(RegistroAlunos aluno) {
-        String sql = "INSERT INTO Funcionario(idFuncionario,nomeFuncionario,cargo,senha) VALUES(?,?,?,?);";
+    public boolean inserir(RegistroAlunos aluno) {
+        String sql = "INSERT INTO aluno(nome, data_nascimento, sexo, cpf, email, tipo_sanguineo, rh_sangue,"
+                + "telefone, celular, rua, bairro, cidade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
         try {
             try (PreparedStatement stmt = openCon.prepareStatement(sql)) {
+                
                 stmt.setString(1, aluno.getNome());
                 stmt.setString(2, aluno.getDataNascimento().toString());
                 stmt.setString(3, aluno.getSexo().toString());
                 stmt.setString(4, aluno.getCpf());
+                stmt.setString(5, aluno.getEmail());
+                stmt.setString(6, aluno.getTipoSanguineo().toString());
+                stmt.setString(7, aluno.getRhSangue().toString());
+                stmt.setString(8, aluno.getTelefone());
+                stmt.setString(9, aluno.getCelular());
+                stmt.setString(10, aluno.getRua());
+                stmt.setString(11, aluno.getBairro());
+                stmt.setString(12, aluno.getCidade());
                 
                 stmt.execute();
-                closeCon;
+                closeCon.close();
             }
-            //closeCon;
             return true;
         }
         catch (SQLException ex) {
@@ -52,27 +60,22 @@ public class CadastroAlunoDAO implements DAOInterface {
         }
     }
 
-    @Override
     public void alterar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void atualizar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public void deletar(Object obj) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public Object getById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
     public List<Object> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

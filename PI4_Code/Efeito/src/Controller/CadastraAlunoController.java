@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -81,6 +82,33 @@ public class CadastraAlunoController implements Initializable{
             }
         });
     }
+    
+    private void cadastraAluno() {
+        String idFuncionario = tf_nome.getText(),
+                nomeFuncionario = tfNome.getText(),
+                cargo = tfCargo.getText(),
+                senha = pfSenha.getText(),
+                confirm = pfConfirm.getText();
+
+        if (senha.equals(confirm)) {
+            Funcionario func = new Funcionario(idFuncionario, nomeFuncionario, cargo, senha);
+            FuncionarioDAO funcDao = new FuncionarioDAO();
+            if (funcDao.insert(func)) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setHeaderText("Usuário cadastrado!");
+                alert.show();
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText("Erro ao cadastrar usuário!");
+                alert.show();
+            }
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Senhas não coincidem!");
+            alert.show();
+        }
+    }
+    
     private void fechaJanela() {
         CadastraAlunoScr.getStage().close();
     }

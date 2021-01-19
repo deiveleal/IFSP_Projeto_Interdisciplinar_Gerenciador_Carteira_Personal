@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import Model.AlteraCadastroAlunoScr;
+import Model.DadosAlunoCadastradoScr;
 import Model.CadastraAlunoScr;
 import Model.MenuAlunoScr;
 import Model.MenuPrincipalScr;
@@ -50,7 +50,7 @@ public class MenuAlunoController implements Initializable {
         
         // Implementações do botão cadastrar aluno
         bt_dados_aluno.setOnMouseClicked((MouseEvent e) -> {
-            AlteraCadastroAlunoScr altRegAluno = new AlteraCadastroAlunoScr();
+            DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
             try {
                 altRegAluno.start(new Stage());
                 fechaJanela();
@@ -61,7 +61,7 @@ public class MenuAlunoController implements Initializable {
         });
         bt_dados_aluno.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                AlteraCadastroAlunoScr altRegAluno = new AlteraCadastroAlunoScr();
+                DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
                 try {
                     altRegAluno.start(new Stage());
                     fechaJanela();

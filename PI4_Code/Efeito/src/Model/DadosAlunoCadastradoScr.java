@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author carolina
  * @author deive
  */
-public class AlteraCadastroAlunoScr extends Application {
+public class DadosAlunoCadastradoScr extends Application {
 
     private static Stage stage;//Uma janela1
 
@@ -40,7 +40,7 @@ public class AlteraCadastroAlunoScr extends Application {
     }
 
     public static void setStage(Stage stage) {
-        AlteraCadastroAlunoScr.stage = stage;
+        DadosAlunoCadastradoScr.stage = stage;
     }
     
 }

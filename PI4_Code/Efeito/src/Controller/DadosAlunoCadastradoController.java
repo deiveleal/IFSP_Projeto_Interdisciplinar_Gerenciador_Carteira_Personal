@@ -5,9 +5,7 @@
  */
 package Controller;
 
-import Model.AlteraCadastroAlunoScr;
-import Model.CadastraAlunoScr;
-import Model.MenuAlunoScr;
+import Model.DadosAlunoCadastradoScr;
 import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
@@ -24,7 +22,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class AlteraCadastroAlunoController implements Initializable{
+public class DadosAlunoCadastradoController implements Initializable{
 
     @FXML private TextField tf_nome;
     @FXML private TextField tf_data_nascimento;
@@ -83,6 +81,6 @@ public class AlteraCadastroAlunoController implements Initializable{
         });
     }
     private void fechaJanela() {
-        AlteraCadastroAlunoScr.getStage().close();
+        DadosAlunoCadastradoScr.getStage().close();
     }
 }
