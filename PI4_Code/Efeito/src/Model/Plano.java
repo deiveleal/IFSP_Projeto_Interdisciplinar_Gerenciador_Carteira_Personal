@@ -12,17 +12,17 @@ import java.util.Date;
  * @author deive
  */
 public class Plano{
-    private double valor;
-    private int idAluno; //vinculo de aluno e plano
+    private Double valor;
+    private Integer idAluno; //vinculo de aluno e plano
     private Date dataInicio;
     private Date dataFinal;
-    private int numeroAulasPorSemana;
-    private int numeroAulasPorMes;
-    private int numeroAulasTotalDoPlano;
+    private Integer numeroAulasPorSemana;
+    private Integer numeroAulasPorMes;
+    private Integer numeroAulasTotalDoPlano;
     
     //Métodos acessores
 
-    public double getValor() {
+    public Double getValor() {
         return valor;
     }
 

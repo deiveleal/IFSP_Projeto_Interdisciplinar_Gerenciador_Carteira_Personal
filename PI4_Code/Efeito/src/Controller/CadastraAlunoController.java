@@ -85,7 +85,7 @@ public class CadastraAlunoController implements Initializable{
     
     private void cadastraAluno() {
         String idFuncionario = tf_nome.getText(),
-                nomeFuncionario = tfNome.getText(),
+                nomeFuncionario = tf_nome.getText(),
                 cargo = tfCargo.getText(),
                 senha = pfSenha.getText(),
                 confirm = pfConfirm.getText();
