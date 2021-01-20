@@ -23,7 +23,7 @@ INSERT INTO aluno(
 VALUES
 	('João Carlos', '2000/03/25', 'masculino', '03265498724','joao@jotaum.com', 'A', 'positivo', '1932567412', '19852321654', 'Rua das Flores, 321', 'Jardim Novo', 'Joalandia'),
     ('Maria de Souza', '1991/12/12', 'feminino', '02165498752', 'maria@solzinha.com', 'B', 'negativo', '2121256523', '21789456123', 'Rua Litu, 12', 'Jardim Velhor', 'Joalandia'),
-    ('Jessi de Oliveira', '2002/07/21', 'nao-buinario', '04532198758', 'jessi@jotaum.com', 'AB', 'positivo', '2121257889', '21852741963', 'Rua Janguá, 25', 'Jardim Esplendor', 'Joanopolis'),
+    ('Jessi de Oliveira', '2002/07/21', 'nao-binario', '04532198758', 'jessi@jotaum.com', 'AB', 'positivo', '2121257889', '21852741963', 'Rua Janguá, 25', 'Jardim Esplendor', 'Joanopolis'),
     ('Paula Campos', '2001/12/13', 'feminino', '08945612378', 'paulinha@jotaum.com', 'O', 'negativo', '2134569874', '21854978321', 'Rua Joá, 451', 'Jardim Novo', 'Joalandia'),
     ('Denis Drato', '1999/01/05', 'masculino', '06952456845', 'ddrato@solzinha.com', 'O', 'positivo', '2134569596', '21985654321', 'Rua das Uvas, 69', 'Jardim Novo Sonho', 'Joanopolis');
     

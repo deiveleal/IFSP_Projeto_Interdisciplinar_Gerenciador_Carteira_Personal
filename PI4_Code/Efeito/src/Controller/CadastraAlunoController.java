@@ -5,14 +5,22 @@
  */
 package Controller;
 
+import DAO.RegistroAlunoDAO;
 import Model.CadastraAlunoScr;
-import Model.MenuAlunoScr;
 import Model.MenuPrincipalScr;
+import Model.RegistroAlunos;
+import Model.RhSangueEnum;
+import Model.SexoEnum;
+import Model.TipoSanguineoEnum;
 import Model.Util;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -37,16 +45,20 @@ public class CadastraAlunoController implements Initializable{
     @FXML private TextField tf_telefone;
     @FXML private TextField tf_email;
     @FXML private TextField tf_celular;
-    @FXML private ComboBox<?> cb_tipo_sangue;
-    @FXML private ComboBox<?> cb_fator_rh;
-    @FXML private ComboBox<?> cb_sexo;
+    @FXML private ComboBox<TipoSanguineoEnum> cb_tipo_sangue;
+    @FXML private ComboBox<RhSangueEnum> cb_fator_rh;
+    @FXML private ComboBox<SexoEnum> cb_sexo;
     @FXML private TextField tf_cpf;
     
     Util util = new Util();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Implementações do botão menu iniciar
+        cb_sexo.setItems(FXCollections.observableArrayList(SexoEnum.values()));
+        cb_fator_rh.setItems(FXCollections.observableArrayList(RhSangueEnum.values()));
+        cb_tipo_sangue.setItems(FXCollections.observableArrayList(TipoSanguineoEnum.values()));
+        
+// Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
@@ -69,6 +81,24 @@ public class CadastraAlunoController implements Initializable{
                 }
             }
         });
+        
+        //Implementação do botão salvar
+        bt_salvar.setOnMouseClicked((MouseEvent e) -> {
+            try {
+                cadastraAluno();
+            } catch (ParseException ex) {
+                Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_salvar.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                try {
+                    cadastraAluno();
+                } catch (ParseException ex) {
+                    Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
 
         // Implementações do botão sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
@@ -83,28 +113,31 @@ public class CadastraAlunoController implements Initializable{
         });
     }
     
-    private void cadastraAluno() {
-        String idFuncionario = tf_nome.getText(),
-                nomeFuncionario = tfNome.getText(),
-                cargo = tfCargo.getText(),
-                senha = pfSenha.getText(),
-                confirm = pfConfirm.getText();
+    private void cadastraAluno() throws ParseException {
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        String nome = tf_nome.getText(),
+                rua = tf_endereco.getText(),
+                bairro = tf_bairro.getText(),
+                cidade = tf_cidade.getText(),
+                telefone = tf_telefone.getText(),
+                email = tf_email.getText(),
+                cpf = tf_cpf.getText(),
+                celular = tf_celular.getText();
+        Date dataNascimento = fmt.parse(tf_data_nascimento.getText());
+        Enum tipoSanguineo = (Enum) cb_tipo_sangue.getValue(),
+                rhSangue = (Enum) cb_fator_rh.getValue(),
+                sexo = (Enum) cb_sexo.getValue();
 
-        if (senha.equals(confirm)) {
-            Funcionario func = new Funcionario(idFuncionario, nomeFuncionario, cargo, senha);
-            FuncionarioDAO funcDao = new FuncionarioDAO();
-            if (funcDao.insert(func)) {
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setHeaderText("Usuário cadastrado!");
-                alert.show();
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setHeaderText("Erro ao cadastrar usuário!");
-                alert.show();
-            }
+        RegistroAlunos regAlunos = new RegistroAlunos(nome, dataNascimento, sexo, cpf, email, tipoSanguineo, rhSangue, telefone, celular, rua, bairro, cidade);
+        RegistroAlunoDAO regAlunoDAO = new RegistroAlunoDAO();
+        
+        if (regAlunoDAO.inserir(regAlunos)) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Usuário cadastrado!");
+            alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Senhas não coincidem!");
+            alert.setHeaderText("Erro ao cadastrar usuário!");
             alert.show();
         }
     }
