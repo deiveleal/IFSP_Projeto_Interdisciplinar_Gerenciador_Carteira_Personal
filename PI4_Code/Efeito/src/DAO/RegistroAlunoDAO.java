@@ -7,6 +7,7 @@ package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.RegistroAlunos;
+import Model.SexoEnum;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -43,26 +44,26 @@ public class RegistroAlunoDAO {
         
         String sql = "INSERT INTO aluno(nome, data_nascimento, sexo, cpf, email, tipo_sanguineo, rh_sangue,"
                 + "telefone, celular, rua, bairro, cidade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
-        try {
-            try (PreparedStatement stmt = openCon.prepareStatement(sql)) {
-                
-                stmt.setString(1, aluno.getNome());
-                stmt.setString(2, dataBanco);
-                stmt.setString(3, sexo);
-                stmt.setString(4, aluno.getCpf());
-                stmt.setString(5, aluno.getEmail());
-                stmt.setString(6, aluno.getTipoSanguineo().toString().toLowerCase());
-                stmt.setString(7, aluno.getRhSangue().toString().toLowerCase());
-                stmt.setString(8, aluno.getTelefone());
-                stmt.setString(9, aluno.getCelular());
-                stmt.setString(10, aluno.getRua());
-                stmt.setString(11, aluno.getBairro());
-                stmt.setString(12, aluno.getCidade());
-                
-                stmt.execute();
-                closeCon.close();
-            }
-            return true;
+
+        try (PreparedStatement stmt = openCon.prepareStatement(sql)) {
+
+            stmt.setString(1, aluno.getNome());
+            stmt.setString(2, dataBanco);
+            stmt.setString(3, sexo);
+            stmt.setString(4, aluno.getCpf());
+            stmt.setString(5, aluno.getEmail());
+            stmt.setString(6, aluno.getTipoSanguineo().toString().toLowerCase());
+            stmt.setString(7, aluno.getRhSangue().toString().toLowerCase());
+            stmt.setString(8, aluno.getTelefone());
+            stmt.setString(9, aluno.getCelular());
+            stmt.setString(10, aluno.getRua());
+            stmt.setString(11, aluno.getBairro());
+            stmt.setString(12, aluno.getCidade());
+
+            stmt.execute();
+            stmt.close();
+            closeCon.close();
+            return true;            
         }
         catch (SQLException ex) {
             Logger.getLogger(RegistroAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);

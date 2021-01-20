@@ -54,9 +54,7 @@ public class CadastraAlunoController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cb_sexo.setItems(FXCollections.observableArrayList(SexoEnum.values()));
-        cb_fator_rh.setItems(FXCollections.observableArrayList(RhSangueEnum.values()));
-        cb_tipo_sangue.setItems(FXCollections.observableArrayList(TipoSanguineoEnum.values()));
+        iniComboBox();
         
 // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
@@ -115,31 +113,37 @@ public class CadastraAlunoController implements Initializable{
 
     private void cadastraAluno() throws ParseException {
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-        String nome = tf_nome.getText(),
-                rua = tf_endereco.getText(),
-                bairro = tf_bairro.getText(),
-                cidade = tf_cidade.getText(),
-                telefone = tf_telefone.getText(),
-                email = tf_email.getText(),
-                cpf = tf_cpf.getText(),
-                celular = tf_celular.getText();
+        String nome = tf_nome.getText();
+        String rua = tf_endereco.getText();
+        String bairro = tf_bairro.getText();
+        String cidade = tf_cidade.getText();
+        String telefone = tf_telefone.getText();
+        String email = tf_email.getText();
+        String cpf = tf_cpf.getText();
+        String celular = tf_celular.getText();
         Date dataNascimento = fmt.parse(tf_data_nascimento.getText());
-        Enum tipoSanguineo = (Enum) cb_tipo_sangue.getValue(),
-                rhSangue = (Enum) cb_fator_rh.getValue(),
-                sexo = (Enum) cb_sexo.getValue();
+        Enum tipoSanguineo = (Enum) cb_tipo_sangue.getValue();
+        Enum rhSangue = (Enum) cb_fator_rh.getValue();
+        Enum sexo = (Enum) cb_sexo.getValue();
 
         RegistroAlunos regAlunos = new RegistroAlunos(nome, dataNascimento, sexo, cpf, email, tipoSanguineo, rhSangue, telefone, celular, rua, bairro, cidade);
         RegistroAlunoDAO regAlunoDAO = new RegistroAlunoDAO();
         
         if (regAlunoDAO.inserir(regAlunos)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Usuário cadastrado!");
+            alert.setHeaderText("Aluno cadastrado!");
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Erro ao cadastrar usuário!");
+            alert.setHeaderText("Erro ao cadastrar aluno!");
             alert.show();
         }
+    }
+    
+    private void iniComboBox(){
+        cb_sexo.setItems(FXCollections.observableArrayList(SexoEnum.values()));
+        cb_fator_rh.setItems(FXCollections.observableArrayList(RhSangueEnum.values()));
+        cb_tipo_sangue.setItems(FXCollections.observableArrayList(TipoSanguineoEnum.values()));
     }
     
     private void fechaJanela() {
