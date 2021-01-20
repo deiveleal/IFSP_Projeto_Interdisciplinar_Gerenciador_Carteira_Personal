@@ -34,6 +34,12 @@ public class RegistroAlunoDAO {
     public boolean inserir(RegistroAlunos aluno) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
         String dataBanco = fmtUS.format(aluno.getDataNascimento());
+        String sexo;
+        if(aluno.getSexo().equals(SexoEnum.NAOBINARIO)){
+            sexo = "nao-binario";
+        }else{
+            sexo = aluno.getSexo().toString();
+        }
         
         String sql = "INSERT INTO aluno(nome, data_nascimento, sexo, cpf, email, tipo_sanguineo, rh_sangue,"
                 + "telefone, celular, rua, bairro, cidade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
@@ -42,7 +48,7 @@ public class RegistroAlunoDAO {
                 
                 stmt.setString(1, aluno.getNome());
                 stmt.setString(2, dataBanco);
-                stmt.setString(3, aluno.getSexo().toString());
+                stmt.setString(3, sexo);
                 stmt.setString(4, aluno.getCpf());
                 stmt.setString(5, aluno.getEmail());
                 stmt.setString(6, aluno.getTipoSanguineo().toString().toLowerCase());
