@@ -112,8 +112,7 @@ public class CadastraAlunoController implements Initializable{
             }
         });
     }
-    
-<<<<<<< HEAD
+
     private void cadastraAluno() throws ParseException {
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         String nome = tf_nome.getText(),
@@ -128,14 +127,6 @@ public class CadastraAlunoController implements Initializable{
         Enum tipoSanguineo = (Enum) cb_tipo_sangue.getValue(),
                 rhSangue = (Enum) cb_fator_rh.getValue(),
                 sexo = (Enum) cb_sexo.getValue();
-=======
-    private void cadastraAluno() {
-        String idFuncionario = tf_nome.getText(),
-                nomeFuncionario = tf_nome.getText(),
-                cargo = tfCargo.getText(),
-                senha = pfSenha.getText(),
-                confirm = pfConfirm.getText();
->>>>>>> 49940b5ae5d4ce6bfe6d2c4e6e7f33214ea85aee
 
         RegistroAlunos regAlunos = new RegistroAlunos(nome, dataNascimento, sexo, cpf, email, tipoSanguineo, rhSangue, telefone, celular, rua, bairro, cidade);
         RegistroAlunoDAO regAlunoDAO = new RegistroAlunoDAO();
