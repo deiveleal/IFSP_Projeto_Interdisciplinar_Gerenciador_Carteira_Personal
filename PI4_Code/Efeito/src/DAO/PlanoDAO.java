@@ -30,15 +30,17 @@ public class PlanoDAO {
     }
     
     public boolean inserir(Plano planoDoAluno) throws SQLException{
-        String sql = "INSERT INTO plano(valor, data_inicio, data_final, numero_aulas_por_semana) VALUES (?,?,?);";
+        String sql = "INSERT INTO plano(valor, numero_meses, data_inicio, data_final, +"
+                + "numero_aulas_por_semana) VALUES (?,?,?,?,?);";
         
         try{
             try(PreparedStatement stmt = openCon.prepareStatement(sql)){
                                 
                 stmt.setDouble(1, planoDoAluno.getValor());
-                stmt.setDate(2, new Date(planoDoAluno.getDataInicio().getTime()));
-                stmt.setDate(3, new Date(planoDoAluno.getDataFinal().getTime()));
-                stmt.setInt(3, planoDoAluno.getNumeroAulasPorSemana());     
+                stmt.setInt(2, planoDoAluno.getNumeroMeses());
+                stmt.setDate(3, (Date) planoDoAluno.getDataInicio());
+                stmt.setDate(4, (Date) planoDoAluno.getDataFinal());
+                stmt.setInt(5, planoDoAluno.getNumeroAulasPorSemana());     
                 
                 stmt.execute();
                 closeCon.close();
