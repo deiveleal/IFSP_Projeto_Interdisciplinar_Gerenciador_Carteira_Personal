@@ -5,8 +5,11 @@
  */
 package Controller;
 
+import DAO.RegistroAvaliacaoFisicaDAO;
 import DAO.RegistroMedidasDAO;
+import Model.CondicionamentoFisicoEnum;
 import Model.MenuPrincipalScr;
+import Model.RegistroAvaliacaoFisica;
 import Model.RegistroAvaliacaoFisicaScr;
 import Model.RegistroMedidas;
 import Model.Util;
@@ -21,6 +24,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -36,16 +40,9 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
 
     @FXML private TextField tf_id_aluno;
     @FXML private TextField tf_data;
-    @FXML private TextField tf_peso;
-    @FXML private TextField tf_altura;
-    @FXML private TextField tf_pescoco;
-    @FXML private TextField tf_peito;
-    @FXML private TextField tf_braco;
-    @FXML private TextField tf_antebraco;
-    @FXML private TextField tf_cintura;
-    @FXML private TextField tf_quadril;
-    @FXML private TextField tf_coxa;
-    @FXML private TextField tf_panturrilha;
+    @FXML private TextField tf_pressao_arterial;
+    @FXML private TextField tf_batimento_repouso;
+    @FXML private ComboBox<CondicionamentoFisicoEnum> cb_condicionamento;
     @FXML private Button bt_menu;
     @FXML private Button bt_salvar;
     @FXML private Button bt_sair;
@@ -116,28 +113,22 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         
         int id_aluno = Integer.parseInt(tf_id_aluno.getText());
-        Date data_medicao = fmt.parse(tf_data.getText());
-        double peso = Double.parseDouble(tf_peso.getText());
-        double altura = Double.parseDouble(tf_altura.getText());
-        double pescoco = Double.parseDouble(tf_pescoco.getText());
-        double peito = Double.parseDouble(tf_peito.getText());
-        double braco = Double.parseDouble(tf_braco.getText());
-        double antebraco = Double.parseDouble(tf_antebraco.getText());
-        double cintura = Double.parseDouble(tf_cintura.getText());
-        double quadril = Double.parseDouble(tf_quadril.getText());
-        double coxa = Double.parseDouble(tf_coxa.getText());
-        double panturrilha = Double.parseDouble(tf_panturrilha.getText());
+        Date data_avaliacao = fmt.parse(tf_data.getText());
+        double pressao_art = Double.parseDouble(tf_pressao_arterial.getText());
+        double batimento_repouso = Double.parseDouble(tf_batimento_repouso.getText());
+        Enum nivel_condicionamento = (Enum) cb_condicionamento.getValue();
 
-        RegistroMedidas regMedid = new RegistroMedidas(id_aluno, data_medicao, peso, altura, pescoco, peito, braco, antebraco, cintura, quadril, coxa, panturrilha);
-        RegistroMedidasDAO regMedDAO = new RegistroMedidasDAO();
+
+        RegistroAvaliacaoFisica regAvaFis = new RegistroAvaliacaoFisica(id_aluno, data_avaliacao, pressao_art, batimento_repouso, nivel_condicionamento);
+        RegistroAvaliacaoFisicaDAO regAvaFisDAO = new RegistroAvaliacaoFisicaDAO();            
         
-        if (regMedDAO.inserir(regMedid)) {
+        if (regAvaFisDAO.inserir(regAvaFis)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Aluno cadastrado!");
+            alert.setHeaderText("Avaliação Física Registrada!");
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Erro ao cadastrar aluno!");
+            alert.setHeaderText("Erro ao registrar avaliação física!");
             alert.show();
         }
     }  

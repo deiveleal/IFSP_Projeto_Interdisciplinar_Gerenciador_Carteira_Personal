@@ -6,6 +6,7 @@
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
+import Model.RegistroAvaliacaoFisica;
 import Model.RegistroMedidas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -59,6 +60,10 @@ public class RegistroMedidasDAO {
             Logger.getLogger(RegistroAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+
+    public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

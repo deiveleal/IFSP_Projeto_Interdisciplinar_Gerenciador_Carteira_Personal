@@ -18,6 +18,10 @@ public class RegistroAvaliacaoFisica {
     private double pressaoArterial;
     private double batimentoRepouso;
     private Enum nivelConicionamento;
+
+    public RegistroAvaliacaoFisica(int id_aluno, Date data_avaliacao, double pressao_art, double batimento_repouso, Enum nivel_condicionamento) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     //Métodos acessores
 
