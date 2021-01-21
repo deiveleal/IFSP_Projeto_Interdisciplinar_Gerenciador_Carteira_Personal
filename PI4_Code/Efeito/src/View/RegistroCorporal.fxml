@@ -1,11 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroCorporalController">
-    
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroCorporalController">
+   <children>
+      <Text layoutX="345.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Medidas">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text layoutX="139.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id Aluno">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_id_aluno" layoutX="68.0" layoutY="169.0" prefHeight="34.0" prefWidth="210.0" promptText="Id Aluno">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="375.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_data" layoutX="288.0" layoutY="167.0" prefHeight="34.0" prefWidth="214.0" promptText="Data">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="601.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_peso" layoutX="513.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Peso">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="815.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altura">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_altura" layoutX="737.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Altura">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="141.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pescoço">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_pescoco" layoutX="68.0" layoutY="296.0" prefHeight="34.0" prefWidth="210.0" promptText="Pescoço">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="373.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peito">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_peito" layoutX="289.0" layoutY="294.0" prefHeight="34.0" prefWidth="210.0" promptText="Peito">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="598.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Braço">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_braco" layoutX="514.0" layoutY="296.0" prefHeight="34.0" prefWidth="210.0" promptText="Braço">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="797.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antebraço">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_antebraco" layoutX="734.0" layoutY="296.0" prefHeight="34.0" prefWidth="210.0" promptText="Antebraço">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="144.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cintura">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_cintura" layoutX="68.0" layoutY="410.0" prefHeight="34.0" prefWidth="210.0" promptText="Cintura">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="366.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quadril">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_quadril" layoutX="290.0" layoutY="408.0" prefHeight="34.0" prefWidth="210.0" promptText="Quadril">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text layoutX="599.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coxa">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_coxa" layoutX="515.0" layoutY="410.0" prefHeight="34.0" prefWidth="210.0" promptText="Coxa">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text layoutX="812.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panturrilha">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_panturrilha" layoutX="734.0" layoutY="410.0" prefHeight="34.0" prefWidth="210.0" promptText="Panturrilha">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button fx:id="bt_menu" layoutX="10.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Menu">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="bt_salvar" layoutX="411.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Salvar">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="bt_sair" layoutX="803.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Sair">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

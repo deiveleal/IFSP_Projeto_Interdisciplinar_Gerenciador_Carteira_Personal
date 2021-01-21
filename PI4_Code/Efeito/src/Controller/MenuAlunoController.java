@@ -9,6 +9,7 @@ import Model.DadosAlunoCadastradoScr;
 import Model.CadastraAlunoScr;
 import Model.MenuAlunoScr;
 import Model.MenuPrincipalScr;
+import Model.RegistroCorporalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -74,21 +75,45 @@ public class MenuAlunoController implements Initializable {
         
         
         // Implementações do botão cadastrar aluno
-        bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {
-            CadastraAlunoScr cadAluno = new CadastraAlunoScr();
+        bt_add_medidas.setOnMouseClicked((MouseEvent e) -> {
+            RegistroCorporalScr regMed = new RegistroCorporalScr();
             try {
-                cadAluno.start(new Stage());
+                regMed.start(new Stage());
                 fechaJanela();
             }
             catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        bt_cadastrar_aluno.setOnKeyPressed((KeyEvent e) -> {
+        bt_add_medidas.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                CadastraAlunoScr cadAluno = new CadastraAlunoScr();
+                RegistroCorporalScr regMed = new RegistroCorporalScr();
                 try {
-                    cadAluno.start(new Stage());
+                    regMed.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
+                // Implementações do botão cadastrar aluno
+        bt_dados_aluno.setOnMouseClicked((MouseEvent e) -> {
+            DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
+            try {
+                altRegAluno.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_dados_aluno.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
+                try {
+                    altRegAluno.start(new Stage());
                     fechaJanela();
                 }
                 catch (Exception ex) {

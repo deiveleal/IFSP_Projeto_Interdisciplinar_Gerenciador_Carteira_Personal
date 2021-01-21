@@ -24,6 +24,7 @@ import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -112,7 +113,9 @@ public class CadastraAlunoController implements Initializable{
     }
 
     private void cadastraAluno() throws ParseException {
+        
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        
         String nome = tf_nome.getText();
         String rua = tf_endereco.getText();
         String bairro = tf_bairro.getText();
@@ -130,11 +133,11 @@ public class CadastraAlunoController implements Initializable{
         RegistroAlunoDAO regAlunoDAO = new RegistroAlunoDAO();
         
         if (regAlunoDAO.inserir(regAlunos)) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("Aluno cadastrado!");
             alert.show();
         } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Erro ao cadastrar aluno!");
             alert.show();
         }

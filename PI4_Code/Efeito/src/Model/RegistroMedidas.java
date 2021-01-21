@@ -13,7 +13,10 @@ import java.util.Date;
  */
 public class RegistroMedidas {
     
-    private Date dataMedicao;
+    private int id_aluno;
+    private Date data_medicao;
+    private double peso;
+    private double altura;
     private double pescoco;
     private double peito;
     private double braco;
@@ -23,14 +26,56 @@ public class RegistroMedidas {
     private double coxa;
     private double panturrilha;
     
+    public RegistroMedidas(int id_aluno, Date data_medicao, double peso, double altura, double pescoco,
+            double peito, double braco, double antebraco, double cintura, double quadril, double coxa,
+            double panturrilha){
+        
+        this.id_aluno =  id_aluno;
+        this.data_medicao = data_medicao;
+        this.peso = peso;
+        this.altura = altura;
+        this.pescoco = pescoco;
+        this.peito = peito;
+        this.braco = braco;
+        this.antebraco = antebraco;
+        this.cintura = cintura;
+        this.quadril = quadril;
+        this.coxa = coxa;
+        this.panturrilha = panturrilha;
+    }
+       
     //Métodos acessores
 
-    public Date getDataMedicao() {
-        return dataMedicao;
+    public int getId_aluno() {
+        return id_aluno;
     }
 
-    public void setDataMedicao(Date dataMedicao) {
-        this.dataMedicao = dataMedicao;
+    public void setId_aluno(int id_aluno) {
+        this.id_aluno = id_aluno;
+    }
+
+    public Date getData_medicao() {
+        return data_medicao;
+    }
+
+    public void setData_medicao(Date data_medicao) {
+        this.data_medicao = data_medicao;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
     }
 
     public double getPescoco() {
@@ -96,6 +141,5 @@ public class RegistroMedidas {
     public void setPanturrilha(double panturrilha) {
         this.panturrilha = panturrilha;
     }
-    
     
 }
