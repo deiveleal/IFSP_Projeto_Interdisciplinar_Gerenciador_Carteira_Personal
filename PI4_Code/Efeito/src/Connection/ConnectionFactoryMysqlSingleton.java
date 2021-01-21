@@ -47,14 +47,4 @@ public class ConnectionFactoryMysqlSingleton implements ConnectionFactoryInterfa
             throw new RuntimeException(e);
         }
     }
-
-    @Override
-    public Connection closeConnection() {
-        try {
-            getConnection().close();
-        } catch (SQLException ex) {
-            Logger.getLogger(ConnectionFactoryMysqlSingleton.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
 }

@@ -10,21 +10,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * @author Carolina
  * @author Deive
  */
-public class LoginDAO implements DAOInterface{
+public class LoginDAO{
 
     private final Connection openCon;
-    private final Connection closeCon;
+
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public LoginDAO() {
         this.openCon = conecta.getConnection();
-        this.closeCon = conecta.closeConnection();
     }
 
     //Método que busca o usuário e a senha
@@ -37,44 +35,9 @@ public class LoginDAO implements DAOInterface{
         ResultSet rs = stm.executeQuery();
         if (rs.next()) {
             encontrado = true;
-            getCloseCon();
+            openCon.close();
             rs.close();
         }
         return encontrado;
-    }
-
-    private Connection getCloseCon() {
-        return closeCon;
-    }
-
-    @Override
-    public void inserir(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void alterar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void atualizar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void deletar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object getById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public List<Object> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }

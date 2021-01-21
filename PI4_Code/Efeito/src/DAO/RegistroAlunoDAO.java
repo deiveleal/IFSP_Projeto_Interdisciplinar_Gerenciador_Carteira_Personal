@@ -24,12 +24,11 @@ import java.util.logging.Logger;
  */
 public class RegistroAlunoDAO {
     private final Connection openCon;
-    private final Connection closeCon;
+
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public RegistroAlunoDAO() {
         this.openCon = conecta.getConnection();
-        this.closeCon = conecta.closeConnection();
     }
 
     public boolean inserir(RegistroAlunos aluno) {
@@ -61,8 +60,9 @@ public class RegistroAlunoDAO {
                 stmt.setString(12, aluno.getCidade());
                 
                 stmt.execute();
+                stmt.close();
             }
-            closeCon.close();
+            openCon.close();
             return true;            
         }
         catch (SQLException ex) {

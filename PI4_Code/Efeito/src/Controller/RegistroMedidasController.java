@@ -5,9 +5,9 @@
  */
 package Controller;
 
-import DAO.RegistroCorporalDAO;
+import DAO.RegistroMedidasDAO;
 import Model.MenuPrincipalScr;
-import Model.RegistroCorporalScr;
+import Model.RegistroMedidasScr;
 import Model.RegistroMedidas;
 import Model.Util;
 import java.net.URL;
@@ -32,7 +32,7 @@ import javafx.stage.Stage;
  *
  * @author deive
  */
-public class RegistroCorporalController implements Initializable {
+public class RegistroMedidasController implements Initializable {
 
     @FXML private TextField tf_id_aluno;
     @FXML private TextField tf_data;
@@ -129,9 +129,9 @@ public class RegistroCorporalController implements Initializable {
         double panturrilha = Double.parseDouble(tf_panturrilha.getText());
 
         RegistroMedidas regMedid = new RegistroMedidas(id_aluno, data_medicao, peso, altura, pescoco, peito, braco, antebraco, cintura, quadril, coxa, panturrilha);
-        RegistroCorporalDAO regCorpoDAO = new RegistroCorporalDAO();
+        RegistroMedidasDAO regMedDAO = new RegistroMedidasDAO();
         
-        if (regCorpoDAO.inserir(regMedid)) {
+        if (regMedDAO.inserir(regMedid)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Aluno cadastrado!");
             alert.show();
@@ -140,11 +140,10 @@ public class RegistroCorporalController implements Initializable {
             alert.setHeaderText("Erro ao cadastrar aluno!");
             alert.show();
         }
-    }
-    
-    
-        private void fechaJanela() {
-        RegistroCorporalScr.getStage().close();
+    }  
+        
+    private void fechaJanela() {
+        RegistroMedidasScr.getStage().close();
     }
     
 }

@@ -5,11 +5,12 @@
  */
 package Controller;
 
-import Model.DadosAlunoCadastradoScr;
 import Model.CadastraAlunoScr;
+import Model.DadosAlunoCadastradoScr;
 import Model.MenuAlunoScr;
 import Model.MenuPrincipalScr;
-import Model.RegistroCorporalScr;
+import Model.RegistroAvaliacaoFisicaScr;
+import Model.RegistroMedidasScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -50,21 +51,21 @@ public class MenuAlunoController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         // Implementações do botão cadastrar aluno
-        bt_dados_aluno.setOnMouseClicked((MouseEvent e) -> {
-            DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
+        bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {
+            CadastraAlunoScr cadAluno = new CadastraAlunoScr();
             try {
-                altRegAluno.start(new Stage());
+                cadAluno.start(new Stage());
                 fechaJanela();
             }
             catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        bt_dados_aluno.setOnKeyPressed((KeyEvent e) -> {
+        bt_cadastrar_aluno.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
+                CadastraAlunoScr cadAluno = new CadastraAlunoScr();
                 try {
-                    altRegAluno.start(new Stage());
+                    cadAluno.start(new Stage());
                     fechaJanela();
                 }
                 catch (Exception ex) {
@@ -73,10 +74,33 @@ public class MenuAlunoController implements Initializable {
             }
         });
         
+        // Implementações do botão add avaliação física
+        bt_add_avaliacao.setOnMouseClicked((MouseEvent e) -> {
+            RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr();
+            try {
+                regAvaFis.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_add_avaliacao.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr();
+                try {
+                    regAvaFis.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
         
-        // Implementações do botão cadastrar aluno
+        // Implementações do botão add medidas
         bt_add_medidas.setOnMouseClicked((MouseEvent e) -> {
-            RegistroCorporalScr regMed = new RegistroCorporalScr();
+            RegistroMedidasScr regMed = new RegistroMedidasScr();
             try {
                 regMed.start(new Stage());
                 fechaJanela();
@@ -87,7 +111,7 @@ public class MenuAlunoController implements Initializable {
         });
         bt_add_medidas.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                RegistroCorporalScr regMed = new RegistroCorporalScr();
+                RegistroMedidasScr regMed = new RegistroMedidasScr();
                 try {
                     regMed.start(new Stage());
                     fechaJanela();
@@ -98,7 +122,7 @@ public class MenuAlunoController implements Initializable {
             }
         });
         
-                // Implementações do botão cadastrar aluno
+                // Implementações do botão dados do aluno
         bt_dados_aluno.setOnMouseClicked((MouseEvent e) -> {
             DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
             try {

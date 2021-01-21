@@ -50,6 +50,7 @@ VALUES
 ("Deive Audieres Leal", 06146045675, "deive", "123456"
 );
 select * from personal
-    
+
+select * from medidas;  
     
     

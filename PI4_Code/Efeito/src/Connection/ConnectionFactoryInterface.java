@@ -16,5 +16,4 @@ import java.sql.Connection;
 
 public interface ConnectionFactoryInterface {
     public Connection getConnection();
-    public Connection closeConnection();
 }

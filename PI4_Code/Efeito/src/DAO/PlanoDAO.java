@@ -21,12 +21,11 @@ import java.util.logging.Logger;
 public class PlanoDAO {
     
     private final Connection openCon;
-    private final Connection closeCon;
+
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public PlanoDAO() {
         this.openCon = conecta.getConnection();
-        this.closeCon = conecta.closeConnection();
     }
     
     public boolean inserir(Plano planoDoAluno) throws SQLException{
@@ -43,9 +42,10 @@ public class PlanoDAO {
                 stmt.setInt(5, planoDoAluno.getNumeroAulasPorSemana());     
                 
                 stmt.execute();
-                closeCon.close();
+                stmt.close();
+                openCon.close();
+                return true;
             }
-            return true;
         }
         catch (SQLException ex) {
             Logger.getLogger(PlanoDAO.class.getName()).log(Level.SEVERE, null, ex);

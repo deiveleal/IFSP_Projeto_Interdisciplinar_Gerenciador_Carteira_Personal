@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author carolina
  * @author deive
  */
-public class RegistroCorporalScr extends Application {
+public class RegistroAvaliacaoFisicaScr extends Application {
 
     private static Stage stage;//Uma janela1
 
@@ -26,9 +26,9 @@ public class RegistroCorporalScr extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/RegistroCorporal.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/RegistroAvaliacaoFisica.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Registro Corporal");
+        stage.setTitle("Registro de Avaliação Física");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
@@ -40,7 +40,7 @@ public class RegistroCorporalScr extends Application {
     }
 
     public static void setStage(Stage stage) {
-        RegistroCorporalScr.stage = stage;
+        RegistroAvaliacaoFisicaScr.stage = stage;
     }
     
 }
