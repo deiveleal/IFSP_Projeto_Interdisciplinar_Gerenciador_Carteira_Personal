@@ -6,12 +6,10 @@
 package Controller;
 
 import DAO.RegistroAvaliacaoFisicaDAO;
-import DAO.RegistroMedidasDAO;
 import Model.CondicionamentoFisicoEnum;
 import Model.MenuPrincipalScr;
 import Model.RegistroAvaliacaoFisica;
 import Model.RegistroAvaliacaoFisicaScr;
-import Model.RegistroMedidas;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;
@@ -20,6 +18,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -51,7 +50,7 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+        iniComboBox();
         
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
@@ -80,7 +79,7 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
         //Implementação do botão salvar
         bt_salvar.setOnMouseClicked((MouseEvent e) -> {
             try {
-                salvarMedidas();
+                salvarAvaFis();
             } catch (ParseException ex) {
                 Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -88,7 +87,7 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
         bt_salvar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 try {
-                    salvarMedidas();
+                    salvarAvaFis();
                 } catch (ParseException ex) {
                     Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -108,7 +107,7 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
         });
     }   
     
-        private void salvarMedidas() throws ParseException {
+    private void salvarAvaFis() throws ParseException {
         
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         
@@ -132,6 +131,10 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
             alert.show();
         }
     }  
+    
+    private void iniComboBox(){
+        cb_condicionamento.setItems(FXCollections.observableArrayList(CondicionamentoFisicoEnum.values()));
+    }
         
     private void fechaJanela() {
         RegistroAvaliacaoFisicaScr.getStage().close();

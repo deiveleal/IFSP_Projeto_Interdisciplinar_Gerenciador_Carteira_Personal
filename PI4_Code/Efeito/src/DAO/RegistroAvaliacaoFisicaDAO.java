@@ -7,7 +7,6 @@ package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.RegistroAvaliacaoFisica;
-import Model.RegistroMedidas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -28,29 +27,23 @@ public class RegistroAvaliacaoFisicaDAO {
         this.openCon = conecta.getConnection();
     }          
 
-    public boolean inserir(RegistroMedidas regMedid) {
+    public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
-        String dataBanco = fmtUS.format(regMedid.getData_medicao());
+        String dataBanco = fmtUS.format(regAvaFis.getData_avaliacao());
         
-        String sql = "INSERT INTO medidas(id_aluno, data_medicao, peso, altura, pescoco, peito, braco,"
-                + "antebraco, cintura, quadril, coxa, panturrilha) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
+        String sql = "INSERT INTO avaliacao_fisica(id_aluno, data_avaliacao, "
+                + "pressao_art, batimento_repouso, nivel_condicionamento) "
+                + "VALUES(?,?,?,?,?);";
 
         try {
             PreparedStatement stmt = openCon.prepareStatement(sql);
             
-            stmt.setString(1, Integer.toString(regMedid.getId_aluno()));
+            stmt.setString(1, Integer.toString(regAvaFis.getId_aluno()));
             stmt.setString(2, dataBanco);
-            stmt.setString(3, Double.toString(regMedid.getPeso()));
-            stmt.setString(4, Double.toString(regMedid.getAltura()));
-            stmt.setString(5, Double.toString(regMedid.getPescoco()));
-            stmt.setString(6, Double.toString(regMedid.getPeito()));
-            stmt.setString(7, Double.toString(regMedid.getBraco()));
-            stmt.setString(8, Double.toString(regMedid.getAntebraco()));
-            stmt.setString(9, Double.toString(regMedid.getCintura()));
-            stmt.setString(10, Double.toString(regMedid.getQuadril()));
-            stmt.setString(11, Double.toString(regMedid.getCoxa()));
-            stmt.setString(12, Double.toString(regMedid.getPanturrilha()));
-
+            stmt.setString(3, Double.toString(regAvaFis.getPressao_art()));
+            stmt.setString(4, Double.toString(regAvaFis.getBatimento_repouso()));
+            stmt.setString(5, regAvaFis.getNivel_condicionamento().toString().toLowerCase());
+           
             stmt.execute();
             stmt.close();
             openCon.close();
@@ -60,10 +53,5 @@ public class RegistroAvaliacaoFisicaDAO {
             Logger.getLogger(RegistroAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    }
-
-    public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }

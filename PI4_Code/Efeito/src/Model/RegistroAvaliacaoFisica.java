@@ -12,66 +12,64 @@ import java.util.Date;
  * @author deive
  */
 public class RegistroAvaliacaoFisica {
-    private Date dataAvaliacao;
-    private double peso;
-    private int altura;
-    private double pressaoArterial;
-    private double batimentoRepouso;
-    private Enum nivelConicionamento;
+    private int id_aluno;
+    private Date data_avaliacao;
+    private double pressao_art;
+    private double batimento_repouso;
+    private Enum nivel_condicionamento;
 
     public RegistroAvaliacaoFisica(int id_aluno, Date data_avaliacao, double pressao_art, double batimento_repouso, Enum nivel_condicionamento) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.id_aluno = id_aluno;
+        this.data_avaliacao = data_avaliacao;
+        this.pressao_art = pressao_art;
+        this.batimento_repouso = batimento_repouso;
+        this.nivel_condicionamento = nivel_condicionamento;
     }
     
     //Métodos acessores
 
-    public Date getDataAvaliacao() {
-        return dataAvaliacao;
+    public int getId_aluno() {
+        return id_aluno;
     }
 
-    public void setDataAvaliacao(Date dataAvaliacao) {
-        this.dataAvaliacao = dataAvaliacao;
+    public void setId_aluno(int id_aluno) {
+        this.id_aluno = id_aluno;
     }
 
-    public double getPeso() {
-        return peso;
+    public Date getData_avaliacao() {
+        return data_avaliacao;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setData_avaliacao(Date data_avaliacao) {
+        this.data_avaliacao = data_avaliacao;
     }
 
-    public int getAltura() {
-        return altura;
+    public double getPressao_art() {
+        return pressao_art;
     }
 
-    public void setAltura(int altura) {
-        this.altura = altura;
+    public void setPressao_art(double pressao_art) {
+        this.pressao_art = pressao_art;
     }
 
-    public double getPressaoArterial() {
-        return pressaoArterial;
+    public double getBatimento_repouso() {
+        return batimento_repouso;
     }
 
-    public void setPressaoArterial(double pressaoArterial) {
-        this.pressaoArterial = pressaoArterial;
+    public void setBatimento_repouso(double batimento_repouso) {
+        this.batimento_repouso = batimento_repouso;
     }
 
-    public double getBatimentoRepouso() {
-        return batimentoRepouso;
+    public Enum getNivel_condicionamento() {
+        return nivel_condicionamento;
     }
 
-    public void setBatimentoRepouso(double batimentoRepouso) {
-        this.batimentoRepouso = batimentoRepouso;
+    public void setNivel_condicionamento(Enum nivel_condicionamento) {
+        this.nivel_condicionamento = nivel_condicionamento;
     }
 
-    public Enum getNivelConicionamento() {
-        return nivelConicionamento;
-    }
-
-    public void setNivelConicionamento(Enum nivelConicionamento) {
-        this.nivelConicionamento = nivelConicionamento;
-    }
+    
+    
     
     
 }
