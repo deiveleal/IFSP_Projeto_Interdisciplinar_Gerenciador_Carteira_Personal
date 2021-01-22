@@ -55,7 +55,8 @@ CREATE TABLE plano(
     valor DOUBLE,
     data_inicio DATE,
     data_final DATE,
-    
+    numero_aulas_por_semana INT,
+        
 	PRIMARY KEY(id_plano, id_aluno),
     FOREIGN KEY(id_aluno) REFERENCES aluno(id_aluno)
 );

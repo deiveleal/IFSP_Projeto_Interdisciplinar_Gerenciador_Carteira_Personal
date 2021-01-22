@@ -14,6 +14,18 @@ import java.util.Date;
 public class testaConexao {
     public static void main(String[] args) throws SQLException{
         
+        PlanoDAO planoTesteDAO = new PlanoDAO();
+        Plano planoTeste = new Plano();
+        
+        planoTeste.setDataInicio(new Date());
+        planoTeste.setNumeroAulasPorSemana(3);
+        planoTeste.setValor(300.0);
+        
+        
+        planoTesteDAO.inserir(planoTeste);
+        
+               
+        
         ConnectionFactoryMysqlSingleton factoryMysql = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
         try (Connection con = factoryMysql.getConnection()) {
             System.out.println("Conexão aberta!");
@@ -21,11 +33,7 @@ public class testaConexao {
         }
         
         
-        Plano planoTeste = new Plano();
-        PlanoDAO planoTesteDAO = new PlanoDAO();
+      
         
-        planoTeste.setDataInicio(new Date());
-        System.out.println(planoTeste.getDataInicio());
-        //planoTeste.setNumeroAulasPorSemana(3);
     }
 }
