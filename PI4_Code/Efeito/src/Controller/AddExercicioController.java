@@ -6,16 +6,12 @@
 package Controller;
 
 import DAO.AddExercicioDAO;
-import DAO.RegistroMedidasDAO;
 import Model.AddExercicio;
+import Model.AddExercicioScr;
 import Model.MenuPrincipalScr;
-import Model.RegistroMedidasScr;
-import Model.RegistroMedidas;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +32,7 @@ import javafx.stage.Stage;
  */
 public class AddExercicioController implements Initializable {
 
-    @FXML private TextField tf_nome_equip_exerc;
+    @FXML private TextField tf_nome_exercicio;
     @FXML private TextField tf_grupo_muscular;
     @FXML private TextField tf_acao_principal;
     @FXML private TextField tf_posicao;
@@ -108,13 +104,13 @@ public class AddExercicioController implements Initializable {
     
         private void salvarExercicio() throws ParseException {
         
-        String nome_equip_exerc = tf_nome_equip_exerc.getText();
+        String nome_exercicio = tf_nome_exercicio.getText();
         String grupo_muscular = tf_grupo_muscular.getText();
         String acao_principal = tf_acao_principal.getText();
         String posicao = tf_posicao.getText();
         String observacao = tf_observacoes.getText();
 
-        AddExercicio addExerc = new AddExercicio(nome_equip_exerc, grupo_muscular, acao_principal, posicao, observacao);
+        AddExercicio addExerc = new AddExercicio(nome_exercicio, grupo_muscular, acao_principal, posicao, observacao);
         AddExercicioDAO addExercDAO = new AddExercicioDAO();
         
         if (addExercDAO.inserir(addExerc)) {
@@ -129,7 +125,7 @@ public class AddExercicioController implements Initializable {
     }  
         
     private void fechaJanela() {
-        RegistroMedidasScr.getStage().close();
+        AddExercicioScr.getStage().close();
     }
     
 }

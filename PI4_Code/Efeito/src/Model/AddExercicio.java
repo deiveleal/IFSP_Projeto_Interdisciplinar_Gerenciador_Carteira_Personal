@@ -5,45 +5,65 @@
  */
 package Model;
 
-import javafx.application.Application;
-import static javafx.application.Application.launch;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
 /**
- *
+ * @author carol
  * @author deive
  */
-public class AddExercicio extends Application{
+public class AddExercicio{
+
+    private String nome_exercicio;
+    private String grupo_muscular;
+    private String acao_principal;
+    private String posicao;
+    private String observacao;
     
-    private static Stage stage;
+    public AddExercicio(String nome_exercicio, String grupo_muscular, String acao_principal, String posicao, String observacao) {
+        this.nome_exercicio = nome_exercicio;
+        this.grupo_muscular = grupo_muscular;
+        this.acao_principal = acao_principal;
+        this.posicao = posicao;
+        this.observacao = observacao;
 
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    public AddExercicio(String nome_equip_exerc, String grupo_muscular, String acao_principal, String posicao, String observacao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/AddExercicio.fxml"));//Carrega FXML
-        Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Adição de Exercícios");
-        stage.setScene(scene);//Coloca a cena em uma janela
-        stage.show();//Abre a janela2
-        setStage(stage);
-    }
-
-    public static Stage getStage() {
-        return stage;
-    }
-
-    public static void setStage(Stage stage) {
-        AddExercicio.stage = stage;
     }
     
+    public String getNome_exercicio() {
+        return nome_exercicio;
+    }
+
+    public void setNome_exercicio(String nome_exercicio) {
+        this.nome_exercicio = nome_exercicio;
+    }
+
+    public String getGrupo_muscular() {
+        return grupo_muscular;
+    }
+
+    public void setGrupo_muscular(String grupo_muscular) {
+        this.grupo_muscular = grupo_muscular;
+    }
+
+    public String getAcao_principal() {
+        return acao_principal;
+    }
+
+    public void setAcao_principal(String acao_principal) {
+        this.acao_principal = acao_principal;
+    }
+
+    public String getPosicao() {
+        return posicao;
+    }
+
+    public void setPosicao(String posicao) {
+        this.posicao = posicao;
+    }
+
+    public String getObservacao() {
+        return observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        this.observacao = observacao;
+    }
+      
 }

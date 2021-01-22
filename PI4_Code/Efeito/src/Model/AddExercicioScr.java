@@ -26,7 +26,7 @@ public class AddExercicioScr extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/addExercicio.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/AddExercicio.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
         stage.setTitle("Adição de Exercícios");
         stage.setScene(scene);//Coloca a cena em uma janela
