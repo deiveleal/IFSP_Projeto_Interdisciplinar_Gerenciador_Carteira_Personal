@@ -8,7 +8,6 @@ package DAO;
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.Plano;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -36,7 +35,7 @@ public class PlanoDAO {
         
         
         String sql = "INSERT INTO plano(valor, numero_meses, data_inicio, data_final, +"
-                + "numero_aulas_por_semana) VALUES (?,?,?,?,?);";
+                + "numero_aulas_por_semana, ) VALUES (?,?,?,?,?);";
         
         try{
             try(PreparedStatement stmt = openCon.prepareStatement(sql)){
