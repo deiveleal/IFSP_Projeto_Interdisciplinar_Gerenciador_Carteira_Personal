@@ -52,7 +52,7 @@ public class DadosAlunoCadastradoController implements Initializable{
                 fechaJanela();
             }
             catch (Exception ex) {
-                Logger.getLogger(EquipamentosController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_menu.setOnKeyPressed((KeyEvent e) -> {
@@ -63,7 +63,7 @@ public class DadosAlunoCadastradoController implements Initializable{
                     fechaJanela();
                 }
                 catch (Exception ex) {
-                    Logger.getLogger(EquipamentosController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

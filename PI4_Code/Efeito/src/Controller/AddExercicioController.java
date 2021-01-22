@@ -5,7 +5,9 @@
  */
 package Controller;
 
+import DAO.AddExercicioDAO;
 import DAO.RegistroMedidasDAO;
+import Model.AddExercicio;
 import Model.MenuPrincipalScr;
 import Model.RegistroMedidasScr;
 import Model.RegistroMedidas;
@@ -32,20 +34,13 @@ import javafx.stage.Stage;
  *
  * @author deive
  */
-public class RegistroMedidasController implements Initializable {
+public class AddExercicioController implements Initializable {
 
-    @FXML private TextField tf_id_aluno;
-    @FXML private TextField tf_data;
-    @FXML private TextField tf_peso;
-    @FXML private TextField tf_altura;
-    @FXML private TextField tf_pescoco;
-    @FXML private TextField tf_peito;
-    @FXML private TextField tf_braco;
-    @FXML private TextField tf_antebraco;
-    @FXML private TextField tf_cintura;
-    @FXML private TextField tf_quadril;
-    @FXML private TextField tf_coxa;
-    @FXML private TextField tf_panturrilha;
+    @FXML private TextField tf_nome_equip_exerc;
+    @FXML private TextField tf_grupo_muscular;
+    @FXML private TextField tf_acao_principal;
+    @FXML private TextField tf_posicao;
+    @FXML private TextField tf_observacoes;
     @FXML private Button bt_menu;
     @FXML private Button bt_salvar;
     @FXML private Button bt_sair;
@@ -83,7 +78,7 @@ public class RegistroMedidasController implements Initializable {
         //Implementação do botão salvar
         bt_salvar.setOnMouseClicked((MouseEvent e) -> {
             try {
-                salvarMedidas();
+                salvarExercicio();
             } catch (ParseException ex) {
                 Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -91,7 +86,7 @@ public class RegistroMedidasController implements Initializable {
         bt_salvar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 try {
-                    salvarMedidas();
+                    salvarExercicio();
                 } catch (ParseException ex) {
                     Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -111,27 +106,18 @@ public class RegistroMedidasController implements Initializable {
         });
     }   
     
-        private void salvarMedidas() throws ParseException {
+        private void salvarExercicio() throws ParseException {
         
-        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-        
-        int id_aluno = Integer.parseInt(tf_id_aluno.getText());
-        Date data_medicao = fmt.parse(tf_data.getText());
-        double peso = Double.parseDouble(tf_peso.getText());
-        double altura = Double.parseDouble(tf_altura.getText());
-        double pescoco = Double.parseDouble(tf_pescoco.getText());
-        double peito = Double.parseDouble(tf_peito.getText());
-        double braco = Double.parseDouble(tf_braco.getText());
-        double antebraco = Double.parseDouble(tf_antebraco.getText());
-        double cintura = Double.parseDouble(tf_cintura.getText());
-        double quadril = Double.parseDouble(tf_quadril.getText());
-        double coxa = Double.parseDouble(tf_coxa.getText());
-        double panturrilha = Double.parseDouble(tf_panturrilha.getText());
+        String nome_equip_exerc = tf_nome_equip_exerc.getText();
+        String grupo_muscular = tf_grupo_muscular.getText();
+        String acao_principal = tf_acao_principal.getText();
+        String posicao = tf_posicao.getText();
+        String observacao = tf_observacoes.getText();
 
-        RegistroMedidas regMedid = new RegistroMedidas(id_aluno, data_medicao, peso, altura, pescoco, peito, braco, antebraco, cintura, quadril, coxa, panturrilha);
-        RegistroMedidasDAO regMedDAO = new RegistroMedidasDAO();
+        AddExercicio addExerc = new AddExercicio(nome_equip_exerc, grupo_muscular, acao_principal, posicao, observacao);
+        AddExercicioDAO addExercDAO = new AddExercicioDAO();
         
-        if (regMedDAO.inserir(regMedid)) {
+        if (addExercDAO.inserir(addExerc)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Aluno cadastrado!");
             alert.show();

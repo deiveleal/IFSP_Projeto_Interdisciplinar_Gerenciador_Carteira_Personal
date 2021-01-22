@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author deive
  */
-public class EquipamentosScr extends Application{
+public class ExerciciosScr extends Application{
     
     private static Stage stage;
 
@@ -26,9 +26,9 @@ public class EquipamentosScr extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Equipamentos.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/Exercicios.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Equipamentos");
+        stage.setTitle("Exercícios Cadastrados");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
@@ -39,7 +39,7 @@ public class EquipamentosScr extends Application{
     }
 
     public static void setStage(Stage stage) {
-        EquipamentosScr.stage = stage;
+        ExerciciosScr.stage = stage;
     }
     
 }

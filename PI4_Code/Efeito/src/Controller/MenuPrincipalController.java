@@ -2,7 +2,7 @@ package Controller;
 
 import Model.MenuAcompanhamentoScr;
 import Model.MenuAlunoScr;
-import Model.EquipamentosScr;
+import Model.ExerciciosScr;
 import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
@@ -58,7 +58,7 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementação do botão equipamento
         bt_equipamentos.setOnMouseClicked((MouseEvent e) -> {
-            EquipamentosScr equip = new EquipamentosScr();
+            ExerciciosScr equip = new ExerciciosScr();
 
             try {
                 equip.start(new Stage());
@@ -70,7 +70,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_equipamentos.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                EquipamentosScr equip = new EquipamentosScr();
+                ExerciciosScr equip = new ExerciciosScr();
 
                 try {
                     equip.start(new Stage());
@@ -110,7 +110,7 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementações do botão financeiro
         bt_financeiro.setOnMouseClicked((MouseEvent e) -> {
-            EquipamentosScr menuFinanceiro = new EquipamentosScr();
+            ExerciciosScr menuFinanceiro = new ExerciciosScr();
 
             try {
                 menuFinanceiro.start(new Stage());
@@ -122,7 +122,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_financeiro.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                EquipamentosScr menuFinanceiro = new EquipamentosScr();
+                ExerciciosScr menuFinanceiro = new ExerciciosScr();
                 try {
                     menuFinanceiro.start(new Stage());
                     fechaJanela();

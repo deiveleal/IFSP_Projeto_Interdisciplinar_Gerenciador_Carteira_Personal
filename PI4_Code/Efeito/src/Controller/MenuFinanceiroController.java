@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.MenuAlunoScr;
-import Model.EquipamentosScr;
+import Model.ExerciciosScr;
 import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
@@ -74,6 +74,6 @@ public class MenuFinanceiroController implements Initializable {
         });
     }
     private void fechaJanela() {
-        EquipamentosScr.getStage().close();
+        ExerciciosScr.getStage().close();
     };
 }

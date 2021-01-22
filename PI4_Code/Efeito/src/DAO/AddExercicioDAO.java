@@ -6,6 +6,7 @@
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
+import Model.AddExercicio;
 import Model.RegistroAlunos;
 import Model.SexoEnum;
 import java.sql.Connection;
@@ -22,12 +23,12 @@ import java.util.logging.Logger;
  * @author carolina
  * @author deive
  */
-public class EquipamentosDAO {
+public class AddExercicioDAO {
     private final Connection openCon;
 
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
-    public EquipamentosDAO() {
+    public AddExercicioDAO() {
         this.openCon = conecta.getConnection();
     }
 
@@ -66,7 +67,7 @@ public class EquipamentosDAO {
             return true;            
         }
         catch (SQLException ex) {
-            Logger.getLogger(EquipamentosDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AddExercicioDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -88,6 +89,10 @@ public class EquipamentosDAO {
     }
 
     public List<Object> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean inserir(AddExercicio addExerc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

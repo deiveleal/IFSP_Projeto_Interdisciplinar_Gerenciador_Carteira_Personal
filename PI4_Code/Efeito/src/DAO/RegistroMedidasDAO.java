@@ -6,6 +6,7 @@
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
+import Model.AddExercicio;
 import Model.RegistroAvaliacaoFisica;
 import Model.RegistroMedidas;
 import java.sql.Connection;
@@ -63,6 +64,10 @@ public class RegistroMedidasDAO {
     }
 
     public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public boolean inserir(AddExercicio addExerc) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
