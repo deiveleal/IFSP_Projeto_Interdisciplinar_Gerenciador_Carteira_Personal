@@ -2,8 +2,7 @@ package Controller;
 
 import Model.MenuAcompanhamentoScr;
 import Model.MenuAlunoScr;
-import Model.MenuExerciciosScr;
-import Model.MenuFinanceiroScr;
+import Model.EquipamentosScr;
 import Model.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
@@ -21,7 +20,7 @@ import javafx.stage.Stage;
 public class MenuPrincipalController implements Initializable{
 
     @FXML private Button bt_aluno;
-    @FXML private Button bt_exercicios;
+    @FXML private Button bt_equipamentos;
     @FXML private Button bt_acompanhamento;
     @FXML private Button bt_financeiro;
     @FXML private Button bt_sair;
@@ -30,6 +29,7 @@ public class MenuPrincipalController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
         //Implementações do botão aluno
         bt_aluno.setOnMouseClicked((MouseEvent e) -> {
             MenuAlunoScr menuAluno = new MenuAlunoScr();
@@ -56,24 +56,24 @@ public class MenuPrincipalController implements Initializable{
             }
         });
         
-        //Implementação do botão exercicios
-        bt_exercicios.setOnMouseClicked((MouseEvent e) -> {
-            MenuExerciciosScr menuExercicios = new MenuExerciciosScr();
+        //Implementação do botão equipamento
+        bt_equipamentos.setOnMouseClicked((MouseEvent e) -> {
+            EquipamentosScr equip = new EquipamentosScr();
 
             try {
-                menuExercicios.start(new Stage());
+                equip.start(new Stage());
                 fechaJanela();
             }
             catch (Exception ex) {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        bt_exercicios.setOnKeyPressed((KeyEvent e) -> {
+        bt_equipamentos.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuExerciciosScr menuExercicios = new MenuExerciciosScr();
+                EquipamentosScr equip = new EquipamentosScr();
 
                 try {
-                    menuExercicios.start(new Stage());
+                    equip.start(new Stage());
                     fechaJanela();
                 }
                 catch (Exception ex) {
@@ -110,7 +110,7 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementações do botão financeiro
         bt_financeiro.setOnMouseClicked((MouseEvent e) -> {
-            MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
+            EquipamentosScr menuFinanceiro = new EquipamentosScr();
 
             try {
                 menuFinanceiro.start(new Stage());
@@ -122,7 +122,7 @@ public class MenuPrincipalController implements Initializable{
         });
         bt_financeiro.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
+                EquipamentosScr menuFinanceiro = new EquipamentosScr();
                 try {
                     menuFinanceiro.start(new Stage());
                     fechaJanela();

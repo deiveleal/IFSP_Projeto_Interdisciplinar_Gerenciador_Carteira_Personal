@@ -12,7 +12,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,12 +21,12 @@ import java.util.logging.Logger;
  * @author carolina
  * @author deive
  */
-public class RegistroAlunoDAO {
+public class RegistraAlunoDAO {
     private final Connection openCon;
 
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
-    public RegistroAlunoDAO() {
+    public RegistraAlunoDAO() {
         this.openCon = conecta.getConnection();
     }
 
@@ -66,29 +65,8 @@ public class RegistroAlunoDAO {
             return true;            
         }
         catch (SQLException ex) {
-            Logger.getLogger(RegistroAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    }
-
-    public void alterar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void atualizar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void deletar(Object obj) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Object getById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public List<Object> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+    }    
 }

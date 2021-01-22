@@ -57,7 +57,7 @@ public class RegistroMedidasDAO {
             return true;         
         }
         catch (SQLException ex) {
-            Logger.getLogger(RegistroAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }

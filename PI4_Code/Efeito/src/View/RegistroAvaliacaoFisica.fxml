@@ -38,7 +38,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_pressao_arterial" layoutX="513.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Peso">
+      <TextField fx:id="tf_pressao_arterial" layoutX="513.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Pressão Arterial">
          <font>
             <Font size="14.0" />
          </font></TextField>
@@ -47,7 +47,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_batimento_repouso" layoutX="737.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Altura">
+      <TextField fx:id="tf_batimento_repouso" layoutX="737.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Batimento em Repouso">
          <font>
             <Font size="14.0" />
          </font></TextField>

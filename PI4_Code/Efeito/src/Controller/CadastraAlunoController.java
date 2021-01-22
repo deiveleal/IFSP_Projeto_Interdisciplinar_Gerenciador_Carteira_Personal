@@ -5,7 +5,7 @@
  */
 package Controller;
 
-import DAO.RegistroAlunoDAO;
+import DAO.RegistraAlunoDAO;
 import Model.CadastraAlunoScr;
 import Model.MenuPrincipalScr;
 import Model.RegistroAlunos;
@@ -65,7 +65,7 @@ public class CadastraAlunoController implements Initializable{
                 fechaJanela();
             }
             catch (Exception ex) {
-                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(EquipamentosController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_menu.setOnKeyPressed((KeyEvent e) -> {
@@ -76,7 +76,7 @@ public class CadastraAlunoController implements Initializable{
                     fechaJanela();
                 }
                 catch (Exception ex) {
-                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(EquipamentosController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -130,7 +130,7 @@ public class CadastraAlunoController implements Initializable{
         Enum sexo = (Enum) cb_sexo.getValue();
 
         RegistroAlunos regAlunos = new RegistroAlunos(nome, dataNascimento, sexo, cpf, email, tipoSanguineo, rhSangue, telefone, celular, rua, bairro, cidade);
-        RegistroAlunoDAO regAlunoDAO = new RegistroAlunoDAO();
+        RegistraAlunoDAO regAlunoDAO = new RegistraAlunoDAO();
         
         if (regAlunoDAO.inserir(regAlunos)) {
             Alert alert = new Alert(AlertType.CONFIRMATION);

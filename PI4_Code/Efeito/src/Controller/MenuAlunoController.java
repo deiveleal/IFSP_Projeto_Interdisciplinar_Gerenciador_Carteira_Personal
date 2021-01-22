@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.CadastraAlunoScr;
-import Model.DadosAlunoCadastradoScr;
 import Model.MenuAlunoScr;
 import Model.MenuPrincipalScr;
 import Model.RegistroAvaliacaoFisicaScr;
@@ -25,13 +19,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author deive
- */
-public class MenuAlunoController implements Initializable {
-    
+public class MenuAlunoController implements Initializable{
+
     @FXML private TextField tf_entra_nome_aluno;
     @FXML private Button bt_buscar;
     @FXML private Button bt_dados_aluno;
@@ -46,13 +35,14 @@ public class MenuAlunoController implements Initializable {
     @FXML private Button bt_sair;
     
     Util util = new Util();
-    
+
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL location, ResourceBundle resources) {
         
-        // Implementações do botão cadastrar aluno
+        //Implementações do botão aluno
         bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {
             CadastraAlunoScr cadAluno = new CadastraAlunoScr();
+
             try {
                 cadAluno.start(new Stage());
                 fechaJanela();
@@ -64,6 +54,7 @@ public class MenuAlunoController implements Initializable {
         bt_cadastrar_aluno.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 CadastraAlunoScr cadAluno = new CadastraAlunoScr();
+
                 try {
                     cadAluno.start(new Stage());
                     fechaJanela();
@@ -74,9 +65,10 @@ public class MenuAlunoController implements Initializable {
             }
         });
         
-        // Implementações do botão add avaliação física
+        //Implementações do botão add avaliação
         bt_add_avaliacao.setOnMouseClicked((MouseEvent e) -> {
             RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr();
+
             try {
                 regAvaFis.start(new Stage());
                 fechaJanela();
@@ -88,6 +80,7 @@ public class MenuAlunoController implements Initializable {
         bt_add_avaliacao.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr();
+
                 try {
                     regAvaFis.start(new Stage());
                     fechaJanela();
@@ -98,9 +91,10 @@ public class MenuAlunoController implements Initializable {
             }
         });
         
-        // Implementações do botão add medidas
+        //Implementações do botão add medidas
         bt_add_medidas.setOnMouseClicked((MouseEvent e) -> {
             RegistroMedidasScr regMed = new RegistroMedidasScr();
+
             try {
                 regMed.start(new Stage());
                 fechaJanela();
@@ -112,6 +106,7 @@ public class MenuAlunoController implements Initializable {
         bt_add_medidas.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 RegistroMedidasScr regMed = new RegistroMedidasScr();
+
                 try {
                     regMed.start(new Stage());
                     fechaJanela();
@@ -122,33 +117,11 @@ public class MenuAlunoController implements Initializable {
             }
         });
         
-                // Implementações do botão dados do aluno
-        bt_dados_aluno.setOnMouseClicked((MouseEvent e) -> {
-            DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
-            try {
-                altRegAluno.start(new Stage());
-                fechaJanela();
-            }
-            catch (Exception ex) {
-                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        bt_dados_aluno.setOnKeyPressed((KeyEvent e) -> {
-            if (e.getCode() == KeyCode.ENTER) {
-                DadosAlunoCadastradoScr altRegAluno = new DadosAlunoCadastradoScr();
-                try {
-                    altRegAluno.start(new Stage());
-                    fechaJanela();
-                }
-                catch (Exception ex) {
-                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
         
-        // Implementações do botão menu iniciar
+        //Implementações do botão menu inicial
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
+
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
@@ -160,6 +133,7 @@ public class MenuAlunoController implements Initializable {
         bt_menu_iniciar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
+
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
@@ -169,12 +143,13 @@ public class MenuAlunoController implements Initializable {
                 }
             }
         });
-
-        // Implementações do botão do sair
+        
+        
+        //Implementações do botão Sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
             util.voltaTelaLogin();
             fechaJanela();
-        });
+        });   
         bt_sair.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 util.voltaTelaLogin();
@@ -182,7 +157,10 @@ public class MenuAlunoController implements Initializable {
             }
         });
     }
+    
     private void fechaJanela() {
         MenuAlunoScr.getStage().close();
-    };
+    }
+    
+
 }

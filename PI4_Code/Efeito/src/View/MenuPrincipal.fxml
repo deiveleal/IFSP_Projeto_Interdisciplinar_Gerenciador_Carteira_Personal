@@ -17,7 +17,7 @@
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_exercicios" layoutX="529.0" layoutY="164.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Exercicios">
+      <Button fx:id="bt_equipamentos" layoutX="529.0" layoutY="164.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Equipamentos">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
