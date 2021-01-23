@@ -50,7 +50,7 @@ public class MenuFinanceiroController implements Initializable {
                 fechaJanela();
             }
             catch (Exception ex) {
-                Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_plano.setOnKeyPressed((KeyEvent e) -> {
@@ -61,7 +61,7 @@ public class MenuFinanceiroController implements Initializable {
                     fechaJanela();
                 }
                 catch (Exception ex) {
-                    Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
