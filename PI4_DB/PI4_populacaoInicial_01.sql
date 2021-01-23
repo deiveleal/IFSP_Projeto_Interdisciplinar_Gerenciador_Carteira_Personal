@@ -1,3 +1,4 @@
+USE sistema_efeito;
 INSERT INTO cadastro_exercicio(
     nome_exercicio,
     grupo_muscular,

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.ModelScreen.CadastraPlanoScr;
 import Model.ModelScreen.MenuAlunoScr;
 import Model.ModelScreen.ExerciciosScr;
 import Model.ModelScreen.MenuPrincipalScr;
@@ -31,6 +32,7 @@ public class MenuFinanceiroController implements Initializable {
     @FXML private Button bt_cadastrar_aluno;
     @FXML private Button bt_avaliacao;
     @FXML private Button bt_medidas;
+    @FXML private Button bt_plano;
     @FXML private Button bt_menu_iniciar;
     @FXML private Button bt_sair;
     
@@ -39,6 +41,31 @@ public class MenuFinanceiroController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+         // Implementações do botão plano
+        bt_plano.setOnMouseClicked((MouseEvent e) -> {
+            CadastraPlanoScr cadastraPlano = new CadastraPlanoScr();
+            try {
+                cadastraPlano.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_plano.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                CadastraPlanoScr cadastraPlano = new CadastraPlanoScr();
+                try {
+                    cadastraPlano.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {

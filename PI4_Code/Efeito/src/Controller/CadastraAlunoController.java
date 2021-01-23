@@ -12,6 +12,7 @@ import Model.RegistroAlunos;
 import Model.ModelEnum.RhSangueEnum;
 import Model.ModelEnum.SexoEnum;
 import Model.ModelEnum.TipoSanguineoEnum;
+import Model.ModelScreen.CadastraPlanoScr;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;
@@ -38,6 +39,7 @@ public class CadastraAlunoController implements Initializable{
     @FXML private Button bt_menu;
     @FXML private Button bt_sair;
     @FXML private Button bt_salvar;
+    @FXML private Button bt_plano;
     @FXML private TextField tf_nome;
     @FXML private TextField tf_data_nascimento;
     @FXML private TextField tf_endereco;
@@ -50,6 +52,7 @@ public class CadastraAlunoController implements Initializable{
     @FXML private ComboBox<RhSangueEnum> cb_fator_rh;
     @FXML private ComboBox<SexoEnum> cb_sexo;
     @FXML private TextField tf_cpf;
+    
     
     Util util = new Util();
 
@@ -77,6 +80,30 @@ public class CadastraAlunoController implements Initializable{
                 }
                 catch (Exception ex) {
                     Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
+        // Implementações do botão plano
+        bt_plano.setOnMouseClicked((MouseEvent e) -> {
+            CadastraPlanoScr cadastraPlano = new CadastraPlanoScr();
+            try {
+                cadastraPlano.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_plano.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                CadastraPlanoScr cadastraPlano = new CadastraPlanoScr();
+                try {
+                    cadastraPlano.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

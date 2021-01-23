@@ -3,6 +3,7 @@ package Controller;
 import Model.ModelScreen.MenuAcompanhamentoScr;
 import Model.ModelScreen.MenuAlunoScr;
 import Model.ModelScreen.ExerciciosScr;
+import Model.ModelScreen.MenuFinanceiroScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
@@ -110,25 +111,25 @@ public class MenuPrincipalController implements Initializable{
         
         //Implementações do botão financeiro
         bt_financeiro.setOnMouseClicked((MouseEvent e) -> {
-            ExerciciosScr menuFinanceiro = new ExerciciosScr();
+            MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
 
             try {
                 menuFinanceiro.start(new Stage());
                 fechaJanela();
             }
             catch (Exception ex) {
-                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_financeiro.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                ExerciciosScr menuFinanceiro = new ExerciciosScr();
+                MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
                 try {
                     menuFinanceiro.start(new Stage());
                     fechaJanela();
                 }
                 catch (Exception ex) {
-                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });        
