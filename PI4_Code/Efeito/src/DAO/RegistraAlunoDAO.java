@@ -7,11 +7,14 @@ package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.RegistroAlunos;
-import Model.SexoEnum;
+import Model.ModelEnum.SexoEnum;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -68,5 +71,34 @@ public class RegistraAlunoDAO {
             Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    }    
+    } 
+    
+    //Método que retorna uma lista de alunos
+    public List<RegistroAlunos> getList() {
+        List<RegistroAlunos> regAlunoList = new ArrayList<>();
+        String sql = "SELECT * FROM Estoque ORDER BY nomeItem";
+        try {
+            PreparedStatement stmt = openCon.prepareStatement(sql);
+            ResultSet ResSet = stmt.executeQuery();
+            while (ResSet.next()) {
+                RegistroAlunos regAluno = new RegistroAlunos();
+
+                regAluno.setNome(ResSet.getString("nome"));
+                regAluno.setDataNascimento(ResSet.getDate("data_nascimento"));
+                //regAluno.setSexo(ResSet.getObject("sexo"));
+                //regAluno.setQtdItem(ResSet.getDouble("quantItem"));
+
+                regAlunoList.add(regAluno);
+            }
+            stmt.close();
+            ResSet.close();
+            openCon.close();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Erro! Lista não retornada");
+            return null;
+        }
+        return regAlunoList;
+    }
 }

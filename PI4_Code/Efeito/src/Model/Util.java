@@ -5,6 +5,7 @@
  */
 package Model;
 
+import Model.ModelScreen.LoginScr;
 import Controller.MenuPrincipalController;
 import java.util.logging.Level;
 import java.util.logging.Logger;

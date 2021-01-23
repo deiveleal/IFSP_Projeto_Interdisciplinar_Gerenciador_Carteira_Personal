@@ -6,8 +6,8 @@
 package Controller;
 
 import DAO.LoginDAO;
-import Model.LoginScr;
-import Model.MenuPrincipalScr;
+import Model.ModelScreen.LoginScr;
+import Model.ModelScreen.MenuPrincipalScr;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

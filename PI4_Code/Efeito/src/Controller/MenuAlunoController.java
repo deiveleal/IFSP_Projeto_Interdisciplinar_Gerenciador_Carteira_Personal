@@ -1,10 +1,11 @@
 package Controller;
 
-import Model.CadastraAlunoScr;
-import Model.MenuAlunoScr;
-import Model.MenuPrincipalScr;
-import Model.RegistroAvaliacaoFisicaScr;
-import Model.RegistroMedidasScr;
+import Model.ModelScreen.CadastraAlunoScr;
+import Model.ModelScreen.DadosAlunoCadastradoScr;
+import Model.ModelScreen.MenuAlunoScr;
+import Model.ModelScreen.MenuPrincipalScr;
+import Model.ModelScreen.RegistroAvaliacaoFisicaScr;
+import Model.ModelScreen.RegistroMedidasScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,6 +39,35 @@ public class MenuAlunoController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+
+
+
+        //Implementação da ação do botão aluno
+        bt_dados_aluno.setOnMouseClicked((MouseEvent e) -> {
+            DadosAlunoCadastradoScr dadoAlunoCad = new DadosAlunoCadastradoScr();
+
+            try {
+                dadoAlunoCad.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_dados_aluno.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                DadosAlunoCadastradoScr dadoAlunoCad = new DadosAlunoCadastradoScr();
+
+                try {
+                    dadoAlunoCad.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });       
         
         //Implementações do botão aluno
         bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {

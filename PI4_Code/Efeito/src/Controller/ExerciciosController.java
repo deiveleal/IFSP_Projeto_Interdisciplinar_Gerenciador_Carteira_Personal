@@ -6,11 +6,11 @@
 package Controller;
 
 import Model.AddExercicio;
-import Model.AddExercicioScr;
-import Model.ExerciciosScr;
-import Model.MenuPrincipalScr;
-import Model.RegistroAvaliacaoFisicaScr;
-import Model.RegistroMedidasScr;
+import Model.ModelScreen.AddExercicioScr;
+import Model.ModelScreen.ExerciciosScr;
+import Model.ModelScreen.MenuPrincipalScr;
+import Model.ModelScreen.RegistroAvaliacaoFisicaScr;
+import Model.ModelScreen.RegistroMedidasScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;

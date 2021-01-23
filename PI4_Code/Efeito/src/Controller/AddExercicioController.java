@@ -7,8 +7,8 @@ package Controller;
 
 import DAO.AddExercicioDAO;
 import Model.AddExercicio;
-import Model.AddExercicioScr;
-import Model.MenuPrincipalScr;
+import Model.ModelScreen.AddExercicioScr;
+import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;

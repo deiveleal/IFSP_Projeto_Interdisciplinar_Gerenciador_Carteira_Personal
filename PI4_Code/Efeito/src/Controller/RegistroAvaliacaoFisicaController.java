@@ -6,10 +6,10 @@
 package Controller;
 
 import DAO.RegistroAvaliacaoFisicaDAO;
-import Model.CondicionamentoFisicoEnum;
-import Model.MenuPrincipalScr;
+import Model.ModelEnum.CondicionamentoFisicoEnum;
+import Model.ModelScreen.MenuPrincipalScr;
 import Model.RegistroAvaliacaoFisica;
-import Model.RegistroAvaliacaoFisicaScr;
+import Model.ModelScreen.RegistroAvaliacaoFisicaScr;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;

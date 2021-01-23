@@ -5,8 +5,8 @@
  */
 package Controller;
 
-import Model.DadosAlunoCadastradoScr;
-import Model.MenuPrincipalScr;
+import Model.ModelScreen.DadosAlunoCadastradoScr;
+import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,30 +15,32 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class DadosAlunoCadastradoController implements Initializable{
 
-    @FXML private TextField tf_nome;
-    @FXML private TextField tf_data_nascimento;
-    @FXML private TextField tf_endereco;
-    @FXML private TextField tf_bairro;
-    @FXML private TextField tf_cidade;
-    @FXML private TextField tf_telefone;
-    @FXML private TextField tf_email;
-    @FXML private TextField tf_celular;
-    @FXML private ComboBox<?> cb_tipo_sangue;
-    @FXML private ComboBox<?> cb_fator_rh;
-    @FXML private ComboBox<?> cb_sexo;
-    @FXML private TextField tf_cpf;
     @FXML private Button bt_menu;
     @FXML private Button bt_sair;
-    @FXML private Button bt_salvar;
+    @FXML private Button bt_alterar_dados;
+    @FXML private Text txt_nome;
+    @FXML private Text txt_endereco;
+    @FXML private Text txt_e_mail;
+    @FXML private Text txt_sexo;
+    @FXML private Text txt_tipo_sanguineo;
+    @FXML private Text txt_fator_rh;
+    @FXML private Text txt_bairro;
+    @FXML private Text txt_cidade;
+    @FXML private Text txt_telefone;
+    @FXML private Text txt_celular;
+    @FXML private Text txt_data_nascimento;
+    @FXML private Text text_cpf;
+
+    @FXML
+    private Button bt_salvar;
     
     Util util = new Util();
 

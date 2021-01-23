@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.ModelScreen;
 
+import static Model.ModelScreen.CadastraAlunoScr.setStage;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,24 +14,24 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author deive
+ * @author carolina
  */
-public class AddExercicioScr extends Application{
-    
+public class CadastraPlanoScr extends Application{
     private static Stage stage;
-
-    public static void main(String[] args) {
+    
+    public static void main(String[] args){
         launch(args);
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/AddExercicio.fxml"));//Carrega FXML
+    public void start(Stage stage) throws Exception{
+        Parent root = FXMLLoader.load(getClass().getResource("/View/CadastraPlano.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Adição de Exercícios");
+        stage.setTitle("Cadastro de Plano");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
+    
     }
 
     public static Stage getStage() {
@@ -39,7 +39,9 @@ public class AddExercicioScr extends Application{
     }
 
     public static void setStage(Stage stage) {
-        AddExercicioScr.stage = stage;
+        CadastraPlanoScr.stage = stage;
     }
     
+    
+        
 }

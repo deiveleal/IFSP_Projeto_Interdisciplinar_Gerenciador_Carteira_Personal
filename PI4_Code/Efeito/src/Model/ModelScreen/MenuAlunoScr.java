@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Model.ModelScreen;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author deive
  */
-public class ExerciciosScr extends Application{
+public class MenuAlunoScr extends Application{
     
     private static Stage stage;
 
@@ -26,9 +26,9 @@ public class ExerciciosScr extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/Exercicios.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/MenuAluno.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Exercícios Cadastrados");
+        stage.setTitle("Menu Aluno");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
@@ -39,7 +39,7 @@ public class ExerciciosScr extends Application{
     }
 
     public static void setStage(Stage stage) {
-        ExerciciosScr.stage = stage;
+        MenuAlunoScr.stage = stage;
     }
     
 }

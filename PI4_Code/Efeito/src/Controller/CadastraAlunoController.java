@@ -6,12 +6,12 @@
 package Controller;
 
 import DAO.RegistraAlunoDAO;
-import Model.CadastraAlunoScr;
-import Model.MenuPrincipalScr;
+import Model.ModelScreen.CadastraAlunoScr;
+import Model.ModelScreen.MenuPrincipalScr;
 import Model.RegistroAlunos;
-import Model.RhSangueEnum;
-import Model.SexoEnum;
-import Model.TipoSanguineoEnum;
+import Model.ModelEnum.RhSangueEnum;
+import Model.ModelEnum.SexoEnum;
+import Model.ModelEnum.TipoSanguineoEnum;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;

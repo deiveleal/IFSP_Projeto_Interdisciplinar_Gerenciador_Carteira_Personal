@@ -5,8 +5,8 @@
  */
 package Controller;
 
-import Model.MenuAcompanhamentoScr;
-import Model.MenuPrincipalScr;
+import Model.ModelScreen.MenuAcompanhamentoScr;
+import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;

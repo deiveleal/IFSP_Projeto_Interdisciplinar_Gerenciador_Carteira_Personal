@@ -6,8 +6,8 @@
 package Controller;
 
 import DAO.RegistroMedidasDAO;
-import Model.MenuPrincipalScr;
-import Model.RegistroMedidasScr;
+import Model.ModelScreen.MenuPrincipalScr;
+import Model.ModelScreen.RegistroMedidasScr;
 import Model.RegistroMedidas;
 import Model.Util;
 import java.net.URL;

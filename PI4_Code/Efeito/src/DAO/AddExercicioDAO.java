@@ -8,7 +8,7 @@ package DAO;
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.AddExercicio;
 import Model.RegistroAlunos;
-import Model.SexoEnum;
+import Model.ModelEnum.SexoEnum;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
