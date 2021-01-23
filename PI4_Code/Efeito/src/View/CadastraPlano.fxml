@@ -20,7 +20,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="t_titulo11" layoutX="53.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Aluno">
+      <Text fx:id="t_titulo11" layoutX="53.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Plano">
          <font>
             <Font size="18.0" />
          </font>
@@ -41,5 +41,7 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <TextField fx:id="tf_datainicial" layoutX="57.0" layoutY="271.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Inicial" />
+      <TextField fx:id="tf_datafinal" layoutX="422.0" layoutY="273.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Final" />
    </children>
 </AnchorPane>
