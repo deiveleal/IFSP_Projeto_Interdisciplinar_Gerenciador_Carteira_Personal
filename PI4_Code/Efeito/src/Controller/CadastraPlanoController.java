@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.ModelComboBox.QuantidadeMesesCB;
 import Model.ModelScreen.CadastraAlunoScr;
 import Model.ModelScreen.CadastraPlanoScr;
 import Model.ModelScreen.MenuPrincipalScr;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -30,15 +32,15 @@ import javafx.stage.Stage;
  */
 public class CadastraPlanoController implements Initializable {
     
-    @FXML    private Text t_titulo;
     @FXML    private TextField tf_nome_aluno;
     @FXML    private TextField tf_id_aluno;
-    @FXML    private Text t_titulo1;
-    @FXML    private Text t_titulo11;
     @FXML    private TextField tf_valor;
     @FXML    private Button bt_menu;
     @FXML    private Button bt_sair;
     @FXML    private Button bt_salvar;
+    @FXML    private ComboBox<QuantidadeMesesCB> cb_tipoplano;
+    
+    private List<QuantidadeMesesCB> quantidadeMeses = new ArrayList<>();
     
     Util util = new Util();
  
@@ -48,6 +50,9 @@ public class CadastraPlanoController implements Initializable {
     @Override
     // Implementações do botão menu iniciar
     public void initialize(URL url, ResourceBundle rb) {
+        
+        //carrega ComboBox - preset de planos
+        carregaComboBoxQuantidades();
         
         //Implementações do botão menu inicial
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
@@ -87,7 +92,29 @@ public class CadastraPlanoController implements Initializable {
         });
     
     }    
+    
+    public void carregaComboBoxQuantidades(){
+        
+        QuantidadeMesesCB qtdMeses01 = new QuantidadeMesesCB(1,500,"Mensal");
+        QuantidadeMesesCB qtdMeses02 = new QuantidadeMesesCB(2,450,"Bimestral");
+        QuantidadeMesesCB qtdMeses03 = new QuantidadeMesesCB(3,425,"Trimestral");
+        QuantidadeMesesCB qtdMeses04 = new QuantidadeMesesCB(6,400,"Semestral");
+        QuantidadeMesesCB qtdMeses05 = new QuantidadeMesesCB(6,450,"Anual");
+        
+        quantidadeMeses.add(qtdMeses01);
+        quantidadeMeses.add(qtdMeses02);
+        quantidadeMeses.add(qtdMeses03);
+        quantidadeMeses.add(qtdMeses04);
+        quantidadeMeses.add(qtdMeses05);
+        
+        cb_tipoplano.setItems(quantidadeMeses);
+    }
+    
     private void fechaJanela() {
         CadastraPlanoScr.getStage().close();
         }
+
+    private QuantidadeMesesCB QuantidadeMesesCB() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

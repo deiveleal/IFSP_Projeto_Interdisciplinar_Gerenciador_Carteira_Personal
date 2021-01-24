@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -25,7 +26,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_valor" layoutX="56.0" layoutY="182.0" prefHeight="26.0" prefWidth="731.0" promptText="Valor do Plano" />
+      <TextField fx:id="tf_valor" layoutX="54.0" layoutY="263.0" prefHeight="26.0" prefWidth="731.0" promptText="Valor do Plano" />
       <Button fx:id="bt_menu" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Menu">
          <font>
             <Font size="24.0" />
@@ -41,7 +42,8 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <TextField fx:id="tf_datainicial" layoutX="57.0" layoutY="271.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Inicial" />
-      <TextField fx:id="tf_datafinal" layoutX="422.0" layoutY="273.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Final" />
+      <TextField fx:id="tf_datainicial" layoutX="53.0" layoutY="216.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Inicial" />
+      <TextField fx:id="tf_datafinal" layoutX="389.0" layoutY="216.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Final" />
+      <ComboBox fx:id="cb_tipoplano" layoutX="53.0" layoutY="173.0" prefHeight="26.0" prefWidth="232.0" />
    </children>
 </AnchorPane>
