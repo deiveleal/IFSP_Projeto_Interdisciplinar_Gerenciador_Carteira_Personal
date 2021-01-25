@@ -45,6 +45,11 @@ public class QuantidadeMesesCB {
     public void setTipoPlano(String tipoPlano) {
         this.tipoPlano = tipoPlano;
     }
+
+    @Override
+    public String toString() {
+        return getTipoPlano();
+    }
     
     
 }
