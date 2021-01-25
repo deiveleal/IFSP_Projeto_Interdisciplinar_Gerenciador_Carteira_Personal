@@ -7,9 +7,13 @@ import Model.ModelScreen.CadastraPlanoScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -37,6 +41,7 @@ public class CadastraPlanoController implements Initializable {
     @FXML    private ComboBox<QuantidadeMesesCB> cb_tipoplano;
     
     private List<QuantidadeMesesCB> quantidadeMeses = new ArrayList<>();
+    private ObservableList<QuantidadeMesesCB> obsQuantidadeMesesCB;
     
     Util util = new Util();
  
@@ -103,7 +108,9 @@ public class CadastraPlanoController implements Initializable {
         quantidadeMeses.add(qtdMeses04);
         quantidadeMeses.add(qtdMeses05);
         
-        cb_tipoplano.setItems(quantidadeMeses);
+        obsQuantidadeMesesCB = FXCollections.observableArrayList(quantidadeMeses);
+        
+        cb_tipoplano.setItems(obsQuantidadeMesesCB);
     }
     
     private void fechaJanela() {
