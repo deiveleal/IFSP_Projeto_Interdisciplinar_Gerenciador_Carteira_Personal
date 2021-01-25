@@ -7,12 +7,16 @@ package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.AddExercicio;
+import Model.ModelEnum.CondicionamentoFisicoEnum;
 import Model.RegistroAvaliacaoFisica;
 import Model.RegistroMedidas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -62,13 +66,42 @@ public class RegistroMedidasDAO {
             return false;
         }
     }
+    //Método que retorna uma lista de medições com base no id do aluno
+    public List<RegistroMedidas> getListaMedidas(int id_aluno) {
+        List<RegistroMedidas> regMed = new ArrayList<>();
+        String sql = "SELECT * FROM medidas WHERE id_aluno = ?";
+        try {
+            PreparedStatement stmt = openCon.prepareStatement(sql);
+            stmt.setInt(1, id_aluno);
+            ResultSet ResSet = stmt.executeQuery();
+            while (ResSet.next()) {
+                RegistroMedidas regMedidas = new RegistroMedidas();
 
-    public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public boolean inserir(AddExercicio addExerc) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+                regMedidas.setId_aluno(ResSet.getInt("id_aluno"));
+                regMedidas.setData_medicao(ResSet.getDate("data_medicao"));
+                regMedidas.setPeso(ResSet.getDouble("peso"));
+                regMedidas.setAltura(ResSet.getDouble("altura"));
+                regMedidas.setPescoco(ResSet.getDouble("pescoco"));
+                regMedidas.setPeito(ResSet.getDouble("peito"));
+                regMedidas.setBraco(ResSet.getDouble("braco"));
+                regMedidas.setAntebraco(ResSet.getDouble("antebraco"));
+                regMedidas.setCintura(ResSet.getDouble("cintura"));
+                regMedidas.setQuadril(ResSet.getDouble("quadril"));
+                regMedidas.setCoxa(ResSet.getDouble("coxa"));
+                regMedidas.setPanturrilha(ResSet.getDouble("panturrilha"));               
+                
+                regMed.add(regMedidas);
+            }
+            stmt.close();
+            ResSet.close();
+            openCon.close();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Erro! Lista não retornada");
+            return null;
+        }
+        return regMed;
+    }  
     
 }

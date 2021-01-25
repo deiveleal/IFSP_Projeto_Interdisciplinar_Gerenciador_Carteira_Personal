@@ -5,7 +5,8 @@
  */
 package Model.ModelScreen;
 
-import Controller.DadosAlunoCadastradoController;
+import Controller.HistoricoAvaliacaoFisicaController;
+import Controller.RegistroMedidasController;
 import Model.RegistroAlunos;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -18,7 +19,7 @@ import javafx.stage.Stage;
  * @author carolina
  * @author deive
  */
-public class DadosAlunoCadastradoScr extends Application {
+public class HistoricoAvaliacaoFisicaScr extends Application {
 
     private static Stage stage;//Uma janela1
 
@@ -26,15 +27,15 @@ public class DadosAlunoCadastradoScr extends Application {
         launch(args);
     }
 
-    public DadosAlunoCadastradoScr(RegistroAlunos alunoSelecionado) {
-        DadosAlunoCadastradoController.setAlunoReg(alunoSelecionado);
+    public HistoricoAvaliacaoFisicaScr(RegistroAlunos alunoSelecionado) {
+        HistoricoAvaliacaoFisicaController.setRegAlunos(alunoSelecionado);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/View/DadosAlunoCadastrado.fxml"));//Carrega FXML
+        Parent root = FXMLLoader.load(getClass().getResource("/View/HistoricoAvaliacaoFisica.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
-        stage.setTitle("Dados do Aluno");
+        stage.setTitle("Histórico de Avaliação Física");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
         setStage(stage);
@@ -46,7 +47,7 @@ public class DadosAlunoCadastradoScr extends Application {
     }
 
     public static void setStage(Stage stage) {
-        DadosAlunoCadastradoScr.stage = stage;
+        HistoricoAvaliacaoFisicaScr.stage = stage;
     }
     
 }

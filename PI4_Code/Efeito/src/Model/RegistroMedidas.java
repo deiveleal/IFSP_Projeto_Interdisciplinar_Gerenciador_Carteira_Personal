@@ -26,6 +26,10 @@ public class RegistroMedidas {
     private double coxa;
     private double panturrilha;
     
+    
+    public RegistroMedidas() {
+    }
+    
     public RegistroMedidas(int id_aluno, Date data_medicao, double peso, double altura, double pescoco,
             double peito, double braco, double antebraco, double cintura, double quadril, double coxa,
             double panturrilha){
@@ -43,6 +47,7 @@ public class RegistroMedidas {
         this.coxa = coxa;
         this.panturrilha = panturrilha;
     }
+
        
     //Métodos acessores
 

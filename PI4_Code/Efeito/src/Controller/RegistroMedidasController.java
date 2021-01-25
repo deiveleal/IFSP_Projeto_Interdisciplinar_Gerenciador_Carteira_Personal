@@ -8,6 +8,7 @@ package Controller;
 import DAO.RegistroMedidasDAO;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.ModelScreen.RegistroMedidasScr;
+import Model.RegistroAlunos;
 import Model.RegistroMedidas;
 import Model.Util;
 import java.net.URL;
@@ -21,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -34,7 +36,7 @@ import javafx.stage.Stage;
  */
 public class RegistroMedidasController implements Initializable {
 
-    @FXML private TextField tf_id_aluno;
+    @FXML private Label lbl_id_aluno;
     @FXML private TextField tf_data;
     @FXML private TextField tf_peso;
     @FXML private TextField tf_altura;
@@ -51,10 +53,20 @@ public class RegistroMedidasController implements Initializable {
     @FXML private Button bt_sair;
     
     Util util = new Util();
+    private static RegistroAlunos regAlunos;
+
+    public static RegistroAlunos getRegAlunos() {
+        return regAlunos;
+    }
+
+    public static void setRegAlunos(RegistroAlunos regAlunos) {
+        RegistroMedidasController.regAlunos = regAlunos;
+    }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-     
+        initCampos();
         
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
@@ -115,7 +127,7 @@ public class RegistroMedidasController implements Initializable {
         
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         
-        int id_aluno = Integer.parseInt(tf_id_aluno.getText());
+        int id_aluno = Integer.parseInt(lbl_id_aluno.getText());
         Date data_medicao = fmt.parse(tf_data.getText());
         double peso = Double.parseDouble(tf_peso.getText());
         double altura = Double.parseDouble(tf_altura.getText());
@@ -133,14 +145,20 @@ public class RegistroMedidasController implements Initializable {
         
         if (regMedDAO.inserir(regMedid)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setHeaderText("Aluno cadastrado!");
+            alert.setHeaderText("Medidas cadastradas com sucesso!");
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText("Erro ao cadastrar aluno!");
+            alert.setHeaderText("Erro ao cadastrar medidas!");
             alert.show();
         }
-    }  
+    } 
+        
+    public void initCampos() {
+        lbl_id_aluno.setText(Integer.toString(regAlunos.getId_pessoa()));
+       // tfNome.setText(funcionario.getNomeFuncionario());
+
+    }
         
     private void fechaJanela() {
         RegistroMedidasScr.getStage().close();

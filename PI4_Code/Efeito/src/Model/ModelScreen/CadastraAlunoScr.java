@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  * @author deive
  */
 public class CadastraAlunoScr extends Application {
-
+    
     private static Stage stage;//Uma janela1
 
     public static void main(String[] args) {

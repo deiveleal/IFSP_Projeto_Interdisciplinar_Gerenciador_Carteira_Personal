@@ -14,6 +14,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -28,8 +31,9 @@ import javafx.stage.Stage;
 public class MenuAcompanhamentoController implements Initializable {
     
     @FXML private Button bt_cadastrar_aluno;
-    @FXML private Button bt_avaliacao;
-    @FXML private Button bt_medidas;
+    @FXML private LineChart<?, ?> chart_line;
+    @FXML private CategoryAxis chart_line_X;
+    @FXML private NumberAxis chart_line_Y;
     @FXML private Button bt_menu_iniciar;
     @FXML private Button bt_sair;
     

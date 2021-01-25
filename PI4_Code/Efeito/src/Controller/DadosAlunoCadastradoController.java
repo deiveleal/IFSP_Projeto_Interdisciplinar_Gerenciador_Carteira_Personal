@@ -5,8 +5,10 @@
  */
 package Controller;
 
+import Model.ModelScreen.CadastraAlunoScr;
 import Model.ModelScreen.DadosAlunoCadastradoScr;
 import Model.ModelScreen.MenuPrincipalScr;
+import Model.RegistroAlunos;
 import Model.Util;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +24,17 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class DadosAlunoCadastradoController implements Initializable{
+    Util util = new Util();
+    private static RegistroAlunos REGISTROALUNOS;
+
+    public static RegistroAlunos getAlunoReg() {
+        return REGISTROALUNOS;
+    }
+
+    public static void setAlunoReg(RegistroAlunos alunoReg) {
+        DadosAlunoCadastradoController.REGISTROALUNOS = alunoReg;
+        
+    } 
 
     @FXML private Button bt_menu;
     @FXML private Button bt_sair;
@@ -39,13 +52,11 @@ public class DadosAlunoCadastradoController implements Initializable{
     @FXML private Text txt_data_nascimento;
     @FXML private Text text_cpf;
 
-    @FXML
-    private Button bt_salvar;
-    
-    Util util = new Util();
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+        iniTela();
+        
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
@@ -81,8 +92,48 @@ public class DadosAlunoCadastradoController implements Initializable{
                 fechaJanela();
             }
         });
+        
+        // Implementações do botão alterar dados
+        bt_alterar_dados.setOnMouseClicked((MouseEvent e) -> {
+            CadastraAlunoScr cadAlunoScr = new CadastraAlunoScr();
+            try {
+                cadAlunoScr.start(new Stage());
+                fechaJanela();
+            }
+            catch (Exception ex) {
+                Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_alterar_dados.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                CadastraAlunoScr cadAlunoScr = new CadastraAlunoScr();
+                try {
+                    cadAlunoScr.start(new Stage());
+                    fechaJanela();
+                }
+                catch (Exception ex) {
+                    Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
+    
     private void fechaJanela() {
         DadosAlunoCadastradoScr.getStage().close();
+    }
+    
+    public void iniTela(){
+        txt_nome.setText(REGISTROALUNOS.getNome());
+        txt_endereco.setText(REGISTROALUNOS.getRua());
+        txt_e_mail.setText(REGISTROALUNOS.getEmail());
+        txt_sexo.setText(REGISTROALUNOS.getSexo().toString());
+        txt_tipo_sanguineo.setText(REGISTROALUNOS.getTipoSanguineo().toString());
+        txt_fator_rh.setText(REGISTROALUNOS.getRhSangue().toString());
+        txt_bairro.setText(REGISTROALUNOS.getBairro());
+        txt_cidade.setText(REGISTROALUNOS.getCidade());
+        txt_telefone.setText(REGISTROALUNOS.getTelefone());
+        txt_celular.setText(REGISTROALUNOS.getCelular());
+        txt_data_nascimento.setText(REGISTROALUNOS.getDataNascimento().toString());
+        text_cpf.setText(REGISTROALUNOS.getCpf());
     }
 }

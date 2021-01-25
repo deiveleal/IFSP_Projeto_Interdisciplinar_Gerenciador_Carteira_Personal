@@ -10,6 +10,7 @@ import Model.ModelEnum.CondicionamentoFisicoEnum;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.RegistroAvaliacaoFisica;
 import Model.ModelScreen.RegistroAvaliacaoFisicaScr;
+import Model.RegistroAlunos;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;
@@ -47,10 +48,22 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
     @FXML private Button bt_sair;
     
     Util util = new Util();
+    private static RegistroAlunos regAlunos;
+
+    public static RegistroAlunos getRegAlunos() {
+        return regAlunos;
+    }
+
+    public static void setRegAlunos(RegistroAlunos regAlunos) {
+        RegistroAvaliacaoFisicaController.regAlunos = regAlunos;
+    }
+
+ 
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        iniComboBox();
+        iniCampos();
         
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
@@ -132,8 +145,9 @@ public class RegistroAvaliacaoFisicaController implements Initializable {
         }
     }  
     
-    private void iniComboBox(){
+    private void iniCampos(){
         cb_condicionamento.setItems(FXCollections.observableArrayList(CondicionamentoFisicoEnum.values()));
+        tf_id_aluno.setText(Integer.toString(regAlunos.getId_pessoa()));
     }
         
     private void fechaJanela() {

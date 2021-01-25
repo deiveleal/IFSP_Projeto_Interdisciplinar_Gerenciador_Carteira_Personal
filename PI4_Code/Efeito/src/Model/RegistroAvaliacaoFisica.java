@@ -25,6 +25,9 @@ public class RegistroAvaliacaoFisica {
         this.batimento_repouso = batimento_repouso;
         this.nivel_condicionamento = nivel_condicionamento;
     }
+
+    public RegistroAvaliacaoFisica() {
+    }
     
     //Métodos acessores
 

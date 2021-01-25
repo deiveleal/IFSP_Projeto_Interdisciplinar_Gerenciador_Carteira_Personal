@@ -6,8 +6,10 @@
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
+import Model.ModelEnum.RhSangueEnum;
 import Model.RegistroAlunos;
 import Model.ModelEnum.SexoEnum;
+import Model.ModelEnum.TipoSanguineoEnum;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,12 +38,6 @@ public class RegistraAlunoDAO {
     public boolean inserir(RegistroAlunos aluno) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
         String dataBanco = fmtUS.format(aluno.getDataNascimento());
-        String sexo;
-        if(aluno.getSexo().equals(SexoEnum.NAOBINARIO)){
-            sexo = "nao-binario";
-        }else{
-            sexo = aluno.getSexo().toString();
-        }
         
         String sql = "INSERT INTO aluno(nome, data_nascimento, sexo, cpf, email, tipo_sanguineo, rh_sangue,"
                 + "telefone, celular, rua, bairro, cidade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
@@ -50,11 +46,11 @@ public class RegistraAlunoDAO {
             try (PreparedStatement stmt = openCon.prepareStatement(sql)) {
                 stmt.setString(1, aluno.getNome());
                 stmt.setString(2, dataBanco);
-                stmt.setString(3, sexo);
+                stmt.setString(3, aluno.getSexo().name());
                 stmt.setString(4, aluno.getCpf());
                 stmt.setString(5, aluno.getEmail());
-                stmt.setString(6, aluno.getTipoSanguineo().toString().toLowerCase());
-                stmt.setString(7, aluno.getRhSangue().toString().toLowerCase());
+                stmt.setString(6, aluno.getTipoSanguineo().name());
+                stmt.setString(7, aluno.getRhSangue().name());
                 stmt.setString(8, aluno.getTelefone());
                 stmt.setString(9, aluno.getCelular());
                 stmt.setString(10, aluno.getRua());
@@ -76,17 +72,26 @@ public class RegistraAlunoDAO {
     //Método que retorna uma lista de alunos
     public List<RegistroAlunos> getList() {
         List<RegistroAlunos> regAlunoList = new ArrayList<>();
-        String sql = "SELECT * FROM Estoque ORDER BY nomeItem";
+        String sql = "SELECT * FROM aluno ORDER BY nome";
         try {
             PreparedStatement stmt = openCon.prepareStatement(sql);
             ResultSet ResSet = stmt.executeQuery();
             while (ResSet.next()) {
                 RegistroAlunos regAluno = new RegistroAlunos();
 
+                regAluno.setId_pessoa(ResSet.getInt("id_aluno"));
                 regAluno.setNome(ResSet.getString("nome"));
                 regAluno.setDataNascimento(ResSet.getDate("data_nascimento"));
-                //regAluno.setSexo(ResSet.getObject("sexo"));
-                //regAluno.setQtdItem(ResSet.getDouble("quantItem"));
+                regAluno.setSexo(Enum.valueOf(SexoEnum.class, ResSet.getString("sexo")));
+                regAluno.setCpf(ResSet.getString("cpf"));
+                regAluno.setEmail(ResSet.getString("email"));
+                regAluno.setTipoSanguineo(Enum.valueOf(TipoSanguineoEnum.class, ResSet.getString("tipo_sanguineo")));
+                regAluno.setRhSangue(Enum.valueOf(RhSangueEnum.class,ResSet.getString("rh_sangue")));
+                regAluno.setTelefone(ResSet.getString("telefone"));
+                regAluno.setCelular(ResSet.getString("celular"));
+                regAluno.setRua(ResSet.getString("rua"));
+                regAluno.setBairro(ResSet.getString("bairro"));
+                regAluno.setCidade(ResSet.getString("cidade"));
 
                 regAlunoList.add(regAluno);
             }

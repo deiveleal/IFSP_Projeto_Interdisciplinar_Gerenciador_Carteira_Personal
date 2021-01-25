@@ -32,10 +32,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CadastraAlunoController implements Initializable{
+       
 
+    @FXML private Text txt_titulo;
     @FXML private Button bt_menu;
     @FXML private Button bt_sair;
     @FXML private Button bt_salvar;
@@ -171,6 +174,7 @@ public class CadastraAlunoController implements Initializable{
     }
     
     private void iniComboBox(){
+       
         cb_sexo.setItems(FXCollections.observableArrayList(SexoEnum.values()));
         cb_fator_rh.setItems(FXCollections.observableArrayList(RhSangueEnum.values()));
         cb_tipo_sangue.setItems(FXCollections.observableArrayList(TipoSanguineoEnum.values()));
@@ -179,4 +183,10 @@ public class CadastraAlunoController implements Initializable{
     private void fechaJanela() {
         CadastraAlunoScr.getStage().close();
     }
+    
+    public void setTitulo(String nome){
+
+	  this.txt_titulo.setText(nome);
+
+   }
 }

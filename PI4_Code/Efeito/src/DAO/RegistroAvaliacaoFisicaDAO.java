@@ -6,11 +6,15 @@
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
+import Model.ModelEnum.CondicionamentoFisicoEnum;
 import Model.RegistroAvaliacaoFisica;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,7 +30,8 @@ public class RegistroAvaliacaoFisicaDAO {
     public RegistroAvaliacaoFisicaDAO() {
         this.openCon = conecta.getConnection();
     }          
-
+    
+    //Método que insere o registro de uma avaliação física
     public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
         String dataBanco = fmtUS.format(regAvaFis.getData_avaliacao());
@@ -53,5 +58,36 @@ public class RegistroAvaliacaoFisicaDAO {
             Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
+    }
+
+    //Método que retorna uma lista de Avaliações com base no id do aluno
+    public List<RegistroAvaliacaoFisica> getListAvaliacaoFisica(int id_aluno) {
+        List<RegistroAvaliacaoFisica> regAvalFisica = new ArrayList<>();
+        String sql = "SELECT * FROM avaliacao_fisica WHERE id_aluno = ?";
+        try {
+            PreparedStatement stmt = openCon.prepareStatement(sql);
+            stmt.setInt(1, id_aluno);
+            ResultSet ResSet = stmt.executeQuery();
+            while (ResSet.next()) {
+                RegistroAvaliacaoFisica regAvaFis = new RegistroAvaliacaoFisica();
+
+                regAvaFis.setId_aluno(ResSet.getInt("id_aluno"));
+                regAvaFis.setData_avaliacao(ResSet.getDate("data_avaliacao"));
+                regAvaFis.setPressao_art(ResSet.getDouble("pressao_art"));
+                regAvaFis.setBatimento_repouso(ResSet.getDouble("batimento_repouso"));
+                regAvaFis.setNivel_condicionamento(Enum.valueOf(CondicionamentoFisicoEnum.class, ResSet.getString("nivel_condicionamento")));
+  
+                regAvalFisica.add(regAvaFis);
+            }
+            stmt.close();
+            ResSet.close();
+            openCon.close();
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+            System.out.println("Erro! Lista não retornada");
+            return null;
+        }
+        return regAvalFisica;
     }    
 }

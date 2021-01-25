@@ -17,17 +17,8 @@
             <Font size="25.0" />
          </font>
       </Text>
+      <TextField layoutX="59.0" layoutY="117.0" prefHeight="51.0" prefWidth="761.0" />
       <Button fx:id="bt_cadastrar_aluno" layoutX="858.0" layoutY="117.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" text="Buscar">
-         <font>
-            <Font name="BigNoodleTitling" size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="bt_menu_iniciar" layoutX="14.0" layoutY="535.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Menu inicial">
-         <font>
-            <Font name="BigNoodleTitling" size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="bt_sair" layoutX="664.0" layoutY="535.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Sair">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
@@ -40,14 +31,23 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <LineChart layoutX="457.0" layoutY="211.0" prefHeight="297.0" prefWidth="390.0">
+      <LineChart fx:id="chart_line" layoutX="457.0" layoutY="211.0" prefHeight="297.0" prefWidth="390.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="chart_line_X" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="chart_line_Y" side="LEFT" />
         </yAxis>
       </LineChart>
-      <TextField layoutX="59.0" layoutY="117.0" prefHeight="51.0" prefWidth="761.0" />
+      <Button fx:id="bt_menu_iniciar" layoutX="14.0" layoutY="535.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Menu inicial">
+         <font>
+            <Font name="BigNoodleTitling" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="bt_sair" layoutX="664.0" layoutY="535.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="340.0" text="Sair">
+         <font>
+            <Font name="BigNoodleTitling" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

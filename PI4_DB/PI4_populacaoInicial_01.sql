@@ -22,11 +22,11 @@ INSERT INTO aluno(
     telefone, celular, rua, 
     bairro, cidade)
 VALUES
-	('João Carlos', '2000/03/25', 'masculino', '03265498724','joao@jotaum.com', 'A', 'positivo', '1932567412', '19852321654', 'Rua das Flores, 321', 'Jardim Novo', 'Joalandia'),
-    ('Maria de Souza', '1991/12/12', 'feminino', '02165498752', 'maria@solzinha.com', 'B', 'negativo', '2121256523', '21789456123', 'Rua Litu, 12', 'Jardim Velhor', 'Joalandia'),
-    ('Jessi de Oliveira', '2002/07/21', 'nao-binario', '04532198758', 'jessi@jotaum.com', 'AB', 'positivo', '2121257889', '21852741963', 'Rua Janguá, 25', 'Jardim Esplendor', 'Joanopolis'),
-    ('Paula Campos', '2001/12/13', 'feminino', '08945612378', 'paulinha@jotaum.com', 'O', 'negativo', '2134569874', '21854978321', 'Rua Joá, 451', 'Jardim Novo', 'Joalandia'),
-    ('Denis Drato', '1999/01/05', 'masculino', '06952456845', 'ddrato@solzinha.com', 'O', 'positivo', '2134569596', '21985654321', 'Rua das Uvas, 69', 'Jardim Novo Sonho', 'Joanopolis');
+	('João Carlos', '2000/03/25', 'MASCULINO', '03265498724','joao@jotaum.com', 'A', 'POSITIVO', '1932567412', '19852321654', 'Rua das Flores, 321', 'Jardim Novo', 'Joalandia'),
+    ('Maria de Souza', '1991/12/12', 'FEMININO', '02165498752', 'maria@solzinha.com', 'B', 'NEGATIVO', '2121256523', '21789456123', 'Rua Litu, 12', 'Jardim Velhor', 'Joalandia'),
+    ('Jessi de Oliveira', '2002/07/21', 'NAOBINARIO', '04532198758', 'jessi@jotaum.com', 'AB', 'POSITIVO', '2121257889', '21852741963', 'Rua Janguá, 25', 'Jardim Esplendor', 'Joanopolis'),
+    ('Paula Campos', '2001/12/13', 'FEMININO', '08945612378', 'paulinha@jotaum.com', 'O', 'NEGATIVO', '2134569874', '21854978321', 'Rua Joá, 451', 'Jardim Novo', 'Joalandia'),
+    ('Denis Drato', '1999/01/05', 'MASCULINO', '06952456845', 'ddrato@solzinha.com', 'O', 'POSITIVO', '2134569596', '21985654321', 'Rua das Uvas, 69', 'Jardim Novo Sonho', 'Joanopolis');
     
 select * from aluno;
 
@@ -36,11 +36,11 @@ INSERT INTO avaliacao_fisica(
     nivel_condicionamento
 )
 VALUES
-	(1,'2020/01/23', 13.9, 82, 'iniciante'),
-    (2,'2020/01/22', 12.8, 65, 'intermediario'),
-    (3,'2020/01/19', 12.8, 68, 'iniciante'),
-    (4,'2020/01/24', 12.8, 60, 'avançado'),
-    (5,'2020/01/25', 12.8, 58, 'iniciante');
+	(1,'2020/01/23', 13.9, 82, 'INICIANTE'),
+    (2,'2020/01/22', 12.8, 65, 'INTERMEDIARIO'),
+    (3,'2020/01/19', 12.8, 68, 'INICIANTE'),
+    (4,'2020/01/24', 12.8, 60, 'AVANÇADO'),
+    (5,'2020/01/25', 12.8, 58, 'INICIANTE');
     
 select * from avaliacao_fisica;
     
