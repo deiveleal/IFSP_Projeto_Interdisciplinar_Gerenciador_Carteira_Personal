@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -43,6 +44,6 @@
       </Button>
       <TextField fx:id="tf_datainicial" layoutX="57.0" layoutY="271.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Inicial" />
       <TextField fx:id="tf_datafinal" layoutX="422.0" layoutY="273.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Final" />
+      <ComboBox fx:id="cb_tipoplano" layoutX="57.0" layoutY="228.0" prefHeight="25.0" prefWidth="232.0" promptText="Planos" />
    </children>
 </AnchorPane>
-

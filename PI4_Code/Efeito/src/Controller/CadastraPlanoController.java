@@ -110,15 +110,15 @@ public class CadastraPlanoController implements Initializable {
         
         obsQuantidadeMesesCB = FXCollections.observableArrayList(quantidadeMeses);
         
-        cb_tipoplano.setItems(obsQuantidadeMesesCB);
+        cb_tipoplano.setItems(FXCollections.observableArrayList(obsQuantidadeMesesCB));
     }
     
     private void fechaJanela() {
         CadastraPlanoScr.getStage().close();
         }
 
-    private QuantidadeMesesCB QuantidadeMesesCB() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    private QuantidadeMesesCB QuantidadeMesesCB() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 }
 
