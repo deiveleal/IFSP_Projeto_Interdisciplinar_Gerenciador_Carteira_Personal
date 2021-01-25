@@ -14,19 +14,23 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_nome_aluno" editable="false" layoutX="54.0" layoutY="99.0" prefHeight="26.0" prefWidth="731.0" promptText="Nome do Aluno" />
+      <Text fx:id="t_titulo1" layoutX="56.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Aluno">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_nome_aluno" editable="false" layoutX="57.0" layoutY="99.0" prefHeight="26.0" prefWidth="731.0" promptText="Nome do Aluno" />
       <TextField fx:id="tf_id_aluno" editable="false" layoutX="804.0" layoutY="99.0" prefHeight="26.0" prefWidth="171.0" promptText="ID Aluno" />
-      <Text fx:id="t_titulo1" layoutX="55.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Aluno">
+      <Text fx:id="t_titulo11" layoutX="57.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Plano">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Text fx:id="t_titulo11" layoutX="53.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dados do Plano">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Text>
-      <TextField fx:id="tf_valor" layoutX="56.0" layoutY="182.0" prefHeight="26.0" prefWidth="731.0" promptText="Valor do Plano" />
+      <ComboBox fx:id="cb_tipoplano" layoutX="57.0" layoutY="183.0" onAction="#setaValoresPlanoCB" prefHeight="26.0" prefWidth="687.0" promptText="Planos" />
+      <TextField fx:id="tf_valor" layoutX="57.0" layoutY="226.0" prefHeight="26.0" prefWidth="916.0" promptText="Valor do Plano" />
+      <TextField fx:id="tf_datainicial" layoutX="57.0" layoutY="271.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Inicial" />
+      <TextField fx:id="tf_datafinal" layoutX="422.0" layoutY="273.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Final" />
+      <TextField fx:id="tf_numeroaulas" layoutX="57.0" layoutY="326.0" prefHeight="26.0" prefWidth="916.0" promptText="Número de aulas por semana" />
       <Button fx:id="bt_menu" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Menu">
          <font>
             <Font size="24.0" />
@@ -42,8 +46,10 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <TextField fx:id="tf_datainicial" layoutX="57.0" layoutY="271.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Inicial" />
-      <TextField fx:id="tf_datafinal" layoutX="422.0" layoutY="273.0" prefHeight="26.0" prefWidth="232.0" promptText="Data Final" />
-      <ComboBox fx:id="cb_tipoplano" layoutX="57.0" layoutY="228.0" prefHeight="25.0" prefWidth="232.0" promptText="Planos" />
+      <Button fx:id="bt_selecionapreset" layoutX="761.0" layoutY="182.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="210.0" text="Seleciona Plano">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

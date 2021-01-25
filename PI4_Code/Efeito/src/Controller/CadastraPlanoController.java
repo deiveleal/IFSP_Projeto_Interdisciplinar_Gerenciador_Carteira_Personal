@@ -7,6 +7,8 @@ import Model.ModelScreen.CadastraPlanoScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -22,7 +24,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
@@ -39,6 +40,8 @@ public class CadastraPlanoController implements Initializable {
     @FXML    private Button bt_sair;
     @FXML    private Button bt_salvar;
     @FXML    private ComboBox<QuantidadeMesesCB> cb_tipoplano;
+    @FXML    private TextField tf_numeroaulas;
+    @FXML    private Button bt_selecionapreset;
     
     private List<QuantidadeMesesCB> quantidadeMeses = new ArrayList<>();
     private ObservableList<QuantidadeMesesCB> obsQuantidadeMesesCB;
@@ -52,8 +55,8 @@ public class CadastraPlanoController implements Initializable {
     // Implementações do botão menu iniciar
     public void initialize(URL url, ResourceBundle rb) {
         
-        //carrega ComboBox - preset de planos
         carregaComboBoxQuantidades();
+        
         
         //Implementações do botão menu inicial
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
@@ -91,6 +94,8 @@ public class CadastraPlanoController implements Initializable {
                 fechaJanela();
             }
         });
+        
+        
     
     }    
     
@@ -116,9 +121,24 @@ public class CadastraPlanoController implements Initializable {
     private void fechaJanela() {
         CadastraPlanoScr.getStage().close();
         }
-
-//    private QuantidadeMesesCB QuantidadeMesesCB() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
+    
+    @FXML
+    private void setaValoresPlanoCB(){
+        
+        this.tf_valor.setText(String.valueOf(((cb_tipoplano.getValue()).getValorPlano())));
+        
+        
+    }
+    
+    private void cadastraPlanoAluno() throws ParseException {
+        
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        
+        String valor = tf_valor.getText();
+        //String num_meses = cb_tipoplano.get
+    
+    }
+    
+    
 }
 
