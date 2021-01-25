@@ -2,7 +2,6 @@ package Controller;
 
 import Model.ModelScreen.MenuAcompanhamentoScr;
 import Model.ModelScreen.MenuAlunoScr;
-import Model.ModelScreen.ExerciciosScr;
 import Model.ModelScreen.MenuFinanceiroScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
@@ -21,7 +20,6 @@ import javafx.stage.Stage;
 public class MenuPrincipalController implements Initializable{
 
     @FXML private Button bt_aluno;
-    @FXML private Button bt_equipamentos;
     @FXML private Button bt_acompanhamento;
     @FXML private Button bt_financeiro;
     @FXML private Button bt_sair;
@@ -56,33 +54,7 @@ public class MenuPrincipalController implements Initializable{
                 }
             }
         });
-        
-        //Implementação do botão equipamento
-        bt_equipamentos.setOnMouseClicked((MouseEvent e) -> {
-            ExerciciosScr equip = new ExerciciosScr();
-
-            try {
-                equip.start(new Stage());
-                fechaJanela();
-            }
-            catch (Exception ex) {
-                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        bt_equipamentos.setOnKeyPressed((KeyEvent e) -> {
-            if (e.getCode() == KeyCode.ENTER) {
-                ExerciciosScr equip = new ExerciciosScr();
-
-                try {
-                    equip.start(new Stage());
-                    fechaJanela();
-                }
-                catch (Exception ex) {
-                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-        
+                
         //Implementações do botão acompanhamento
         bt_acompanhamento.setOnMouseClicked((MouseEvent e) -> {
             MenuAcompanhamentoScr menuAcompanhamento = new MenuAcompanhamentoScr();

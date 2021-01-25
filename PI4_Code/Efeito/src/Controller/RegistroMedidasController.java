@@ -76,7 +76,7 @@ public class RegistroMedidasController implements Initializable {
                 fechaJanela();
             }
             catch (Exception ex) {
-                Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(RegistroMedidasController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_menu.setOnKeyPressed((KeyEvent e) -> {
@@ -87,7 +87,7 @@ public class RegistroMedidasController implements Initializable {
                     fechaJanela();
                 }
                 catch (Exception ex) {
-                    Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(RegistroMedidasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

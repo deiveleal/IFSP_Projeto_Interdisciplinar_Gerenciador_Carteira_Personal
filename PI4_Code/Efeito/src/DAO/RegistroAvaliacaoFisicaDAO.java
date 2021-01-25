@@ -47,7 +47,7 @@ public class RegistroAvaliacaoFisicaDAO {
             stmt.setString(2, dataBanco);
             stmt.setString(3, Double.toString(regAvaFis.getPressao_art()));
             stmt.setString(4, Double.toString(regAvaFis.getBatimento_repouso()));
-            stmt.setString(5, regAvaFis.getNivel_condicionamento().toString().toLowerCase());
+            stmt.setString(5, regAvaFis.getNivel_condicionamento().toString());
            
             stmt.execute();
             stmt.close();

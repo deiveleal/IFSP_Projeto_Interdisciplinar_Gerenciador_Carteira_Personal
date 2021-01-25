@@ -19,7 +19,7 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_id_aluno" layoutX="68.0" layoutY="169.0" prefHeight="34.0" prefWidth="210.0" promptText="Id Aluno">
+      <TextField fx:id="tf_id_aluno" editable="false" layoutX="68.0" layoutY="169.0" prefHeight="34.0" prefWidth="210.0" promptText="Id Aluno">
          <font>
             <Font size="14.0" />
          </font></TextField>
