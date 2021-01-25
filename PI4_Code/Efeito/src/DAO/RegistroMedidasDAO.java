@@ -6,9 +6,6 @@
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
-import Model.AddExercicio;
-import Model.ModelEnum.CondicionamentoFisicoEnum;
-import Model.RegistroAvaliacaoFisica;
 import Model.RegistroMedidas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

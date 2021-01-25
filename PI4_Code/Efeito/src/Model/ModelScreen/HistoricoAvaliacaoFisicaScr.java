@@ -6,7 +6,6 @@
 package Model.ModelScreen;
 
 import Controller.HistoricoAvaliacaoFisicaController;
-import Controller.RegistroMedidasController;
 import Model.RegistroAlunos;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -49,5 +48,5 @@ public class HistoricoAvaliacaoFisicaScr extends Application {
     public static void setStage(Stage stage) {
         HistoricoAvaliacaoFisicaScr.stage = stage;
     }
-    
+
 }

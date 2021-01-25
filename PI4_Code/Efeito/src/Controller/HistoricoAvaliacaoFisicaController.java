@@ -72,7 +72,7 @@ public class HistoricoAvaliacaoFisicaController implements Initializable {
                 fechaJanela();
             }
             catch (Exception ex) {
-                Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(HistoricoAvaliacaoFisicaController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_menu.setOnKeyPressed((KeyEvent e) -> {
@@ -83,7 +83,7 @@ public class HistoricoAvaliacaoFisicaController implements Initializable {
                     fechaJanela();
                 }
                 catch (Exception ex) {
-                    Logger.getLogger(ExerciciosController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(HistoricoAvaliacaoFisicaController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

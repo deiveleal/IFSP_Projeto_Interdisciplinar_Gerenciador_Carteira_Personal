@@ -5,6 +5,7 @@ import DAO.RegistroAvaliacaoFisicaDAO;
 import DAO.RegistroMedidasDAO;
 import Model.ModelScreen.CadastraAlunoScr;
 import Model.ModelScreen.DadosAlunoCadastradoScr;
+import Model.ModelScreen.HistoricoAfericoesMedidasScr;
 import Model.ModelScreen.HistoricoAvaliacaoFisicaScr;
 import Model.ModelScreen.MenuAlunoScr;
 import Model.ModelScreen.MenuPrincipalScr;
@@ -35,15 +36,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import javax.swing.DefaultListModel;
 
-public class MenuAlunoController implements Initializable{
+public class MenuAlunoController implements Initializable {
+
     private ObservableList<RegistroAlunos> alunosList = FXCollections.observableArrayList();
     private ObservableList<RegistroAvaliacaoFisica> avaFisList = FXCollections.observableArrayList();
     private ObservableList<RegistroMedidas> medidasList = FXCollections.observableArrayList();
     private RegistroAlunos alunoSelecionado;
-    private RegistroAvaliacaoFisica avaliacaoFisicaSelecionada;
-    private RegistroMedidas medidaSelecionada;
     Util util = new Util();
 
     @FXML private TextField tf_busca_nome;
@@ -70,36 +69,21 @@ public class MenuAlunoController implements Initializable{
     @FXML private TableColumn<RegistroMedidas, Double> table_medidas_col_peito;
     @FXML private TableColumn<RegistroMedidas, Double> table_medidas_col_braco;
     @FXML private Button bt_add_medidas;
-    @FXML private Button bt_add_treino;
+    @FXML private Button bt_ver_medicoes;
     @FXML private Button bt_menu_iniciar;
     @FXML private Button bt_sair;
-    
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {       
+    public void initialize(URL location, ResourceBundle resources) {
         initTableAlunos();
-        
+
         table_alunos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
             @Override
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 alunoSelecionado = (RegistroAlunos) newValue;
             }
         });
-        
-        table_avaliacao_fisica.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
-            @Override
-            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                avaliacaoFisicaSelecionada = (RegistroAvaliacaoFisica) newValue;
-            }
-        });
-                
-        table_medidas.getSelectionModel().selectedItemProperty().addListener(new ChangeListener() {
-            @Override
-            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                medidaSelecionada = (RegistroMedidas) newValue;
-            }
-        });
-        
+
         //Implementação do botão buscar
         bt_buscar.setOnMouseClicked((MouseEvent e) -> {
             if (alunoSelecionado != null) {
@@ -107,7 +91,7 @@ public class MenuAlunoController implements Initializable{
                 initTableMedidas();
             } else {
                 Alert a = new Alert(Alert.AlertType.WARNING);
-                a.setHeaderText("Nenhum funcionário selecionado!");
+                a.setHeaderText("Nenhum aluno selecionado!");
                 a.show();
             }
         });
@@ -118,21 +102,19 @@ public class MenuAlunoController implements Initializable{
                     initTableMedidas();
                 } else {
                     Alert a = new Alert(Alert.AlertType.WARNING);
-                    a.setHeaderText("Nenhum funcionário selecionado!");
+                    a.setHeaderText("Nenhum aluno selecionado!");
                     a.show();
                 }
             }
         });
-      
-        
+
         //Implementações do botão aluno
         bt_cadastrar_aluno.setOnMouseClicked((MouseEvent e) -> {
             CadastraAlunoScr cadAluno = new CadastraAlunoScr();
             try {
-                cadAluno.start(new Stage());  
+                cadAluno.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -143,21 +125,19 @@ public class MenuAlunoController implements Initializable{
                 try {
                     cadAluno.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         //Implementações do botão ver dados completos
         bt_ver_dados_completo.setOnMouseClicked((MouseEvent e) -> {
             DadosAlunoCadastradoScr dadoAlunCad = new DadosAlunoCadastradoScr(alunoSelecionado);
             try {
-                dadoAlunCad.start(new Stage());  
+                dadoAlunCad.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -168,13 +148,12 @@ public class MenuAlunoController implements Initializable{
                 try {
                     dadoAlunCad.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         //Implementações do botão add avaliação
         bt_add_avaliacao.setOnMouseClicked((MouseEvent e) -> {
             RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr(alunoSelecionado);
@@ -182,8 +161,7 @@ public class MenuAlunoController implements Initializable{
             try {
                 regAvaFis.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -194,22 +172,20 @@ public class MenuAlunoController implements Initializable{
                 try {
                     regAvaFis.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
-                //Implementações do botão add avaliação
+
+        //Implementações do botão histórico de avaliação
         bt_ver_avaliações.setOnMouseClicked((MouseEvent e) -> {
             HistoricoAvaliacaoFisicaScr histAvaFis = new HistoricoAvaliacaoFisicaScr(alunoSelecionado);
 
             try {
                 histAvaFis.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -220,27 +196,23 @@ public class MenuAlunoController implements Initializable{
                 try {
                     histAvaFis.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
-        
-        
+
         //Implementações do botão add medidas
         bt_add_medidas.setOnMouseClicked((MouseEvent e) -> {
-            if(alunoSelecionado != null){
+            if (alunoSelecionado != null) {
                 RegistroMedidasScr regMed = new RegistroMedidasScr(alunoSelecionado);
                 try {
                     regMed.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            } else{
+            } else {
                 Alert a = new Alert(Alert.AlertType.WARNING);
                 a.setHeaderText("Nenhum aluno selecionado!");
                 a.show();
@@ -248,17 +220,16 @@ public class MenuAlunoController implements Initializable{
         });
         bt_add_medidas.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                if(alunoSelecionado != null){
+                if (alunoSelecionado != null) {
                     RegistroMedidasScr regMed = new RegistroMedidasScr(alunoSelecionado);
 
                     try {
                         regMed.start(new Stage());
                         fechaJanela();
-                    }
-                    catch (Exception ex) {
+                    } catch (Exception ex) {
                         Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }else{
+                } else {
                     Alert a = new Alert(Alert.AlertType.WARNING);
                     a.setHeaderText("Nenhum aluno selecionado!");
                     a.show();
@@ -266,7 +237,41 @@ public class MenuAlunoController implements Initializable{
             }
         });
         
-        
+        //Implementações do botão historico de medicoes
+        bt_ver_medicoes.setOnMouseClicked((MouseEvent e) -> {
+            if (alunoSelecionado != null) {
+                HistoricoAfericoesMedidasScr histAferMed = new HistoricoAfericoesMedidasScr(alunoSelecionado);
+                try {
+                    histAferMed.start(new Stage());
+                    fechaJanela();
+                } catch (Exception ex) {
+                    Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Nenhum aluno selecionado!");
+                a.show();
+            }
+        });
+        bt_ver_medicoes.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                if (alunoSelecionado != null) {
+                    HistoricoAfericoesMedidasScr histAferMed = new HistoricoAfericoesMedidasScr(alunoSelecionado);
+
+                    try {
+                        histAferMed.start(new Stage());
+                        fechaJanela();
+                    } catch (Exception ex) {
+                        Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setHeaderText("Nenhum aluno selecionado!");
+                    a.show();
+                }
+            }
+        });       
+
         //Implementações do botão menu inicial
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
@@ -274,8 +279,7 @@ public class MenuAlunoController implements Initializable{
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -286,55 +290,53 @@ public class MenuAlunoController implements Initializable{
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
-        
+
         //Implementações do botão Sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
             util.voltaTelaLogin();
             fechaJanela();
-        });   
+        });
         bt_sair.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 util.voltaTelaLogin();
                 fechaJanela();
             }
         });
-        
+
         tf_busca_nome.setOnKeyReleased((KeyEvent e) -> {
             table_alunos.setItems(buscaAluno());
         });
     }
-    
+
     private void fechaJanela() {
         MenuAlunoScr.getStage().close();
     }
-    
+
     public ObservableList<RegistroAlunos> atualizaTabela() {
         RegistraAlunoDAO dao = new RegistraAlunoDAO();
         alunosList = FXCollections.observableArrayList(dao.getList());
         return alunosList;
     }
-    
+
     public ObservableList<RegistroAvaliacaoFisica> atualizaTabelaAvaFis() {
         RegistroAvaliacaoFisicaDAO dao = new RegistroAvaliacaoFisicaDAO();
-        System.out.print("\nAluno selecionado: "+alunoSelecionado.getId_pessoa()+"\n");
+        System.out.print("\nAluno selecionado: " + alunoSelecionado.getId_pessoa() + "\n");
         avaFisList = FXCollections.observableArrayList(dao.getListAvaliacaoFisica(alunoSelecionado.getId_pessoa()));
         return avaFisList;
     }
-        
+
     public ObservableList<RegistroMedidas> atualizaTabelaMedidas() {
         RegistroMedidasDAO dao = new RegistroMedidasDAO();
-        System.out.print("\nAluno selecionado: "+alunoSelecionado.getId_pessoa()+"\n");
+        System.out.print("\nAluno selecionado: " + alunoSelecionado.getId_pessoa() + "\n");
         medidasList = FXCollections.observableArrayList(dao.getListaMedidas(alunoSelecionado.getId_pessoa()));
         return medidasList;
     }
-    
+
     public void initTableAlunos() {
         table_alunos_col_name.setCellValueFactory(new PropertyValueFactory("nome"));
         table_alunos_col_nasc.setCellValueFactory(new PropertyValueFactory("data_nascimento"));
@@ -343,7 +345,7 @@ public class MenuAlunoController implements Initializable{
 
         table_alunos.setItems(atualizaTabela());
     }
-    
+
     public void initTableAvaFis() {
         table_avaliacao_fisica_col_data.setCellValueFactory(new PropertyValueFactory("data_avaliacao"));
         table_avaliacao_fisica_col_pressao.setCellValueFactory(new PropertyValueFactory("pressao_art"));
@@ -352,7 +354,7 @@ public class MenuAlunoController implements Initializable{
 
         table_avaliacao_fisica.setItems(atualizaTabelaAvaFis());
     }
-    
+
     public void initTableMedidas() {
         table_medidas_col_id_aluno.setCellValueFactory(new PropertyValueFactory("id_aluno"));
         table_medidas_col_data.setCellValueFactory(new PropertyValueFactory("data_medicao"));
@@ -361,10 +363,9 @@ public class MenuAlunoController implements Initializable{
         table_medidas_col_peito.setCellValueFactory(new PropertyValueFactory("peito"));
         table_medidas_col_braco.setCellValueFactory(new PropertyValueFactory("braco"));
 
-        
         table_medidas.setItems(atualizaTabelaMedidas());
     }
-    
+
     private ObservableList<RegistroAlunos> buscaAluno() {
         ObservableList<RegistroAlunos> pesquisaAluno = FXCollections.observableArrayList();
         for (int x = 0; x < alunosList.size(); x++) {
@@ -373,6 +374,6 @@ public class MenuAlunoController implements Initializable{
             }
         }
         return pesquisaAluno;
-    }   
+    }
 
 }

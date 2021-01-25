@@ -5,11 +5,11 @@ CREATE TABLE aluno(
 	id_aluno INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100),
     data_nascimento DATE,
-    sexo ENUM('masculino', 'feminino', 'nao-binario'),
+    sexo ENUM('MASCULINO', 'FEMININO', 'NAOBINARIO'),
     cpf VARCHAR(11),
     email VARCHAR(100),
     tipo_sanguineo ENUM('A', 'O', 'AB', 'B'),
-    rh_sangue ENUM('positivo','negativo'),
+    rh_sangue ENUM('POSITIVO','NEGATIVO'),
     telefone VARCHAR (10),
     celular VARCHAR(12),
     rua VARCHAR (100),
@@ -24,7 +24,7 @@ CREATE TABLE avaliacao_fisica(
     data_avaliacao DATE,
     pressao_art DOUBLE,
     batimento_repouso DOUBLE,
-    nivel_condicionamento ENUM('iniciante', 'intermediario', 'avançado'),
+    nivel_condicionamento ENUM('INICIANTE', 'INTERMEDIARIO', 'AVANÇADO'),
     
     PRIMARY KEY(id_avaliacao, id_aluno),
     FOREIGN KEY(id_aluno) REFERENCES aluno(id_aluno)
