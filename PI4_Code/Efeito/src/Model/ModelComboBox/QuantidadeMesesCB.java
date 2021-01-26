@@ -22,6 +22,12 @@ public class QuantidadeMesesCB {
         this.tipoPlano = tipoPlano;
     }
 
+    public QuantidadeMesesCB() {
+        this.quantidadeMeses = -1;
+        this.valorPlano = -1;
+        this.tipoPlano = "vazio -1";
+    }
+
     public double getValorPlano() {
         return valorPlano;
     }
