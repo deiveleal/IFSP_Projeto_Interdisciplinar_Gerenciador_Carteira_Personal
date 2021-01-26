@@ -3,71 +3,80 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroAvaliacaoFisicaController">
    <children>
-      <Text layoutX="345.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avaliação Física">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c2c2" height="249.0" layoutX="240.0" layoutY="-118.0" stroke="TRANSPARENT" strokeType="INSIDE" width="614.0" />
+      <Text fill="#eeeded" layoutX="386.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AVALIAÇAO FISICA">
          <font>
-            <Font size="36.0" />
+            <Font name="KacstTitle" size="35.0" />
          </font>
       </Text>
-      <Text layoutX="139.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id Aluno">
+      <ImageView fitHeight="56.0" fitWidth="97.0" layoutX="509.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Design/apoena%20-%20logo%20cinza-01.png" />
+         </image>
+      </ImageView>
+      <Text fill="#9e9e9e" layoutX="17.0" layoutY="201.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id Aluno">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_id_aluno" editable="false" layoutX="68.0" layoutY="169.0" prefHeight="34.0" prefWidth="210.0" promptText="Id Aluno">
+      <TextField fx:id="tf_id_aluno" editable="false" layoutX="14.0" layoutY="215.0" prefHeight="34.0" prefWidth="250.0" promptText="Id Aluno">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Text layoutX="375.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
+      <Text fill="#9e9e9e" layoutX="278.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_data" layoutX="288.0" layoutY="167.0" prefHeight="34.0" prefWidth="214.0" promptText="Data">
+      <TextField fx:id="tf_data" layoutX="276.0" layoutY="215.0" prefHeight="34.0" prefWidth="206.0" promptText="Data">
          <font>
             <Font size="14.0" />
          </font>
       </TextField>
-      <Text layoutX="559.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressão Arterial">
+      <Text fill="#9e9e9e" layoutX="497.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressão Arterial">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_pressao_arterial" layoutX="513.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Pressão Arterial">
+      <TextField fx:id="tf_pressao_arterial" layoutX="495.0" layoutY="215.0" prefHeight="34.0" prefWidth="250.0" promptText="Pressão Arterial">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Text layoutX="751.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Batimento em Repouso">
+      <Text fill="#9e9e9e" layoutX="760.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Batimento em Repouso">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="tf_batimento_repouso" layoutX="737.0" layoutY="169.0" prefHeight="34.0" prefWidth="214.0" promptText="Batimento em Repouso">
+      <TextField fx:id="tf_batimento_repouso" layoutX="758.0" layoutY="215.0" prefHeight="34.0" prefWidth="250.0" promptText="Batimento em Repouso">
          <font>
             <Font size="14.0" />
          </font></TextField>
-      <Text layoutX="67.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nível de Condicionamento">
+      <Text fill="#9e9e9e" layoutX="21.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nível de Condicionamento">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <ComboBox fx:id="cb_condicionamento" layoutX="68.0" layoutY="315.0" prefHeight="34.0" prefWidth="210.0" promptText="Condicionamento" />
-      <Button fx:id="bt_menu" layoutX="10.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Menu">
+      <ComboBox fx:id="cb_condicionamento" layoutX="22.0" layoutY="332.0" prefHeight="34.0" prefWidth="210.0" promptText="Condicionamento" />
+      <Button fx:id="bt_menu" layoutX="10.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="250.0" text="Menu" textFill="#9e9e9e">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_salvar" layoutX="411.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Salvar">
+      <Button fx:id="bt_salvar" layoutX="385.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="250.0" text="Salvar" textFill="#9e9e9e">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_sair" layoutX="803.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Sair">
+      <Button fx:id="bt_sair" layoutX="759.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="250.0" text="Sair" textFill="#9e9e9e">
          <font>
             <Font size="24.0" />
          </font>
