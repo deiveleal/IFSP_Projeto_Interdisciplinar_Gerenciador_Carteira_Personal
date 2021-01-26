@@ -2,7 +2,6 @@
 package Controller;
 
 import Model.ModelComboBox.QuantidadeMesesCB;
-import Model.ModelScreen.CadastraAlunoScr;
 import Model.ModelScreen.CadastraPlanoScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
@@ -22,7 +21,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 /**
