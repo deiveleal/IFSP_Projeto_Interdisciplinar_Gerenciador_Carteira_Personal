@@ -1,4 +1,3 @@
-
 package Controller;
 
 import Model.ModelComboBox.QuantidadeMesesCB;
@@ -31,40 +30,47 @@ import javafx.stage.Stage;
  * @author carolina
  */
 public class CadastraPlanoController implements Initializable {
-    
-    @FXML    private TextField tf_nome_aluno;
-    @FXML    private TextField tf_id_aluno;
-    @FXML    private TextField tf_valor;
-    @FXML    private Button bt_menu;
-    @FXML    private Button bt_sair;
-    @FXML    private Button bt_salvar;
-    @FXML    private ComboBox<QuantidadeMesesCB> cb_tipoplano;
-    @FXML    private TextField tf_numeroaulas;
-    @FXML    private Button bt_selecionapreset;
-    
+
+    @FXML
+    private TextField tf_nome_aluno;
+    @FXML
+    private TextField tf_id_aluno;
+    @FXML
+    private TextField tf_valor;
+    @FXML
+    private Button bt_menu;
+    @FXML
+    private Button bt_sair;
+    @FXML
+    private Button bt_salvar;
+    @FXML
+    private ComboBox<QuantidadeMesesCB> cb_tipoplano;
+    @FXML
+    private TextField tf_numeroaulas;
+    @FXML
+    private Button bt_selecionapreset;
+
     private List<QuantidadeMesesCB> quantidadeMeses = new ArrayList<>();
     private ObservableList<QuantidadeMesesCB> obsQuantidadeMesesCB;
-    
+
     Util util = new Util();
- 
+
     /**
      * Initializes the controller class.
      */
     @Override
     // Implementações do botão menu iniciar
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         carregaComboBoxQuantidades();
-        
-        
+
         //Implementações do botão menu inicial
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -75,69 +81,63 @@ public class CadastraPlanoController implements Initializable {
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         //Implementações do botão Sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
             util.voltaTelaLogin();
             fechaJanela();
-        });   
+        });
         bt_sair.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 util.voltaTelaLogin();
                 fechaJanela();
             }
         });
-        
-        
-    
-    }    
-    
-    public void carregaComboBoxQuantidades(){
-        
-        QuantidadeMesesCB qtdMeses01 = new QuantidadeMesesCB(1,500,"Mensal");
-        QuantidadeMesesCB qtdMeses02 = new QuantidadeMesesCB(2,450,"Bimestral");
-        QuantidadeMesesCB qtdMeses03 = new QuantidadeMesesCB(3,425,"Trimestral");
-        QuantidadeMesesCB qtdMeses04 = new QuantidadeMesesCB(6,400,"Semestral");
-        QuantidadeMesesCB qtdMeses05 = new QuantidadeMesesCB(6,450,"Anual");
-        
+
+    }
+
+    public void carregaComboBoxQuantidades() {
+
+        QuantidadeMesesCB qtdMeses01 = new QuantidadeMesesCB(1, 500, "Mensal");
+        QuantidadeMesesCB qtdMeses02 = new QuantidadeMesesCB(2, 450, "Bimestral");
+        QuantidadeMesesCB qtdMeses03 = new QuantidadeMesesCB(3, 425, "Trimestral");
+        QuantidadeMesesCB qtdMeses04 = new QuantidadeMesesCB(6, 400, "Semestral");
+        QuantidadeMesesCB qtdMeses05 = new QuantidadeMesesCB(6, 450, "Anual");
+
         quantidadeMeses.add(qtdMeses01);
         quantidadeMeses.add(qtdMeses02);
         quantidadeMeses.add(qtdMeses03);
         quantidadeMeses.add(qtdMeses04);
         quantidadeMeses.add(qtdMeses05);
-        
+
         obsQuantidadeMesesCB = FXCollections.observableArrayList(quantidadeMeses);
-        
+
         cb_tipoplano.setItems(FXCollections.observableArrayList(obsQuantidadeMesesCB));
     }
-    
+
     private void fechaJanela() {
         CadastraPlanoScr.getStage().close();
-        }
-    
-    @FXML
-    private void setaValoresPlanoCB(){
-        
-        this.tf_valor.setText(String.valueOf(((cb_tipoplano.getValue()).getValorPlano())));
-        
-        
     }
-    
+
+    @FXML
+    private void setaValoresPlanoCB() {
+
+        this.tf_valor.setText(String.valueOf(((cb_tipoplano.getValue()).getValorPlano())));
+
+    }
+
     private void cadastraPlanoAluno() throws ParseException {
-        
+
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         String valor = tf_valor.getText();
         //String num_meses = cb_tipoplano.get
-    
-    }
-    
-    
-}
 
+    }
+
+}

@@ -17,18 +17,20 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class MenuPrincipalController implements Initializable{
+public class MenuPrincipalController implements Initializable {
 
-    @FXML private Button bt_aluno;
-    @FXML private Button bt_acompanhamento;
-    @FXML private Button bt_financeiro;
-    @FXML private Button bt_sair;
-    
+    @FXML
+    private Button bt_aluno;
+    @FXML
+    private Button bt_financeiro;
+    @FXML
+    private Button bt_sair;
+
     Util util = new Util();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         //Implementações do botão aluno
         bt_aluno.setOnMouseClicked((MouseEvent e) -> {
             MenuAlunoScr menuAluno = new MenuAlunoScr();
@@ -36,8 +38,7 @@ public class MenuPrincipalController implements Initializable{
             try {
                 menuAluno.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -48,39 +49,12 @@ public class MenuPrincipalController implements Initializable{
                 try {
                     menuAluno.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-                
-        //Implementações do botão acompanhamento
-        bt_acompanhamento.setOnMouseClicked((MouseEvent e) -> {
-            MenuAcompanhamentoScr menuAcompanhamento = new MenuAcompanhamentoScr();
 
-            try {
-                menuAcompanhamento.start(new Stage());
-                fechaJanela();
-            }
-            catch (Exception ex) {
-                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        bt_acompanhamento.setOnKeyPressed((KeyEvent e) -> {
-            if (e.getCode() == KeyCode.ENTER) {
-                MenuAcompanhamentoScr menuAcompanhamento = new MenuAcompanhamentoScr();
-
-                try {
-                    menuAcompanhamento.start(new Stage());
-                    fechaJanela();
-                }
-                catch (Exception ex) {
-                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        });
-        
         //Implementações do botão financeiro
         bt_financeiro.setOnMouseClicked((MouseEvent e) -> {
             MenuFinanceiroScr menuFinanceiro = new MenuFinanceiroScr();
@@ -88,8 +62,7 @@ public class MenuPrincipalController implements Initializable{
             try {
                 menuFinanceiro.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -99,18 +72,17 @@ public class MenuPrincipalController implements Initializable{
                 try {
                     menuFinanceiro.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-        });        
-        
+        });
+
         //Implementações do botão Sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
             util.voltaTelaLogin();
             fechaJanela();
-        });   
+        });
         bt_sair.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
                 util.voltaTelaLogin();
@@ -118,10 +90,9 @@ public class MenuPrincipalController implements Initializable{
             }
         });
     }
-    
+
     private void fechaJanela() {
         MenuPrincipalScr.getStage().close();
     }
-    
 
 }

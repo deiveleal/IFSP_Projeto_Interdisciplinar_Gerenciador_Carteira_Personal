@@ -45,33 +45,60 @@ public class MenuAlunoController implements Initializable {
     private RegistroAlunos alunoSelecionado;
     Util util = new Util();
 
-    @FXML private TextField tf_busca_nome;
-    @FXML private Button bt_buscar;
-    @FXML private TableView<RegistroAlunos> table_alunos;
-    @FXML private TableColumn<RegistroAlunos, String> table_alunos_col_name;
-    @FXML private TableColumn<RegistroAlunos, Date> table_alunos_col_nasc;
-    @FXML private TableColumn<RegistroAlunos, String> table_alunos_col_email;
-    @FXML private TableColumn<RegistroAlunos, Enum> table_alunos_colt_sang;
-    @FXML private Button bt_cadastrar_aluno;
-    @FXML private Button bt_ver_dados_completo;
-    @FXML private TableView<RegistroAvaliacaoFisica> table_avaliacao_fisica;
-    @FXML private TableColumn<RegistroAvaliacaoFisica, Date> table_avaliacao_fisica_col_data;
-    @FXML private TableColumn<RegistroAvaliacaoFisica, Double> table_avaliacao_fisica_col_pressao;
-    @FXML private TableColumn<RegistroAvaliacaoFisica, Double> table_avaliacao_fisica_col_batimento;
-    @FXML private TableColumn<RegistroAvaliacaoFisica, Enum> table_avaliacao_fisica_col_condicionamento;
-    @FXML private Button bt_add_avaliacao;
-    @FXML private Button bt_ver_avaliações;
-    @FXML private TableView<RegistroMedidas> table_medidas;
-    @FXML private TableColumn<RegistroMedidas, Integer> table_medidas_col_id_aluno;
-    @FXML private TableColumn<RegistroMedidas, Date> table_medidas_col_data;
-    @FXML private TableColumn<RegistroMedidas, Double> table_medidas_col_peso;
-    @FXML private TableColumn<RegistroMedidas, Double> table_medidas_col_altura;
-    @FXML private TableColumn<RegistroMedidas, Double> table_medidas_col_peito;
-    @FXML private TableColumn<RegistroMedidas, Double> table_medidas_col_braco;
-    @FXML private Button bt_add_medidas;
-    @FXML private Button bt_ver_medicoes;
-    @FXML private Button bt_menu_iniciar;
-    @FXML private Button bt_sair;
+    @FXML
+    private TextField tf_busca_nome;
+    @FXML
+    private Button bt_buscar;
+    @FXML
+    private TableView<RegistroAlunos> table_alunos;
+    @FXML
+    private TableColumn<RegistroAlunos, String> table_alunos_col_name;
+    @FXML
+    private TableColumn<RegistroAlunos, Date> table_alunos_col_nasc;
+    @FXML
+    private TableColumn<RegistroAlunos, String> table_alunos_col_email;
+    @FXML
+    private TableColumn<RegistroAlunos, Enum> table_alunos_colt_sang;
+    @FXML
+    private Button bt_cadastrar_aluno;
+    @FXML
+    private Button bt_ver_dados_completo;
+    @FXML
+    private TableView<RegistroAvaliacaoFisica> table_avaliacao_fisica;
+    @FXML
+    private TableColumn<RegistroAvaliacaoFisica, Date> table_avaliacao_fisica_col_data;
+    @FXML
+    private TableColumn<RegistroAvaliacaoFisica, Double> table_avaliacao_fisica_col_pressao;
+    @FXML
+    private TableColumn<RegistroAvaliacaoFisica, Double> table_avaliacao_fisica_col_batimento;
+    @FXML
+    private TableColumn<RegistroAvaliacaoFisica, Enum> table_avaliacao_fisica_col_condicionamento;
+    @FXML
+    private Button bt_add_avaliacao;
+    @FXML
+    private Button bt_ver_avaliações;
+    @FXML
+    private TableView<RegistroMedidas> table_medidas;
+    @FXML
+    private TableColumn<RegistroMedidas, Integer> table_medidas_col_id_aluno;
+    @FXML
+    private TableColumn<RegistroMedidas, Date> table_medidas_col_data;
+    @FXML
+    private TableColumn<RegistroMedidas, Double> table_medidas_col_peso;
+    @FXML
+    private TableColumn<RegistroMedidas, Double> table_medidas_col_altura;
+    @FXML
+    private TableColumn<RegistroMedidas, Double> table_medidas_col_peito;
+    @FXML
+    private TableColumn<RegistroMedidas, Double> table_medidas_col_braco;
+    @FXML
+    private Button bt_add_medidas;
+    @FXML
+    private Button bt_ver_medicoes;
+    @FXML
+    private Button bt_menu_iniciar;
+    @FXML
+    private Button bt_sair;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -131,73 +158,107 @@ public class MenuAlunoController implements Initializable {
             }
         });
 
-        //Implementações do botão ver dados completos
+        //Implementações do botão add medidas
         bt_ver_dados_completo.setOnMouseClicked((MouseEvent e) -> {
-            DadosAlunoCadastradoScr dadoAlunCad = new DadosAlunoCadastradoScr(alunoSelecionado);
-            try {
-                dadoAlunCad.start(new Stage());
-                fechaJanela();
-            } catch (Exception ex) {
-                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        bt_ver_dados_completo.setOnKeyPressed((KeyEvent e) -> {
-            if (e.getCode() == KeyCode.ENTER) {
+            if (alunoSelecionado != null) {
                 DadosAlunoCadastradoScr dadoAlunCad = new DadosAlunoCadastradoScr(alunoSelecionado);
-
                 try {
                     dadoAlunCad.start(new Stage());
                     fechaJanela();
                 } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Nenhum aluno selecionado!");
+                a.show();
             }
         });
-
-        //Implementações do botão add avaliação
-        bt_add_avaliacao.setOnMouseClicked((MouseEvent e) -> {
-            RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr(alunoSelecionado);
-
-            try {
-                regAvaFis.start(new Stage());
-                fechaJanela();
-            } catch (Exception ex) {
-                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        bt_add_avaliacao.setOnKeyPressed((KeyEvent e) -> {
+        bt_ver_dados_completo.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr(alunoSelecionado);
+                if (alunoSelecionado != null) {
+                    DadosAlunoCadastradoScr dadoAlunCad = new DadosAlunoCadastradoScr(alunoSelecionado);
 
+                    try {
+                        dadoAlunCad.start(new Stage());
+                        fechaJanela();
+                    } catch (Exception ex) {
+                        Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setHeaderText("Nenhum aluno selecionado!");
+                    a.show();
+                }
+            }
+        });
+
+        //Implementações do botão add medidas
+        bt_add_avaliacao.setOnMouseClicked((MouseEvent e) -> {
+            if (alunoSelecionado != null) {
+                RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr(alunoSelecionado);
                 try {
                     regAvaFis.start(new Stage());
                     fechaJanela();
                 } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Nenhum aluno selecionado!");
+                a.show();
             }
         });
-
-        //Implementações do botão histórico de avaliação
-        bt_ver_avaliações.setOnMouseClicked((MouseEvent e) -> {
-            HistoricoAvaliacaoFisicaScr histAvaFis = new HistoricoAvaliacaoFisicaScr(alunoSelecionado);
-
-            try {
-                histAvaFis.start(new Stage());
-                fechaJanela();
-            } catch (Exception ex) {
-                Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
-        bt_ver_avaliações.setOnKeyPressed((KeyEvent e) -> {
+        bt_add_avaliacao.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                HistoricoAvaliacaoFisicaScr histAvaFis = new HistoricoAvaliacaoFisicaScr(alunoSelecionado);
+                if (alunoSelecionado != null) {
+                    RegistroAvaliacaoFisicaScr regAvaFis = new RegistroAvaliacaoFisicaScr(alunoSelecionado);
 
+                    try {
+                        regAvaFis.start(new Stage());
+                        fechaJanela();
+                    } catch (Exception ex) {
+                        Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setHeaderText("Nenhum aluno selecionado!");
+                    a.show();
+                }
+            }
+        });
+
+        //Implementações do botão add medidas
+        bt_ver_avaliações.setOnMouseClicked((MouseEvent e) -> {
+            if (alunoSelecionado != null) {
+                HistoricoAvaliacaoFisicaScr histAvaFis = new HistoricoAvaliacaoFisicaScr(alunoSelecionado);
                 try {
                     histAvaFis.start(new Stage());
                     fechaJanela();
                 } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                Alert a = new Alert(Alert.AlertType.WARNING);
+                a.setHeaderText("Nenhum aluno selecionado!");
+                a.show();
+            }
+        });
+        bt_ver_avaliações.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                if (alunoSelecionado != null) {
+                    HistoricoAvaliacaoFisicaScr histAvaFis = new HistoricoAvaliacaoFisicaScr(alunoSelecionado);
+
+                    try {
+                        histAvaFis.start(new Stage());
+                        fechaJanela();
+                    } catch (Exception ex) {
+                        Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    Alert a = new Alert(Alert.AlertType.WARNING);
+                    a.setHeaderText("Nenhum aluno selecionado!");
+                    a.show();
                 }
             }
         });
@@ -236,7 +297,7 @@ public class MenuAlunoController implements Initializable {
                 }
             }
         });
-        
+
         //Implementações do botão historico de medicoes
         bt_ver_medicoes.setOnMouseClicked((MouseEvent e) -> {
             if (alunoSelecionado != null) {
@@ -270,7 +331,7 @@ public class MenuAlunoController implements Initializable {
                     a.show();
                 }
             }
-        });       
+        });
 
         //Implementações do botão menu inicial
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
@@ -15,7 +10,7 @@ import java.sql.SQLException;
  * @author Carolina
  * @author Deive
  */
-public class LoginDAO{
+public class LoginDAO {
 
     private final Connection openCon;
 
@@ -25,7 +20,6 @@ public class LoginDAO{
         this.openCon = conecta.getConnection();
     }
 
-    //Método que busca o usuário e a senha
     public Boolean login(String nome_usuario, String senha) throws SQLException {
         boolean encontrado = false;
         String sql = "SELECT * FROM personal WHERE nome_usuario = ? AND senha = ?;";
@@ -39,5 +33,5 @@ public class LoginDAO{
             rs.close();
         }
         return encontrado;
-    }    
+    }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import DAO.LoginDAO;
@@ -25,18 +20,16 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author Carolina
- * @author Deive
- */
 public class LoginController implements Initializable {
 
-    @FXML private TextField tfLogin;
-    @FXML private PasswordField pfSenha;
-    @FXML private Button btSair;
-    @FXML private Button btEntrar;
+    @FXML
+    private TextField tfLogin;
+    @FXML
+    private PasswordField pfSenha;
+    @FXML
+    private Button btSair;
+    @FXML
+    private Button btEntrar;
 
     LoginScr login = new LoginScr();
     LoginDAO dao = new LoginDAO();
@@ -81,8 +74,7 @@ public class LoginController implements Initializable {
                 try {
                     menu.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             } else {
@@ -92,8 +84,7 @@ public class LoginController implements Initializable {
                 alert.setContentText("Erro de Login ou Senha!");
                 alert.show();
             }
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

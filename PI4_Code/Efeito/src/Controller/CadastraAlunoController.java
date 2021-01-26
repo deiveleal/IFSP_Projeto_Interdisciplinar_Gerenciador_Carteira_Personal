@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import DAO.RegistraAlunoDAO;
@@ -13,6 +8,7 @@ import Model.ModelEnum.RhSangueEnum;
 import Model.ModelEnum.SexoEnum;
 import Model.ModelEnum.TipoSanguineoEnum;
 import Model.ModelScreen.CadastraPlanoScr;
+import Model.ModelScreen.MenuAlunoScr;
 import Model.Util;
 import java.net.URL;
 import java.text.ParseException;
@@ -35,42 +31,56 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class CadastraAlunoController implements Initializable{
-       
+public class CadastraAlunoController implements Initializable {
 
-    @FXML private Text txt_titulo;
-    @FXML private Button bt_menu;
-    @FXML private Button bt_sair;
-    @FXML private Button bt_salvar;
-    @FXML private Button bt_plano;
-    @FXML private TextField tf_nome;
-    @FXML private TextField tf_data_nascimento;
-    @FXML private TextField tf_endereco;
-    @FXML private TextField tf_bairro;
-    @FXML private TextField tf_cidade;
-    @FXML private TextField tf_telefone;
-    @FXML private TextField tf_email;
-    @FXML private TextField tf_celular;
-    @FXML private ComboBox<TipoSanguineoEnum> cb_tipo_sangue;
-    @FXML private ComboBox<RhSangueEnum> cb_fator_rh;
-    @FXML private ComboBox<SexoEnum> cb_sexo;
-    @FXML private TextField tf_cpf;
-    
-    
+    @FXML
+    private Text txt_titulo;
+    @FXML
+    private Button bt_menu;
+    @FXML
+    private Button bt_sair;
+    @FXML
+    private Button bt_salvar;
+    @FXML
+    private Button bt_plano;
+    @FXML
+    private TextField tf_nome;
+    @FXML
+    private TextField tf_data_nascimento;
+    @FXML
+    private TextField tf_endereco;
+    @FXML
+    private TextField tf_bairro;
+    @FXML
+    private TextField tf_cidade;
+    @FXML
+    private TextField tf_telefone;
+    @FXML
+    private TextField tf_email;
+    @FXML
+    private TextField tf_celular;
+    @FXML
+    private ComboBox<TipoSanguineoEnum> cb_tipo_sangue;
+    @FXML
+    private ComboBox<RhSangueEnum> cb_fator_rh;
+    @FXML
+    private ComboBox<SexoEnum> cb_sexo;
+    @FXML
+    private TextField tf_cpf;
+
     Util util = new Util();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         iniComboBox();
-        
+
 // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -80,21 +90,19 @@ public class CadastraAlunoController implements Initializable{
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         // Implementações do botão plano
         bt_plano.setOnMouseClicked((MouseEvent e) -> {
             CadastraPlanoScr cadastraPlano = new CadastraPlanoScr();
             try {
                 cadastraPlano.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -104,26 +112,33 @@ public class CadastraAlunoController implements Initializable{
                 try {
                     cadastraPlano.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(CadastraPlanoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         //Implementação do botão salvar
         bt_salvar.setOnMouseClicked((MouseEvent e) -> {
+
             try {
                 cadastraAluno();
+
             } catch (ParseException ex) {
+                Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (Exception ex) {
                 Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_salvar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
+                MenuAlunoScr menuAluno = new MenuAlunoScr();
                 try {
                     cadastraAluno();
+
                 } catch (ParseException ex) {
+                    Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
                     Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -142,10 +157,10 @@ public class CadastraAlunoController implements Initializable{
         });
     }
 
-    private void cadastraAluno() throws ParseException {
-        
+    private void cadastraAluno() throws ParseException, Exception {
+
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         String nome = tf_nome.getText();
         String rua = tf_endereco.getText();
         String bairro = tf_bairro.getText();
@@ -161,32 +176,35 @@ public class CadastraAlunoController implements Initializable{
 
         RegistroAlunos regAlunos = new RegistroAlunos(nome, dataNascimento, sexo, cpf, email, tipoSanguineo, rhSangue, telefone, celular, rua, bairro, cidade);
         RegistraAlunoDAO regAlunoDAO = new RegistraAlunoDAO();
-        
+        MenuAlunoScr menuAluno = new MenuAlunoScr();
+
         if (regAlunoDAO.inserir(regAlunos)) {
             Alert alert = new Alert(AlertType.CONFIRMATION);
             alert.setHeaderText("Aluno cadastrado!");
             alert.show();
+            menuAluno.start(new Stage());
+            fechaJanela();
         } else {
             Alert alert = new Alert(AlertType.ERROR);
             alert.setHeaderText("Erro ao cadastrar aluno!");
             alert.show();
         }
     }
-    
-    private void iniComboBox(){
-       
+
+    private void iniComboBox() {
+
         cb_sexo.setItems(FXCollections.observableArrayList(SexoEnum.values()));
         cb_fator_rh.setItems(FXCollections.observableArrayList(RhSangueEnum.values()));
         cb_tipo_sangue.setItems(FXCollections.observableArrayList(TipoSanguineoEnum.values()));
     }
-    
+
     private void fechaJanela() {
         CadastraAlunoScr.getStage().close();
     }
-    
-    public void setTitulo(String nome){
 
-	  this.txt_titulo.setText(nome);
+    public void setTitulo(String nome) {
 
-   }
+        this.txt_titulo.setText(nome);
+
+    }
 }

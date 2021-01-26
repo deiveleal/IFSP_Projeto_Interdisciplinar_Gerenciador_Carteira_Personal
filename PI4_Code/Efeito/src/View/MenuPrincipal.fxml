@@ -12,17 +12,12 @@
             <Font size="25.0" />
          </font>
       </Text>
-      <Button fx:id="bt_aluno" layoutX="296.0" layoutY="140.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Aluno">
+      <Button fx:id="bt_aluno" layoutX="296.0" layoutY="185.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Aluno">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="bt_acompanhamento" layoutX="296.0" layoutY="330.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Acompanhamento">
-         <font>
-            <Font name="BigNoodleTitling" size="24.0" />
-         </font>
-      </Button>
-      <Button fx:id="bt_financeiro" layoutX="296.0" layoutY="235.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Financeiro">
+      <Button fx:id="bt_financeiro" layoutX="296.0" layoutY="319.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="432.0" text="Financeiro">
          <font>
             <Font name="BigNoodleTitling" size="24.0" />
          </font>
