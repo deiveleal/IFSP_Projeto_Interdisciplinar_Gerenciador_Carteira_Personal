@@ -10,6 +10,7 @@ import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -36,6 +37,8 @@ public class CadastraPlanoController implements Initializable {
     @FXML    private TextField tf_nome_aluno;
     @FXML    private TextField tf_id_aluno;
     @FXML    private TextField tf_valor;
+    @FXML    private TextField tf_datainicial;
+    @FXML    private TextField tf_datafinal;
     @FXML    private Button bt_menu;
     @FXML    private Button bt_sair;
     @FXML    private Button bt_salvar;
@@ -126,15 +129,29 @@ public class CadastraPlanoController implements Initializable {
     private void setaValoresPlanoCB(){
         
         this.tf_valor.setText(String.valueOf(((cb_tipoplano.getValue()).getValorPlano())));
-        
-        
+                
     }
+    
+    /*
+    private void setaDataFinal(){
+        
+        SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
+        
+        int numeroMeses = ((cb_tipoplano.getValue()).getQuantidadeMeses());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fmt.parse(tf_datainicial.getText()));
+
+        
+        this.tf_datafinal.setText();
+    }
+    */
     
     private void cadastraPlanoAluno() throws ParseException {
         
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
         
         String valor = tf_valor.getText();
+        
         //String num_meses = cb_tipoplano.get
     
     }
