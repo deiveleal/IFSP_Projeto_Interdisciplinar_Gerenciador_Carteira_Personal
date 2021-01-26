@@ -2,7 +2,6 @@
 package Controller;
 
 import Model.ModelComboBox.QuantidadeMesesCB;
-import Model.ModelScreen.CadastraAlunoScr;
 import Model.ModelScreen.CadastraPlanoScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.Util;
