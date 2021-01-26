@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.Date;
 
-/**
- *
- * @author deive
- */
 public class RegistroAvaliacaoFisica {
+
     private int id_aluno;
     private Date data_avaliacao;
     private double pressao_art;
@@ -28,9 +20,8 @@ public class RegistroAvaliacaoFisica {
 
     public RegistroAvaliacaoFisica() {
     }
-    
-    //Métodos acessores
 
+    //Métodos acessores
     public int getId_aluno() {
         return id_aluno;
     }
@@ -71,8 +62,4 @@ public class RegistroAvaliacaoFisica {
         this.nivel_condicionamento = nivel_condicionamento;
     }
 
-    
-    
-    
-    
 }

@@ -1,18 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- *
- * @author deive
- */
-public class Plano{
+public class Plano {
+
     private Double valor;
     private Integer idAluno; //vinculo de aluno e plano
     private Integer numeroMeses;
@@ -21,9 +13,8 @@ public class Plano{
     private Integer numeroAulasPorSemana;
     private Integer numeroAulasPorMes;
     private Integer numeroAulasTotalDoPlano;
-    
-    //Métodos acessores
 
+    //Métodos acessores
     public Double getValor() {
         return valor;
     }
@@ -63,13 +54,13 @@ public class Plano{
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
     }
-    
+
     public void setDataFinal(Date dataInicio, Integer numeroMeses) {
         Calendar cal = Calendar.getInstance();
-        cal.setTime (dataInicio);
-        cal.add (Calendar.MONTH, numeroMeses); 
-        this.dataFinal  = cal.getTime(); 
-        
+        cal.setTime(dataInicio);
+        cal.add(Calendar.MONTH, numeroMeses);
+        this.dataFinal = cal.getTime();
+
     }
 
     public Integer getNumeroAulasPorSemana() {
@@ -95,6 +86,5 @@ public class Plano{
     public void setNumeroAulasTotalDoPlano(Integer numeroAulasTotalDoPlano) {
         this.numeroAulasTotalDoPlano = numeroAulasTotalDoPlano;
     }
-    
-    
+
 }

@@ -33,17 +33,17 @@
       <TextField fx:id="tf_numeroaulas" layoutX="57.0" layoutY="326.0" prefHeight="26.0" prefWidth="916.0" promptText="Número de aulas por semana" />
       <Button fx:id="bt_menu" layoutX="10.0" layoutY="540.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Menu">
          <font>
-            <Font size="24.0" />
+            <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
       <Button fx:id="bt_sair" layoutX="803.0" layoutY="540.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Sair">
          <font>
-            <Font size="24.0" />
+            <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
       <Button fx:id="bt_salvar" layoutX="411.0" layoutY="540.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Salvar">
          <font>
-            <Font size="24.0" />
+            <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
       <Button fx:id="bt_selecionapreset" layoutX="761.0" layoutY="182.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="210.0" text="Seleciona Plano">

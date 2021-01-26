@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
@@ -17,29 +12,26 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author deive
- */
 public class RegistroMedidasDAO {
+
     private final Connection openCon;
 
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public RegistroMedidasDAO() {
         this.openCon = conecta.getConnection();
-    }          
+    }
 
     public boolean inserir(RegistroMedidas regMedid) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
         String dataBanco = fmtUS.format(regMedid.getData_medicao());
-        
+
         String sql = "INSERT INTO medidas(id_aluno, data_medicao, peso, altura, pescoco, peito, braco,"
                 + "antebraco, cintura, quadril, coxa, panturrilha) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
 
         try {
             PreparedStatement stmt = openCon.prepareStatement(sql);
-            
+
             stmt.setString(1, Integer.toString(regMedid.getId_aluno()));
             stmt.setString(2, dataBanco);
             stmt.setString(3, Double.toString(regMedid.getPeso()));
@@ -56,13 +48,13 @@ public class RegistroMedidasDAO {
             stmt.execute();
             stmt.close();
             openCon.close();
-            return true;         
-        }
-        catch (SQLException ex) {
+            return true;
+        } catch (SQLException ex) {
             Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
+
     //Método que retorna uma lista de medições com base no id do aluno
     public List<RegistroMedidas> getListaMedidas(int id_aluno) {
         List<RegistroMedidas> regMed = new ArrayList<>();
@@ -85,20 +77,19 @@ public class RegistroMedidasDAO {
                 regMedidas.setCintura(ResSet.getDouble("cintura"));
                 regMedidas.setQuadril(ResSet.getDouble("quadril"));
                 regMedidas.setCoxa(ResSet.getDouble("coxa"));
-                regMedidas.setPanturrilha(ResSet.getDouble("panturrilha"));               
-                
+                regMedidas.setPanturrilha(ResSet.getDouble("panturrilha"));
+
                 regMed.add(regMedidas);
             }
             stmt.close();
             ResSet.close();
             openCon.close();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("Erro! Lista não retornada");
             return null;
         }
         return regMed;
-    }  
-    
+    }
+
 }

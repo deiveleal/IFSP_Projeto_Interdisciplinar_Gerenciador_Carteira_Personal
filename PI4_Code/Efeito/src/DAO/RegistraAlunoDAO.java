@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
@@ -20,13 +15,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
-/**
- * @author carolina
- * @author deive
- */
 public class RegistraAlunoDAO {
+
     private final Connection openCon;
 
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
@@ -38,7 +28,7 @@ public class RegistraAlunoDAO {
     public boolean inserir(RegistroAlunos aluno) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
         String dataBanco = fmtUS.format(aluno.getDataNascimento());
-        
+
         String sql = "INSERT INTO aluno(nome, data_nascimento, sexo, cpf, email, tipo_sanguineo, rh_sangue,"
                 + "telefone, celular, rua, bairro, cidade) VALUES(?,?,?,?,?,?,?,?,?,?,?,?);";
 
@@ -56,19 +46,18 @@ public class RegistraAlunoDAO {
                 stmt.setString(10, aluno.getRua());
                 stmt.setString(11, aluno.getBairro());
                 stmt.setString(12, aluno.getCidade());
-                
+
                 stmt.execute();
                 stmt.close();
             }
             openCon.close();
-            return true;            
-        }
-        catch (SQLException ex) {
+            return true;
+        } catch (SQLException ex) {
             Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
-    } 
-    
+    }
+
     //Método que retorna uma lista de alunos
     public List<RegistroAlunos> getList() {
         List<RegistroAlunos> regAlunoList = new ArrayList<>();
@@ -86,7 +75,7 @@ public class RegistraAlunoDAO {
                 regAluno.setCpf(ResSet.getString("cpf"));
                 regAluno.setEmail(ResSet.getString("email"));
                 regAluno.setTipoSanguineo(Enum.valueOf(TipoSanguineoEnum.class, ResSet.getString("tipo_sanguineo")));
-                regAluno.setRhSangue(Enum.valueOf(RhSangueEnum.class,ResSet.getString("rh_sangue")));
+                regAluno.setRhSangue(Enum.valueOf(RhSangueEnum.class, ResSet.getString("rh_sangue")));
                 regAluno.setTelefone(ResSet.getString("telefone"));
                 regAluno.setCelular(ResSet.getString("celular"));
                 regAluno.setRua(ResSet.getString("rua"));
@@ -98,8 +87,7 @@ public class RegistraAlunoDAO {
             stmt.close();
             ResSet.close();
             openCon.close();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("Erro! Lista não retornada");
             return null;

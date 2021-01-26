@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAO;
 
 import Connection.ConnectionFactoryMysqlSingleton;
@@ -18,43 +13,39 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author deive
- */
 public class RegistroAvaliacaoFisicaDAO {
+
     private final Connection openCon;
 
     ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public RegistroAvaliacaoFisicaDAO() {
         this.openCon = conecta.getConnection();
-    }          
-    
+    }
+
     //Método que insere o registro de uma avaliação física
     public boolean inserir(RegistroAvaliacaoFisica regAvaFis) {
         SimpleDateFormat fmtUS = new SimpleDateFormat("yyyy/MM/dd");
         String dataBanco = fmtUS.format(regAvaFis.getData_avaliacao());
-        
+
         String sql = "INSERT INTO avaliacao_fisica(id_aluno, data_avaliacao, "
                 + "pressao_art, batimento_repouso, nivel_condicionamento) "
                 + "VALUES(?,?,?,?,?);";
 
         try {
             PreparedStatement stmt = openCon.prepareStatement(sql);
-            
+
             stmt.setString(1, Integer.toString(regAvaFis.getId_aluno()));
             stmt.setString(2, dataBanco);
             stmt.setString(3, Double.toString(regAvaFis.getPressao_art()));
             stmt.setString(4, Double.toString(regAvaFis.getBatimento_repouso()));
             stmt.setString(5, regAvaFis.getNivel_condicionamento().toString());
-           
+
             stmt.execute();
             stmt.close();
             openCon.close();
-            return true;         
-        }
-        catch (SQLException ex) {
+            return true;
+        } catch (SQLException ex) {
             Logger.getLogger(RegistraAlunoDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
@@ -76,18 +67,17 @@ public class RegistroAvaliacaoFisicaDAO {
                 regAvaFis.setPressao_art(ResSet.getDouble("pressao_art"));
                 regAvaFis.setBatimento_repouso(ResSet.getDouble("batimento_repouso"));
                 regAvaFis.setNivel_condicionamento(Enum.valueOf(CondicionamentoFisicoEnum.class, ResSet.getString("nivel_condicionamento")));
-  
+
                 regAvalFisica.add(regAvaFis);
             }
             stmt.close();
             ResSet.close();
             openCon.close();
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("Erro! Lista não retornada");
             return null;
         }
         return regAvalFisica;
-    }    
+    }
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.ModelScreen.CadastraAlunoScr;
@@ -23,7 +18,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class DadosAlunoCadastradoController implements Initializable{
+public class DadosAlunoCadastradoController implements Initializable {
+
     Util util = new Util();
     private static RegistroAlunos REGISTROALUNOS;
 
@@ -33,38 +29,52 @@ public class DadosAlunoCadastradoController implements Initializable{
 
     public static void setAlunoReg(RegistroAlunos alunoReg) {
         DadosAlunoCadastradoController.REGISTROALUNOS = alunoReg;
-        
-    } 
 
-    @FXML private Button bt_menu;
-    @FXML private Button bt_sair;
-    @FXML private Button bt_alterar_dados;
-    @FXML private Text txt_nome;
-    @FXML private Text txt_endereco;
-    @FXML private Text txt_e_mail;
-    @FXML private Text txt_sexo;
-    @FXML private Text txt_tipo_sanguineo;
-    @FXML private Text txt_fator_rh;
-    @FXML private Text txt_bairro;
-    @FXML private Text txt_cidade;
-    @FXML private Text txt_telefone;
-    @FXML private Text txt_celular;
-    @FXML private Text txt_data_nascimento;
-    @FXML private Text text_cpf;
+    }
+
+    @FXML
+    private Button bt_menu;
+    @FXML
+    private Button bt_sair;
+    @FXML
+    private Button bt_alterar_dados;
+    @FXML
+    private Text txt_nome;
+    @FXML
+    private Text txt_endereco;
+    @FXML
+    private Text txt_e_mail;
+    @FXML
+    private Text txt_sexo;
+    @FXML
+    private Text txt_tipo_sanguineo;
+    @FXML
+    private Text txt_fator_rh;
+    @FXML
+    private Text txt_bairro;
+    @FXML
+    private Text txt_cidade;
+    @FXML
+    private Text txt_telefone;
+    @FXML
+    private Text txt_celular;
+    @FXML
+    private Text txt_data_nascimento;
+    @FXML
+    private Text text_cpf;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+
         iniTela();
-        
+
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(DadosAlunoCadastradoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -74,8 +84,7 @@ public class DadosAlunoCadastradoController implements Initializable{
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(DadosAlunoCadastradoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -92,15 +101,14 @@ public class DadosAlunoCadastradoController implements Initializable{
                 fechaJanela();
             }
         });
-        
+
         // Implementações do botão alterar dados
         bt_alterar_dados.setOnMouseClicked((MouseEvent e) -> {
             CadastraAlunoScr cadAlunoScr = new CadastraAlunoScr();
             try {
                 cadAlunoScr.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -110,19 +118,18 @@ public class DadosAlunoCadastradoController implements Initializable{
                 try {
                     cadAlunoScr.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
     }
-    
+
     private void fechaJanela() {
         DadosAlunoCadastradoScr.getStage().close();
     }
-    
-    public void iniTela(){
+
+    public void iniTela() {
         txt_nome.setText(REGISTROALUNOS.getNome());
         txt_endereco.setText(REGISTROALUNOS.getRua());
         txt_e_mail.setText(REGISTROALUNOS.getEmail());

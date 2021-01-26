@@ -1,6 +1,5 @@
 package Controller;
 
-import Model.ModelScreen.MenuAcompanhamentoScr;
 import Model.ModelScreen.MenuAlunoScr;
 import Model.ModelScreen.MenuFinanceiroScr;
 import Model.ModelScreen.MenuPrincipalScr;

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model.ModelScreen;
 
 import Controller.HistoricoAvaliacaoFisicaController;
@@ -13,11 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
-/**
- * @author carolina
- * @author deive
- */
 public class HistoricoAvaliacaoFisicaScr extends Application {
 
     private static Stage stage;//Uma janela1
@@ -34,6 +26,7 @@ public class HistoricoAvaliacaoFisicaScr extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/HistoricoAvaliacaoFisica.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setTitle("Histórico de Avaliação Física");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2

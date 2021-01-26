@@ -54,11 +54,11 @@ public class MenuAlunoController implements Initializable {
     @FXML
     private TableColumn<RegistroAlunos, String> table_alunos_col_name;
     @FXML
-    private TableColumn<RegistroAlunos, Date> table_alunos_col_nasc;
+    private TableColumn<RegistroAlunos, String> table_alunos_col_celular;
+    @FXML
+    private TableColumn<RegistroAlunos, String> table_alunos_col_telefone;
     @FXML
     private TableColumn<RegistroAlunos, String> table_alunos_col_email;
-    @FXML
-    private TableColumn<RegistroAlunos, Enum> table_alunos_colt_sang;
     @FXML
     private Button bt_cadastrar_aluno;
     @FXML
@@ -165,6 +165,7 @@ public class MenuAlunoController implements Initializable {
                 try {
                     dadoAlunCad.start(new Stage());
                     fechaJanela();
+
                 } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -182,6 +183,7 @@ public class MenuAlunoController implements Initializable {
                     try {
                         dadoAlunCad.start(new Stage());
                         fechaJanela();
+
                     } catch (Exception ex) {
                         Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -234,7 +236,7 @@ public class MenuAlunoController implements Initializable {
                 HistoricoAvaliacaoFisicaScr histAvaFis = new HistoricoAvaliacaoFisicaScr(alunoSelecionado);
                 try {
                     histAvaFis.start(new Stage());
-                    fechaJanela();
+
                 } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -251,7 +253,7 @@ public class MenuAlunoController implements Initializable {
 
                     try {
                         histAvaFis.start(new Stage());
-                        fechaJanela();
+
                     } catch (Exception ex) {
                         Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -283,10 +285,11 @@ public class MenuAlunoController implements Initializable {
             if (e.getCode() == KeyCode.ENTER) {
                 if (alunoSelecionado != null) {
                     RegistroMedidasScr regMed = new RegistroMedidasScr(alunoSelecionado);
+                    fechaJanela();
 
                     try {
                         regMed.start(new Stage());
-                        fechaJanela();
+
                     } catch (Exception ex) {
                         Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -304,7 +307,7 @@ public class MenuAlunoController implements Initializable {
                 HistoricoAfericoesMedidasScr histAferMed = new HistoricoAfericoesMedidasScr(alunoSelecionado);
                 try {
                     histAferMed.start(new Stage());
-                    fechaJanela();
+
                 } catch (Exception ex) {
                     Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -321,7 +324,7 @@ public class MenuAlunoController implements Initializable {
 
                     try {
                         histAferMed.start(new Stage());
-                        fechaJanela();
+
                     } catch (Exception ex) {
                         Logger.getLogger(MenuAlunoController.class.getName()).log(Level.SEVERE, null, ex);
                     }
@@ -400,9 +403,9 @@ public class MenuAlunoController implements Initializable {
 
     public void initTableAlunos() {
         table_alunos_col_name.setCellValueFactory(new PropertyValueFactory("nome"));
-        table_alunos_col_nasc.setCellValueFactory(new PropertyValueFactory("data_nascimento"));
+        table_alunos_col_celular.setCellValueFactory(new PropertyValueFactory("celular"));
+        table_alunos_col_telefone.setCellValueFactory(new PropertyValueFactory("telefone"));
         table_alunos_col_email.setCellValueFactory(new PropertyValueFactory("email"));
-        table_alunos_colt_sang.setCellValueFactory(new PropertyValueFactory("tipo_sanguineo"));
 
         table_alunos.setItems(atualizaTabela());
     }

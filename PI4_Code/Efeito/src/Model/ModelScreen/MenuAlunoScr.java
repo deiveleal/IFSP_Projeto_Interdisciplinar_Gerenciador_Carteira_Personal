@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model.ModelScreen;
 
 import javafx.application.Application;
@@ -12,12 +7,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author deive
- */
-public class MenuAlunoScr extends Application{
-    
+public class MenuAlunoScr extends Application {
+
     private static Stage stage;
 
     public static void main(String[] args) {
@@ -28,6 +19,7 @@ public class MenuAlunoScr extends Application{
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/MenuAluno.fxml"));//Carrega FXML
         Scene scene = new Scene(root);//Coloca o FXML em uma cena
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.setTitle("Menu Aluno");
         stage.setScene(scene);//Coloca a cena em uma janela
         stage.show();//Abre a janela2
@@ -41,5 +33,5 @@ public class MenuAlunoScr extends Application{
     public static void setStage(Stage stage) {
         MenuAlunoScr.stage = stage;
     }
-    
+
 }

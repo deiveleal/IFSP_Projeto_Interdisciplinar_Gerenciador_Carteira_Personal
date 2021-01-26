@@ -1,34 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.Date;
 
-/**
- * @carol
- * @author deive
- */
 public class RegistroPessoa {
 
     private int id_pessoa;
     private String nome;
     private String nomeUsuario;
     private String senha;
-    private Date dataNascimento; 
+    private Date dataNascimento;
     private Enum sexo;
-    private String cpf; 
+    private String cpf;
     private String email;
     private Enum tipoSanguineo;
     private Enum rhSangue;
-    private String telefone; 
-    private String celular; 
+    private String telefone;
+    private String celular;
     private String rua;
     private String bairro;
-    private String cidade;  
-    
+    private String cidade;
+
     public int getId_pessoa() {
         return id_pessoa;
     }
@@ -149,4 +140,3 @@ public class RegistroPessoa {
         this.cidade = cidade;
     }
 }
-

@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.Date;
 
-/**
- *
- * @author deive
- */
 public class RegistroMedidas {
-    
+
     private int id_aluno;
     private Date data_medicao;
     private double peso;
@@ -21,20 +12,19 @@ public class RegistroMedidas {
     private double peito;
     private double braco;
     private double antebraco;
-    private  double cintura;
+    private double cintura;
     private double quadril;
     private double coxa;
     private double panturrilha;
-    
-    
+
     public RegistroMedidas() {
     }
-    
+
     public RegistroMedidas(int id_aluno, Date data_medicao, double peso, double altura, double pescoco,
             double peito, double braco, double antebraco, double cintura, double quadril, double coxa,
-            double panturrilha){
-        
-        this.id_aluno =  id_aluno;
+            double panturrilha) {
+
+        this.id_aluno = id_aluno;
         this.data_medicao = data_medicao;
         this.peso = peso;
         this.altura = altura;
@@ -48,9 +38,7 @@ public class RegistroMedidas {
         this.panturrilha = panturrilha;
     }
 
-       
     //Métodos acessores
-
     public int getId_aluno() {
         return id_aluno;
     }
@@ -146,5 +134,5 @@ public class RegistroMedidas {
     public void setPanturrilha(double panturrilha) {
         this.panturrilha = panturrilha;
     }
-    
+
 }

@@ -40,6 +40,8 @@ public class CadastraAlunoController implements Initializable {
     @FXML
     private Button bt_sair;
     @FXML
+    private Button bt_voltar;
+    @FXML
     private Button bt_salvar;
     @FXML
     private Button bt_plano;
@@ -117,32 +119,59 @@ public class CadastraAlunoController implements Initializable {
                 }
             }
         });
-
-        //Implementação do botão salvar
+        
+        
+                //Implementações do botão aluno
         bt_salvar.setOnMouseClicked((MouseEvent e) -> {
+
 
             try {
                 cadastraAluno();
+                limpaCampos();
 
-            } catch (ParseException ex) {
-                Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
             } catch (Exception ex) {
-                Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
         bt_salvar.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.ENTER) {
-                MenuAlunoScr menuAluno = new MenuAlunoScr();
+                
+
                 try {
                     cadastraAluno();
-
-                } catch (ParseException ex) {
-                    Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    limpaCampos();
                 } catch (Exception ex) {
-                    Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
+
+
+        //Implementações do botão aluno
+        bt_voltar.setOnMouseClicked((MouseEvent e) -> {
+            MenuAlunoScr menuAluno = new MenuAlunoScr();
+
+            try {
+                menuAluno.start(new Stage());
+                fechaJanela();
+            } catch (Exception ex) {
+                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_voltar.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                MenuAlunoScr menuAluno = new MenuAlunoScr();
+
+                try {
+                    menuAluno.start(new Stage());
+                    fechaJanela();
+                } catch (Exception ex) {
+                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        
+        
 
         // Implementações do botão sair
         bt_sair.setOnMouseClicked((MouseEvent e) -> {
@@ -206,5 +235,18 @@ public class CadastraAlunoController implements Initializable {
 
         this.txt_titulo.setText(nome);
 
+    }
+    
+    private void limpaCampos(){
+        tf_nome.setText("");
+        tf_endereco.setText("");
+        tf_bairro.setText("");
+        tf_cidade.setText("");
+        tf_telefone.setText("");
+        tf_email.setText("");
+        tf_cpf.setText("");
+        tf_celular.setText("");
+        tf_data_nascimento.setText("");
+        iniComboBox();
     }
 }

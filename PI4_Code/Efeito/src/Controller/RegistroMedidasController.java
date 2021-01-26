@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import DAO.RegistroMedidasDAO;
@@ -29,29 +24,39 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author deive
- */
 public class RegistroMedidasController implements Initializable {
 
-    @FXML private Label lbl_id_aluno;
-    @FXML private TextField tf_data;
-    @FXML private TextField tf_peso;
-    @FXML private TextField tf_altura;
-    @FXML private TextField tf_pescoco;
-    @FXML private TextField tf_peito;
-    @FXML private TextField tf_braco;
-    @FXML private TextField tf_antebraco;
-    @FXML private TextField tf_cintura;
-    @FXML private TextField tf_quadril;
-    @FXML private TextField tf_coxa;
-    @FXML private TextField tf_panturrilha;
-    @FXML private Button bt_menu;
-    @FXML private Button bt_salvar;
-    @FXML private Button bt_sair;
-    
+    @FXML
+    private Label lbl_id_aluno;
+    @FXML
+    private TextField tf_data;
+    @FXML
+    private TextField tf_peso;
+    @FXML
+    private TextField tf_altura;
+    @FXML
+    private TextField tf_pescoco;
+    @FXML
+    private TextField tf_peito;
+    @FXML
+    private TextField tf_braco;
+    @FXML
+    private TextField tf_antebraco;
+    @FXML
+    private TextField tf_cintura;
+    @FXML
+    private TextField tf_quadril;
+    @FXML
+    private TextField tf_coxa;
+    @FXML
+    private TextField tf_panturrilha;
+    @FXML
+    private Button bt_menu;
+    @FXML
+    private Button bt_salvar;
+    @FXML
+    private Button bt_sair;
+
     Util util = new Util();
     private static RegistroAlunos regAlunos;
 
@@ -62,20 +67,18 @@ public class RegistroMedidasController implements Initializable {
     public static void setRegAlunos(RegistroAlunos regAlunos) {
         RegistroMedidasController.regAlunos = regAlunos;
     }
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         initCampos();
-        
+
         // Implementações do botão menu iniciar
         bt_menu.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(RegistroMedidasController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -85,13 +88,12 @@ public class RegistroMedidasController implements Initializable {
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(RegistroMedidasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         //Implementação do botão salvar
         bt_salvar.setOnMouseClicked((MouseEvent e) -> {
             try {
@@ -121,12 +123,12 @@ public class RegistroMedidasController implements Initializable {
                 fechaJanela();
             }
         });
-    }   
-    
-        private void salvarMedidas() throws ParseException {
-        
+    }
+
+    private void salvarMedidas() throws ParseException {
+
         SimpleDateFormat fmt = new SimpleDateFormat("dd/MM/yyyy");
-        
+
         int id_aluno = Integer.parseInt(lbl_id_aluno.getText());
         Date data_medicao = fmt.parse(tf_data.getText());
         double peso = Double.parseDouble(tf_peso.getText());
@@ -142,7 +144,7 @@ public class RegistroMedidasController implements Initializable {
 
         RegistroMedidas regMedid = new RegistroMedidas(id_aluno, data_medicao, peso, altura, pescoco, peito, braco, antebraco, cintura, quadril, coxa, panturrilha);
         RegistroMedidasDAO regMedDAO = new RegistroMedidasDAO();
-        
+
         if (regMedDAO.inserir(regMedid)) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Medidas cadastradas com sucesso!");
@@ -152,16 +154,16 @@ public class RegistroMedidasController implements Initializable {
             alert.setHeaderText("Erro ao cadastrar medidas!");
             alert.show();
         }
-    } 
-        
+    }
+
     public void initCampos() {
         lbl_id_aluno.setText(Integer.toString(regAlunos.getId_pessoa()));
-       // tfNome.setText(funcionario.getNomeFuncionario());
+        // tfNome.setText(funcionario.getNomeFuncionario());
 
     }
-        
+
     private void fechaJanela() {
         RegistroMedidasScr.getStage().close();
     }
-    
+
 }

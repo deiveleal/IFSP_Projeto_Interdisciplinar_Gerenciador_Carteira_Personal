@@ -18,15 +18,15 @@
       <TextField fx:id="tf_busca_nome" layoutX="12.0" layoutY="69.0" prefHeight="39.0" prefWidth="773.0" promptText="Busca" />
       <Button fx:id="bt_buscar" layoutX="798.0" layoutY="69.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="212.0" text="Buscar">
          <font>
-            <Font size="18.0" />
+            <Font name="BigNoodleTitling" size="24.0" />
          </font>
       </Button>
       <TableView fx:id="table_alunos" layoutX="12.0" layoutY="117.0" prefHeight="129.0" prefWidth="773.0">
         <columns>
           <TableColumn fx:id="table_alunos_col_name" prefWidth="243.0" text="Nome" />
-          <TableColumn fx:id="table_alunos_col_nasc" prefWidth="115.0" text="Nascimento" />
+            <TableColumn fx:id="table_alunos_col_celular" prefWidth="115.0" text="Celular" />
+          <TableColumn fx:id="table_alunos_col_telefone" prefWidth="115.0" text="Telefone" />
             <TableColumn fx:id="table_alunos_col_email" minWidth="0.0" prefWidth="302.0" text="E-mail" />
-            <TableColumn fx:id="table_alunos_colt_sang" prefWidth="115.0" text="Tipo Sangue" />
         </columns>
       </TableView>
       <Button fx:id="bt_cadastrar_aluno" layoutX="798.0" layoutY="117.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="212.0" text="Cadastrar Aluno">

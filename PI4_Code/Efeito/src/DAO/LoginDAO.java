@@ -6,10 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * @author Carolina
- * @author Deive
- */
 public class LoginDAO {
 
     private final Connection openCon;

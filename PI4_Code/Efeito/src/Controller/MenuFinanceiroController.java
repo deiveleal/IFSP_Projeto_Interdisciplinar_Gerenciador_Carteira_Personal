@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.ModelScreen.CadastraPlanoScr;
@@ -21,34 +16,34 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-/**
- * FXML Controller class
- *
- * @author deive
- */
 public class MenuFinanceiroController implements Initializable {
-    
-    @FXML private Button bt_cadastrar_aluno;
-    @FXML private Button bt_avaliacao;
-    @FXML private Button bt_medidas;
-    @FXML private Button bt_plano;
-    @FXML private Button bt_menu_iniciar;
-    @FXML private Button bt_sair;
-    
+
+    @FXML
+    private Button bt_cadastrar_aluno;
+    @FXML
+    private Button bt_avaliacao;
+    @FXML
+    private Button bt_medidas;
+    @FXML
+    private Button bt_plano;
+    @FXML
+    private Button bt_menu_iniciar;
+    @FXML
+    private Button bt_sair;
+
     Util util = new Util();
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-         // Implementações do botão plano
+
+        // Implementações do botão plano
         bt_plano.setOnMouseClicked((MouseEvent e) -> {
             CadastraPlanoScr cadastraPlano = new CadastraPlanoScr();
             try {
                 cadastraPlano.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -58,20 +53,18 @@ public class MenuFinanceiroController implements Initializable {
                 try {
                     cadastraPlano.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
-        
+
         bt_menu_iniciar.setOnMouseClicked((MouseEvent e) -> {
             MenuPrincipalScr menuPrinc = new MenuPrincipalScr();
             try {
                 menuPrinc.start(new Stage());
                 fechaJanela();
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
@@ -81,8 +74,7 @@ public class MenuFinanceiroController implements Initializable {
                 try {
                     menuPrinc.start(new Stage());
                     fechaJanela();
-                }
-                catch (Exception ex) {
+                } catch (Exception ex) {
                     Logger.getLogger(MenuFinanceiroController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
@@ -99,7 +91,9 @@ public class MenuFinanceiroController implements Initializable {
             }
         });
     }
+
     private void fechaJanela() {
         MenuFinanceiroScr.getStage().close();
-    };
+    }
+;
 }

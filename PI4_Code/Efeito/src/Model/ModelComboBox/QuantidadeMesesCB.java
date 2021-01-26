@@ -1,17 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model.ModelComboBox;
 
-/**
- *
- * @author carolina
- */
 public class QuantidadeMesesCB {
 
-      
     private int quantidadeMeses;
     private double valorPlano;
     private String tipoPlano;
@@ -35,7 +25,7 @@ public class QuantidadeMesesCB {
     public void setValorPlano(double valorPlano) {
         this.valorPlano = valorPlano;
     }
-    
+
     public int getQuantidadeMeses() {
         return quantidadeMeses;
     }
@@ -56,6 +46,5 @@ public class QuantidadeMesesCB {
     public String toString() {
         return getTipoPlano();
     }
-    
-    
+
 }
