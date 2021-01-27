@@ -1,12 +1,11 @@
 package Model.ModelScreen;
 
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class LoginScr extends Application {
+public class LoginScr extends Screen {
 
     private static Stage stage;//Uma janela1
 

@@ -2,7 +2,6 @@ package Model.ModelScreen;
 
 import Controller.HistoricoAfericoesMedidasController;
 import Model.RegistroAlunos;
-import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class HistoricoAfericoesMedidasScr extends Application {
+public class HistoricoAfericoesMedidasScr extends Screen {
 
     private static Stage stage;//Uma janela1
 

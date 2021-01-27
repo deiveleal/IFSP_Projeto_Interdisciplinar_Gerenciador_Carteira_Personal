@@ -16,7 +16,14 @@ public class LoginDAO {
         this.openCon = conecta.getConnection();
     }
 
-    public Boolean login(String nome_usuario, String senha) throws SQLException {
+    /**
+     *
+     * @param nome_usuario
+     * @param senha
+     * @return
+     * @throws SQLException
+     */
+    public boolean login(String nome_usuario, String senha) throws SQLException {
         boolean encontrado = false;
         String sql = "SELECT * FROM personal WHERE nome_usuario = ? AND senha = ?;";
         PreparedStatement stm = openCon.prepareStatement(sql);

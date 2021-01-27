@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class RegistroAvaliacaoFisicaDAO {
+public class RegistroAvaliacaoFisicaDAO{
 
     private final Connection openCon;
 
@@ -80,4 +80,5 @@ public class RegistroAvaliacaoFisicaDAO {
         }
         return regAvalFisica;
     }
+
 }

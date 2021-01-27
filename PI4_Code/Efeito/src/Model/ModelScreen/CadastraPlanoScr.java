@@ -1,13 +1,11 @@
 package Model.ModelScreen;
 
-import static Model.ModelScreen.CadastraAlunoScr.setStage;
-import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class CadastraPlanoScr extends Application {
+public class CadastraPlanoScr extends Screen {
 
     private static Stage stage;
 

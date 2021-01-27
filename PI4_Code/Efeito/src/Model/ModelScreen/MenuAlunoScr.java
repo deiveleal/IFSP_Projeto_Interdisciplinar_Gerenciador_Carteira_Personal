@@ -1,13 +1,12 @@
 package Model.ModelScreen;
 
-import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MenuAlunoScr extends Application {
+public class MenuAlunoScr extends Screen {
 
     private static Stage stage;
 

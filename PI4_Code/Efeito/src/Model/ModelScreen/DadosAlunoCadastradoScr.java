@@ -2,14 +2,13 @@ package Model.ModelScreen;
 
 import Controller.DadosAlunoCadastradoController;
 import Model.RegistroAlunos;
-import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class DadosAlunoCadastradoScr extends Application {
+public class DadosAlunoCadastradoScr extends Screen {
 
     private static Stage stage;//Uma janela1
 
