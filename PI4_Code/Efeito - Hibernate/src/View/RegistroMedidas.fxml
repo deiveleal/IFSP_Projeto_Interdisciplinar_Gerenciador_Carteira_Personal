@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.RegistroMedidasController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c2c2" height="108.0" layoutY="262.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1072.0" />
+      <Text layoutX="345.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Medidas">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c2c2" height="249.0" layoutX="250.0" layoutY="-108.0" stroke="TRANSPARENT" strokeType="INSIDE" width="614.0" />
+      <Text fill="#eeeded" layoutX="344.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CADASTRO DE MEDIDAS">
+         <font>
+            <Font name="KacstTitle" size="35.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="56.0" fitWidth="97.0" layoutX="519.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Design/apoena%20-%20logo%20cinza-01.png" />
+         </image>
+      </ImageView>
+      <Text fill="#9e9e9e" layoutX="139.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id Aluno">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text fill="#9e9e9e" layoutX="289.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_data" layoutX="288.0" layoutY="208.0" prefHeight="34.0" prefWidth="214.0" promptText="Data">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text fill="#9e9e9e" layoutX="516.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peso">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_peso" layoutX="513.0" layoutY="210.0" prefHeight="34.0" prefWidth="214.0" promptText="Peso">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="739.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Altura">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_altura" layoutX="737.0" layoutY="210.0" prefHeight="34.0" prefWidth="214.0" promptText="Altura">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="71.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pescoço">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_pescoco" layoutX="68.0" layoutY="315.0" prefHeight="34.0" prefWidth="210.0" promptText="Pescoço">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="291.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peito">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_peito" layoutX="289.0" layoutY="313.0" prefHeight="34.0" prefWidth="210.0" promptText="Peito">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text fill="#9e9e9e" layoutX="516.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Braço">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_braco" layoutX="514.0" layoutY="315.0" prefHeight="34.0" prefWidth="210.0" promptText="Braço">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="737.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Antebraço">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_antebraco" layoutX="734.0" layoutY="315.0" prefHeight="34.0" prefWidth="210.0" promptText="Antebraço">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="70.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cintura">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_cintura" layoutX="68.0" layoutY="429.0" prefHeight="34.0" prefWidth="210.0" promptText="Cintura">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="292.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quadril">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_quadril" layoutX="290.0" layoutY="427.0" prefHeight="34.0" prefWidth="210.0" promptText="Quadril">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Text fill="#9e9e9e" layoutX="525.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Coxa">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_coxa" layoutX="515.0" layoutY="429.0" prefHeight="34.0" prefWidth="210.0" promptText="Coxa">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Text fill="#9e9e9e" layoutX="738.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Panturrilha">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="tf_panturrilha" layoutX="734.0" layoutY="429.0" prefHeight="34.0" prefWidth="210.0" promptText="Panturrilha">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button fx:id="bt_menu" layoutX="10.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Menu" textFill="#9e9e9e">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="bt_salvar" layoutX="411.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Salvar" textFill="#9e9e9e">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="bt_sair" layoutX="803.0" layoutY="539.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="210.0" text="Sair" textFill="#9e9e9e">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Label fx:id="lbl_id_aluno" alignment="CENTER" layoutX="68.0" layoutY="208.0" prefHeight="34.0" prefWidth="210.0" text="Id Aluno" textAlignment="CENTER">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
