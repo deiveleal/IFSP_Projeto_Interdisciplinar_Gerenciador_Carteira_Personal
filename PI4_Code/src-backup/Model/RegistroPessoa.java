@@ -2,7 +2,7 @@ package Model;
 
 import java.util.Date;
 
-public class RegistroPessoa{
+public class RegistroPessoa {
 
     private int id_pessoa;
     private String nome;
@@ -139,5 +139,4 @@ public class RegistroPessoa{
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-
 }
