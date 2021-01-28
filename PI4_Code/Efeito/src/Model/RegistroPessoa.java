@@ -1,8 +1,10 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class RegistroPessoa{
+public abstract class RegistroPessoa {
 
     private int id_pessoa;
     private String nome;
@@ -19,6 +21,26 @@ public class RegistroPessoa{
     private String rua;
     private String bairro;
     private String cidade;
+
+    private List<RegistroPessoa> registrosPessoas;
+
+    public List<RegistroPessoa> getRegistrosPessoas() {
+        return registrosPessoas;
+    }
+
+    public void setRegistrosPessoas(List<RegistroPessoa> registrosPessoas) {
+        this.registrosPessoas = registrosPessoas;
+    }
+
+    public void addRegistro(RegistroPessoa registroPessoa) {
+        this.registrosPessoas.add(registroPessoa);
+    }
+    
+    public abstract void criaGrupos();
+
+    public RegistroPessoa() {
+        this.registrosPessoas = new ArrayList<>();
+    }
 
     public int getId_pessoa() {
         return id_pessoa;

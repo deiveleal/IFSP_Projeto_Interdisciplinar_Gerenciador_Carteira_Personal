@@ -28,4 +28,9 @@ public class RegistroAlunos extends RegistroPessoa {
     public RegistroAlunos(int id_aluno, Date data_medicao, double peso, double altura, double pescoco, double peito, double braco, double antebraco, double cintura, double quadril, double coxa, double panturrilha) {
     }
 
+    @Override
+    public void criaGrupos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }
