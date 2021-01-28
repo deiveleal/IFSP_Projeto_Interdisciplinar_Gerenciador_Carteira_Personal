@@ -2,6 +2,7 @@ package Controller;
 
 import Model.ModelScreen.CadastraAlunoScr;
 import Model.ModelScreen.DadosAlunoCadastradoScr;
+import Model.ModelScreen.MenuAlunoScr;
 import Model.ModelScreen.MenuPrincipalScr;
 import Model.RegistroAlunos;
 import Model.Util;
@@ -62,6 +63,8 @@ public class DadosAlunoCadastradoController implements Initializable {
     private Text txt_data_nascimento;
     @FXML
     private Text text_cpf;
+    @FXML
+    private Button bt_voltar;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -120,6 +123,29 @@ public class DadosAlunoCadastradoController implements Initializable {
                     fechaJanela();
                 } catch (Exception ex) {
                     Logger.getLogger(CadastraAlunoController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        //Implementações do botão voltar
+        bt_voltar.setOnMouseClicked((MouseEvent e) -> {
+            MenuAlunoScr menuAluno = new MenuAlunoScr();
+
+            try {
+                menuAluno.start(new Stage());
+                fechaJanela();
+            } catch (Exception ex) {
+                Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        bt_voltar.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.ENTER) {
+                MenuAlunoScr menuAluno = new MenuAlunoScr();
+
+                try {
+                    menuAluno.start(new Stage());
+                    fechaJanela();
+                } catch (Exception ex) {
+                    Logger.getLogger(MenuPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });

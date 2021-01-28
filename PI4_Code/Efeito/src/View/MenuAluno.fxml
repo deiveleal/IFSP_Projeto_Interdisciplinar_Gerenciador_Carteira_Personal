@@ -11,7 +11,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MenuAlunoController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c2c2" height="136.0" layoutX="-20.0" layoutY="255.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1072.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c3c2c2" height="136.0" layoutX="-2.0" layoutY="255.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1030.0" />
       <TextField fx:id="tf_busca_nome" layoutX="12.0" layoutY="63.0" prefHeight="45.0" prefWidth="773.0" promptText="Busca Aluno" />
       <Button fx:id="bt_buscar" layoutX="798.0" layoutY="63.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="212.0" text="Buscar" textFill="#9e9e9e">
          <font>
