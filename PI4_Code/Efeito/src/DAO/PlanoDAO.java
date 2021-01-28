@@ -1,5 +1,6 @@
 package DAO;
 
+import Connection.ConnectionFactoryInterface;
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.Plano;
 import java.sql.Connection;
@@ -13,7 +14,7 @@ public class PlanoDAO {
 
     private final Connection openCon;
 
-    ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
+    ConnectionFactoryInterface conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public PlanoDAO() {
         this.openCon = conecta.getConnection();

@@ -1,5 +1,6 @@
 package DAO;
 
+import Connection.ConnectionFactoryInterface;
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.ModelEnum.CondicionamentoFisicoEnum;
 import Model.RegistroAvaliacaoFisica;
@@ -17,7 +18,7 @@ public class RegistroAvaliacaoFisicaDAO{
 
     private final Connection openCon;
 
-    ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
+    ConnectionFactoryInterface conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public RegistroAvaliacaoFisicaDAO() {
         this.openCon = conecta.getConnection();

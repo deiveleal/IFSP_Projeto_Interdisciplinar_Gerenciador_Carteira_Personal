@@ -1,5 +1,6 @@
 package DAO;
 
+import Connection.ConnectionFactoryInterface;
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.RegistroMedidas;
 import java.sql.Connection;
@@ -16,7 +17,7 @@ public class RegistroMedidasDAO {
 
     private final Connection openCon;
 
-    ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
+    ConnectionFactoryInterface conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public RegistroMedidasDAO() {
         this.openCon = conecta.getConnection();

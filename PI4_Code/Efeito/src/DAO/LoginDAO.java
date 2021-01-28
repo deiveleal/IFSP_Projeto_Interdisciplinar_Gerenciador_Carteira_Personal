@@ -1,5 +1,6 @@
 package DAO;
 
+import Connection.ConnectionFactoryInterface;
 import Connection.ConnectionFactoryMysqlSingleton;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ public class LoginDAO {
 
     private final Connection openCon;
 
-    ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
+    ConnectionFactoryInterface conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public LoginDAO() {
         this.openCon = conecta.getConnection();

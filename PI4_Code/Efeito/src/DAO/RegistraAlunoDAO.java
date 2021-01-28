@@ -1,5 +1,6 @@
 package DAO;
 
+import Connection.ConnectionFactoryInterface;
 import Connection.ConnectionFactoryMysqlSingleton;
 import Model.ModelEnum.RhSangueEnum;
 import Model.RegistroAlunos;
@@ -19,7 +20,7 @@ public class RegistraAlunoDAO {
 
     private final Connection openCon;
 
-    ConnectionFactoryMysqlSingleton conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
+    ConnectionFactoryInterface conecta = ConnectionFactoryMysqlSingleton.getConnectionSingleton();
 
     public RegistraAlunoDAO() {
         this.openCon = conecta.getConnection();
