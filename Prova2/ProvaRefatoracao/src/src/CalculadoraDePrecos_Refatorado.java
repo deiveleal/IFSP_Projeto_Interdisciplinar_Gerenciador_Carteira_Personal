@@ -1,6 +1,13 @@
 package src;
 
-public class CalculadoraDePrecos {
+public class Produto {
+    private Double valor;
+    private String cidade
+    
+}
+
+
+public class CalculadoraDePrecos_Refatorado {
 
     public double calcula(Compra produto) {
         TabelaDePrecoPadrao tabela = new TabelaDePrecoPadrao();
@@ -12,6 +19,8 @@ public class CalculadoraDePrecos {
         return produto.getValor() * (1 - desconto) + frete;
     }
 }
+
+
 
 public class TabelaDePrecoPadrao {
 
@@ -36,9 +45,26 @@ public class Frete {
     }
 }
 
+ //   BEGIN
 
+public interface DescontoStrategy {
+    Double calcula(Produto produto);
+}
 
-////refatorado
+//public class 
+        
+public interface FreteCidadeStrategy {
+    Double calcula(Produto produto);
+}
 
-// esse código desaparece
+public class FreteSaoPauloConcreteStrategy implements FreteCidadeStrategy{
 
+}
+    
+public class CalculadoraDePreco(){
+
+    public double calcula(DescontoStrategy desconto, Compra produto){
+        return desconto.calcula(produto.getValor());
+    }
+
+}

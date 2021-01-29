@@ -1,6 +1,6 @@
 package src;
 
-public class ProcessadorDeBoletos {
+public class ProcessadorDeBoletos_Refatorado {
 
     public void processa(List<Boleto> boletos, Fatura fatura) {
 
@@ -110,7 +110,7 @@ public class Pagamento {
 
 
 //REFATORADO
-public class ProcessadorDeBoletos {
+public class ProcessadorDeBoletos_Refatorado {
 
     public void processa(List<Boleto> boletos, Fatura fatura) {
         for (Boleto boleto : boletos) {
